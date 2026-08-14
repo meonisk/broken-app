@@ -1,35 +1,31 @@
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::thread;
-use std::time::Duration;
 
-static mut COUNTER: u64 = 0;
+static COUNTER: AtomicU64 = AtomicU64::new(0);
 
-/// Небезопасный инкремент через несколько потоков.
-/// Использует global static mut без синхронизации — data race.
+/// Инкремент из нескольких потоков. Счётчик атомарный, поэтому инкременты не
+/// теряются; порядок между ними не важен, отсюда `Relaxed`.
 pub fn race_increment(iterations: usize, threads: usize) -> u64 {
-    unsafe { COUNTER = 0; }
-    let mut handles = Vec::new();
-    for _ in 0..threads {
-        handles.push(thread::spawn(move || {
-            for _ in 0..iterations {
-                unsafe {
-                    COUNTER += 1;
+    COUNTER.store(0, Ordering::SeqCst);
+    thread::scope(|scope| {
+        for _ in 0..threads {
+            scope.spawn(|| {
+                for _ in 0..iterations {
+                    COUNTER.fetch_add(1, Ordering::Relaxed);
                 }
-            }
-        }));
-    }
-    for h in handles {
-        let _ = h.join();
-    }
-    unsafe { COUNTER }
+            });
+        }
+    });
+    COUNTER.load(Ordering::SeqCst)
 }
 
-/// Плохая «синхронизация» — просто sleep, возвращает потенциально устаревшее значение.
+/// Чтение счётчика. Ждать больше нечего: `race_increment` возвращает управление
+/// только после join всех потоков, а `SeqCst` гарантирует видимость записей.
 pub fn read_after_sleep() -> u64 {
-    thread::sleep(Duration::from_millis(10));
-    unsafe { COUNTER }
+    COUNTER.load(Ordering::SeqCst)
 }
 
-/// Сброс счётчика (также небезопасен, без синхронизации).
+/// Сброс счётчика.
 pub fn reset_counter() {
-    unsafe { COUNTER = 0; }
+    COUNTER.store(0, Ordering::SeqCst);
 }
