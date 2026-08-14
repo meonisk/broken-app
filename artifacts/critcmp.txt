@@ -1,4 +1,4 @@
-﻿group             fixed                                      new
+group             fixed                                      new
 -----             -----                                      ---
 dedup_20k         243.19  235.0±33.54ms        ? ?/sec       1.00   966.5±72.38µs        ? ?/sec
 fib_32            809235.64     6.6±0.21ms        ? ?/sec    1.00      8.2±0.35ns        ? ?/sec

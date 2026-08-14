@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "fixed",
   "benchmarks": {
     "dedup_20k": {

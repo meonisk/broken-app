@@ -1,48 +1,59 @@
 # Профиль
 
-Нагрузка — `benches/baseline.rs`: `demo` отрабатывает за единицы миллисекунд,
-и выборок на нём не набирается. Доли считаются от всех выборок прогона.
+Снят [cargo-flamegraph](https://github.com/flamegraph-rs/flamegraph) (на Windows он
+собирает выборки через ETW и рисует картинку inferno). Нагрузка — тот же
+бенчмарк `criterion`, запущенный в штатном режиме criterion `--profile-time 5`:
+он гоняет каждый бенчмарк пять секунд без анализа и статистики, ровно для
+профилировщика.
+
+```bash
+cargo flamegraph --bench criterion --output artifacts/after/flamegraph.svg -- --bench --profile-time 5
+```
+
+Важная оговорка про проценты: `--profile-time` даёт каждому из четырёх бенчмарков
+одинаковые пять секунд, поэтому доли отвечают не на вопрос «что дороже всех», а на
+вопрос «сколько своего слота бенчмарк проводит в нашем коде, а не в обвязке».
+Что дороже — видно из [таблицы замеров](benchmarks.md): 235 мс у `dedup_20k` и
+6,6 мс у `fib_32` против 17 мкс у `sum_even_50k`. Оптимизировали эти два, профиль
+подтвердил, что время действительно внутри наших функций.
 
 ## До оптимизации
 
-Всего выборок: 800.
+Всего выборок: 156 775.
 
 [![флеймграф](fixed/flamegraph.png)](fixed/flamegraph.svg)
 
-*Картинка кликается — рядом лежит `fixed/flamegraph.svg`, в нём работает поиск по кадрам.*
+*Картинка кликается — рядом лежит [`fixed/flamegraph.svg`](fixed/flamegraph.svg),
+в нём работает поиск по кадрам.*
 
 | Доля | Выборок | Кадр |
 |---|---|---|
-| 57.62% | 461 | `broken_app::algo::slow_dedup` |
-| 28.38% | 227 | `broken_app::algo::slow_fib` |
-| 24.25% | 194 | `core::slice::iter::impl$171::next` |
-| 24.25% | 194 | `core::ptr::non_null::impl$15::eq` |
-| 23.12% | 185 | `alloc::vec::impl$10::deref_mut` |
-| 23.12% | 185 | `core::slice::sort::unstable::sort` |
-| 23.12% | 185 | `core::slice::sort::unstable::ipnsort<u64,bool` |
-| 23.00% | 184 | `core::slice::sort::shared::find_existing_run` |
-| 10.88% | 87 | `core::ops::function::FnMut::call_mut` |
-| 10.88% | 87 | `core::cmp::impls::impl$66::lt` |
+| 19,17% | 30 060 | `broken_app::sum_even` |
+| 18,82% | 29 505 | `broken_app::normalize` |
+| 17,03% | 26 704 | `broken_app::algo::slow_dedup` |
+| 15,93% | 24 977 | `broken_app::algo::slow_fib` |
 
-## После
+Четыре башни на картинке — четыре бенчмарка, вместе они забирают 71% выборок,
+остальное уходит на обвязку criterion и старт процесса. `slow_fib` рисуется
+лесенкой в тридцать с лишним ступеней: это и есть рекурсия, каждая ступень —
+свой уровень.
 
-Всего выборок: 204.
+## После оптимизации
+
+Всего выборок: 154 928.
 
 [![флеймграф](after/flamegraph.png)](after/flamegraph.svg)
 
-*Картинка кликается — рядом лежит `after/flamegraph.svg`, в нём работает поиск по кадрам.*
-
 | Доля | Выборок | Кадр |
 |---|---|---|
-| 40.69% | 83 | `broken_app::normalize` |
-| 26.96% | 55 | `alloc::string::String::push` |
-| 24.02% | 49 | `broken_app::algo::slow_dedup` |
-| 13.73% | 28 | `core::iter::adapters::copied::impl$1::fold` |
-| 13.73% | 28 | `core::slice::iter::impl$171::fold` |
-| 13.73% | 28 | `core::iter::traits::iterator::Iterator::collect` |
-| 13.73% | 28 | `std::collections::hash::set::impl$9::from_iter` |
-| 13.73% | 28 | `std::collections::hash::set::impl$11::extend` |
-| 13.73% | 28 | `hashbrown::set::impl$10::extend` |
-| 13.73% | 28 | `hashbrown::map::impl$82::extend` |
+| 20,23% | 31 341 | `broken_app::sum_even` |
+| 18,30% | 28 358 | `broken_app::normalize` |
+| 13,08% | 20 271 | `broken_app::algo::slow_dedup` |
+| — | — | `broken_app::algo::slow_fib` |
 
-Собрано `python scripts/report.py profile`.
+`slow_fib` из профиля исчез совсем: восемь наносекунд на вызов — это ниже порога,
+при котором кадр вообще попадает в картинку, и весь его слот теперь занимает
+обвязка criterion. Лесенки рекурсии тоже не осталось. `slow_dedup` просел с 17%
+до 13%: он всё ещё делает работу, просто теперь это хеш-таблица и одна сортировка.
+`sum_even` и `normalize` держатся на своих местах — их долю определяет не скорость,
+а фиксированный слот в пять секунд.
