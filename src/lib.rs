@@ -6,17 +6,29 @@ pub fn sum_even(values: &[i64]) -> i64 {
     values.iter().copied().filter(|v| v % 2 == 0).sum()
 }
 
-/// Подсчёт ненулевых байтов. Копия входа теперь обычный `Box` и освобождается
-/// сама — сырой указатель здесь ничего не давал, кроме утечки.
+/// Подсчёт ненулевых байтов. Копия входа была не нужна: считать можно прямо по
+/// срезу, и в кучу функция больше не ходит вовсе.
 pub fn leak_buffer(input: &[u8]) -> usize {
-    let boxed = input.to_vec().into_boxed_slice();
-    boxed.iter().filter(|&&b| b != 0).count()
+    input.iter().filter(|&&b| b != 0).count()
 }
 
 /// Нормализация строки: убираем любые пробельные символы, а не только пробел
-/// U+0020, и приводим к нижнему регистру.
+/// U+0020, и приводим к нижнему регистру. Один проход в заранее выделенный
+/// буфер вместо двух промежуточных строк.
 pub fn normalize(input: &str) -> String {
-    input.split_whitespace().collect::<String>().to_lowercase()
+    let mut out = String::with_capacity(input.len());
+    for ch in input.chars() {
+        if ch.is_whitespace() {
+            continue;
+        }
+        // Для ASCII регистр меняется на месте, без разбора юникодных таблиц.
+        if ch.is_ascii() {
+            out.push(ch.to_ascii_lowercase());
+        } else {
+            out.extend(ch.to_lowercase());
+        }
+    }
+    out
 }
 
 /// Среднее по положительным значениям. Делить надо на их количество, а не на
