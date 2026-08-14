@@ -3,10 +3,11 @@
 
 use broken_app::{algo, normalize, sum_even};
 use criterion::{BatchSize, Criterion, criterion_group, criterion_main};
+use std::hint::black_box;
 
 fn bench_sum_even(c: &mut Criterion) {
     let data: Vec<i64> = (0..50_000).collect();
-    c.bench_function("sum_even_50k", |b| b.iter(|| sum_even(&data)));
+    c.bench_function("sum_even_50k", |b| b.iter(|| sum_even(black_box(&data))));
 }
 
 fn bench_dedup(c: &mut Criterion) {
@@ -14,19 +15,21 @@ fn bench_dedup(c: &mut Criterion) {
     c.bench_function("dedup_20k", |b| {
         b.iter_batched(
             || data.clone(),
-            |v| algo::slow_dedup(&v),
+            |v| algo::slow_dedup(black_box(&v)),
             BatchSize::SmallInput,
         )
     });
 }
 
+// black_box обязателен: без него компилятор считает fib(32) на этапе сборки и
+// бенчмарк меряет чтение константы.
 fn bench_fib(c: &mut Criterion) {
-    c.bench_function("fib_32", |b| b.iter(|| algo::slow_fib(32)));
+    c.bench_function("fib_32", |b| b.iter(|| algo::slow_fib(black_box(32))));
 }
 
 fn bench_normalize(c: &mut Criterion) {
     let text = " Hello World \t".repeat(50_000);
-    c.bench_function("normalize_700k", |b| b.iter(|| normalize(&text)));
+    c.bench_function("normalize_700k", |b| b.iter(|| normalize(black_box(&text))));
 }
 
 criterion_group!(
