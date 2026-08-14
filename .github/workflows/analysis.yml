@@ -135,6 +135,21 @@ jobs:
           done < /tmp/tsan-bins.txt
           cat logs/tsan.txt
 
+      # DHAT считает аллокации вместо самописного счётчика в GlobalAlloc.
+      # `--bench --test` — режим criterion, в котором каждый бенчмарк
+      # прогоняется ровно один раз: как раз то, что нужно мерить.
+      - name: DHAT
+        continue-on-error: true
+        run: |
+          cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
+          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            /tmp/bench.json | sort -u | head -1)
+          echo "=== $(basename "$bench")" >> logs/dhat.txt
+          timeout 1800 valgrind --tool=dhat --dhat-out-file=logs/dhat.json \
+            "$bench" --bench --test >> logs/dhat.txt 2>&1 \
+            || echo "--- завершился с ошибкой" >> logs/dhat.txt
+          cat logs/dhat.txt
+
       - uses: actions/upload-artifact@v4
         with:
           name: analysis-${{ inputs.stage }}
