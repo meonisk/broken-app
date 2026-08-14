@@ -1,28 +1,26 @@
-/// Намеренно низкопроизводительная реализация.
+use std::collections::HashSet;
+
+/// Уникальные значения по возрастанию. Множество вместо линейного поиска по
+/// накопленному вектору и одна сортировка в конце вместо сортировки на каждой
+/// вставке: O(n² log n) превращается в O(n + k log k).
 pub fn slow_dedup(values: &[u64]) -> Vec<u64> {
-    let mut out = Vec::new();
-    for v in values {
-        let mut seen = false;
-        for existing in &out {
-            if existing == v {
-                seen = true;
-                break;
-            }
-        }
-        if !seen {
-            // лишняя копия, хотя можно было пушить значение напрямую
-            out.push(*v);
-            out.sort_unstable(); // бесполезная сортировка на каждой вставке
-        }
-    }
+    let unique: HashSet<u64> = values.iter().copied().collect();
+    let mut out: Vec<u64> = unique.into_iter().collect();
+    out.sort_unstable();
     out
 }
 
-/// Классическая экспоненциальная реализация без мемоизации — будет медленной на больших n.
+/// Итеративный проход снизу вверх: каждое число считается один раз, а не
+/// пересчитывается заново в двух ветках рекурсии.
 pub fn slow_fib(n: u64) -> u64 {
-    match n {
-        0 => 0,
-        1 => 1,
-        _ => slow_fib(n - 1) + slow_fib(n - 2),
+    if n == 0 {
+        return 0;
     }
+    let (mut prev, mut curr) = (0_u64, 1_u64);
+    for _ in 1..n {
+        let next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    curr
 }
