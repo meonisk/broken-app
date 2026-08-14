@@ -1,0 +1,14 @@
+Профиль нагрузки benches/baseline.rs, всего выборок: 204
+
+ 40.69%     83  broken_app::normalize
+ 26.96%     55  alloc::string::String::push
+ 24.02%     49  broken_app::algo::slow_dedup
+ 13.73%     28  core::iter::adapters::copied::impl$1::fold
+ 13.73%     28  core::slice::iter::impl$171::fold
+ 13.73%     28  core::iter::traits::iterator::Iterator::collect
+ 13.73%     28  std::collections::hash::set::impl$9::from_iter
+ 13.73%     28  std::collections::hash::set::impl$11::extend
+ 13.73%     28  hashbrown::set::impl$10::extend
+ 13.73%     28  hashbrown::map::impl$82::extend
+ 13.73%     28  core::iter::traits::iterator::Iterator::for_each
+ 13.73%     28  core::iter::adapters::map::impl$2::fold

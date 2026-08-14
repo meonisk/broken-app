@@ -1,0 +1,28 @@
+sum_even_50k            time:   [16.434 µs 16.654 µs 16.895 µs]
+                        change: [-20.134% -16.222% -12.297%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  5 (5.00%) high mild
+  3 (3.00%) high severe
+
+dedup_20k               time:   [956.21 µs 967.71 µs 979.57 µs]
+                        change: [-99.602% -99.589% -99.576%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high severe
+
+fib_32                  time:   [8.1092 ns 8.1972 ns 8.2896 ns]
+                        change: [-100.000% -100.000% -100.000%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+
+normalize_700k          time:   [1.2535 ms 1.2635 ms 1.2747 ms]
+                        change: [-15.046% -13.869% -12.715%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+
