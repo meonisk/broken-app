@@ -1,7 +1,0 @@
-   Compiling broken-app v0.1.0 (C:\Users\user\AppData\Local\Temp\claude\C--Users-user-Documents-RUST\95c2dc3a-dd20-4fc2-a5cb-3a5fa910ba4d\scratchpad\wt-baseline)
-    Finished `bench` profile [optimized + debuginfo] target(s) in 0.64s
-     Running benches\baseline.rs (C:\Users\user\dev\cargo-target\release\deps\baseline-f04c89b8d77e7b68.exe)
-sum_even 50k: 22.68µs, аллокаций 0
-dedup 20k: 228.45276ms, аллокаций 14
-fib 32: 6.78964ms, аллокаций 0
-normalize 700k: 2.1669ms, аллокаций 18

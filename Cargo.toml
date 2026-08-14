@@ -9,10 +9,6 @@ edition = "2024"
 criterion = "0.5"
 
 [[bench]]
-name = "baseline"
-harness = false
-
-[[bench]]
 name = "criterion"
 harness = false
 
