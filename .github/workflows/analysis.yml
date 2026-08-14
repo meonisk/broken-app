@@ -1,0 +1,111 @@
+# Динамический анализ на Linux: Miri, Valgrind, ASan и TSan. Запускается руками
+# на нужном коммите, потому что снимать надо дважды — до исправлений и после.
+name: analysis
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Коммит, на котором снимать анализ"
+        required: true
+      stage:
+        description: "Имя набора логов: before или after"
+        required: true
+        default: after
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  analysis:
+    name: miri + valgrind + asan + tsan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Установить стабильный Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Установить nightly с Miri
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri, rust-src
+
+      - name: Установить Valgrind
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq valgrind
+
+      - name: Собрать тестовые бинарники
+        run: |
+          mkdir -p logs
+          cargo test --no-run --message-format=json > /tmp/build.json 2>/dev/null || true
+          jq -r 'select(.executable != null and .target.test == true) | .executable' /tmp/build.json \
+            | sort -u > /tmp/bins.txt
+          cat /tmp/bins.txt
+
+      # Каждый тест отдельным процессом: на исходном коде выход за границу среза
+      # роняет весь бинарник, и результаты остальных тестов было бы не видно.
+      - name: cargo test
+        continue-on-error: true
+        run: |
+          while read -r b; do
+            echo "=== $(basename "$b")" >> logs/cargo_test.txt
+            "$b" --list 2>/dev/null | sed -n 's/: test$//p' | while read -r t; do
+              if out=$(timeout 300 "$b" --exact "$t" 2>&1); then
+                echo "--- $t: OK" >> logs/cargo_test.txt
+              else
+                echo "--- $t: ОШИБКА" >> logs/cargo_test.txt
+                echo "$out" | tail -12 >> logs/cargo_test.txt
+              fi
+            done
+          done < /tmp/bins.txt
+          cat logs/cargo_test.txt
+
+      # Miri останавливается на первой же ошибке, поэтому тоже по одному тесту.
+      - name: Miri
+        continue-on-error: true
+        env:
+          MIRIFLAGS: -Zmiri-disable-isolation
+        run: |
+          cargo +nightly miri test -- --list > /tmp/miri-list.txt 2>&1 || true
+          sed -n 's/: test$//p' /tmp/miri-list.txt | sort -u > /tmp/miri-tests.txt
+          while read -r t; do
+            echo "=== $t" >> logs/miri.txt
+            timeout 600 cargo +nightly miri test -- --exact "$t" >> logs/miri.txt 2>&1 \
+              || echo "--- завершился с ошибкой" >> logs/miri.txt
+          done < /tmp/miri-tests.txt
+          cat logs/miri.txt
+
+      - name: Valgrind
+        continue-on-error: true
+        run: |
+          while read -r b; do
+            echo "=== $(basename "$b")" >> logs/valgrind.txt
+            timeout 900 valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=0 \
+              "$b" --test-threads=1 >> logs/valgrind.txt 2>&1 \
+              || echo "--- завершился с ошибкой" >> logs/valgrind.txt
+          done < /tmp/bins.txt
+          cat logs/valgrind.txt
+
+      - name: AddressSanitizer
+        continue-on-error: true
+        env:
+          RUSTFLAGS: -Zsanitizer=address
+          ASAN_OPTIONS: detect_leaks=1
+        run: |
+          timeout 900 cargo +nightly test --target x86_64-unknown-linux-gnu \
+            -- --test-threads=1 2>&1 | tee logs/asan.txt
+
+      - name: ThreadSanitizer
+        continue-on-error: true
+        env:
+          RUSTFLAGS: -Zsanitizer=thread
+        run: |
+          timeout 900 cargo +nightly test -Zbuild-std --target x86_64-unknown-linux-gnu \
+            -- --test-threads=1 2>&1 | tee logs/tsan.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: analysis-${{ inputs.stage }}
+          path: logs/
