@@ -1,5 +1,6 @@
-# Динамический анализ на Linux: Miri, Valgrind, ASan и TSan. Запускается руками
-# на нужном коммите, потому что снимать надо дважды — до исправлений и после.
+# Всё, чем меряют проект: Miri, Valgrind, ASan, TSan, DHAT, criterion, critcmp и
+# flamegraph. Запускается руками на нужном коммите, потому что снимать надо
+# дважды — до исправлений и после.
 name: analysis
 
 on:
@@ -9,7 +10,7 @@ on:
         description: "Коммит, на котором снимать анализ"
         required: true
       stage:
-        description: "Имя набора логов: before или after"
+        description: "Имя набора логов: before, fixed или after"
         required: true
         default: after
 
@@ -18,12 +19,20 @@ env:
 
 jobs:
   analysis:
-    name: miri + valgrind + asan + tsan
+    name: анализ, замеры и профиль
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      # Код берём с нужного коммита, а бенчмарки — всегда из main: входы и имена
+      # обязаны совпадать между прогонами, иначе сравнивать замеры бессмысленно.
+      - name: Взять бенчмарки из main
+        run: |
+          git checkout origin/main -- benches/criterion.rs
+          git --no-pager diff --stat HEAD -- benches/
 
       - name: Установить стабильный Rust
         uses: dtolnay/rust-toolchain@stable
@@ -33,8 +42,12 @@ jobs:
         with:
           components: miri, rust-src
 
-      - name: Установить Valgrind
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq valgrind
+      - name: Установить инструменты
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq valgrind librsvg2-bin \
+            linux-tools-common linux-tools-generic
+          cargo install critcmp flamegraph --locked
 
       - name: Собрать тестовые бинарники
         run: |
@@ -149,6 +162,27 @@ jobs:
             "$bench" --bench --test >> logs/dhat.txt 2>&1 \
             || echo "--- завершился с ошибкой" >> logs/dhat.txt
           cat logs/dhat.txt
+
+      # Замеры и профиль тоже здесь: одна кнопка на стадию, ничего руками.
+      - name: Бенчмарки
+        continue-on-error: true
+        run: |
+          cargo bench --bench criterion -- --save-baseline ${{ inputs.stage }} \
+            2>&1 | tee logs/criterion.txt
+          critcmp --export ${{ inputs.stage }} > logs/baseline-${{ inputs.stage }}.json
+          cp -r target/criterion logs/criterion-report
+          base=artifacts/baseline-fixed.json
+          if [ -f "$base" ] && [ "${{ inputs.stage }}" != fixed ]; then
+            critcmp "$base" logs/baseline-${{ inputs.stage }}.json | tee logs/critcmp.txt
+          fi
+
+      - name: Профиль
+        continue-on-error: true
+        run: |
+          sudo sysctl -w kernel.perf_event_paranoid=1
+          cargo flamegraph --bench criterion --output logs/flamegraph.svg \
+            -- --bench --profile-time 5
+          rsvg-convert --width 1600 -o logs/flamegraph.png logs/flamegraph.svg
 
       - uses: actions/upload-artifact@v4
         with:
