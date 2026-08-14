@@ -44,27 +44,105 @@ def point_estimate(est):
     return (est.get("slope") or est["mean"])["point_estimate"]
 
 
+# Графики criterion, которые стоит держать в репозитории. Наложение обеих
+# выборок (`both/pdf.svg`) не берём: при разнице в сотни раз одна из кривых
+# вырождается в линию у нуля, и картинка пустая.
+PLOTS = [
+    ("pdf.svg", "pdf.svg", "Плотность времени одной итерации после оптимизации: закрашенная область — распределение, вертикальные линии — среднее и границы выбросов."),
+    ("regression.svg", "regression.svg", "Суммарное время против числа итераций. Точки должны ложиться на прямую — если нет, замер шумит."),
+    ("change/t-test.svg", "t-test.svg", "t-тест против базовой линии: отметка далеко за закрашенной областью означает, что разница не случайна."),
+]
+
+
+def svg_summary(rows, path):
+    """Своя сводка: у criterion такой картинки нет, а разница в сотни раз без
+    логарифмической шкалы на одну ось не ложится."""
+    import math
+
+    values = [v for _, _, b, a in rows for v in (b, a)]
+    lo, hi = math.log10(min(values)), math.log10(max(values))
+    left, width, row_h = 150, 520, 56
+    height = 60 + row_h * len(rows)
+
+    def x_of(ns):
+        return left + width * (math.log10(ns) - lo) / (hi - lo)
+
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{left + width + 90}" height="{height}" font-family="sans-serif" font-size="12">',
+        f'<rect width="100%" height="100%" fill="#ffffff"/>',
+        f'<text x="12" y="24" font-size="14" fill="#222">Время одной итерации, логарифмическая шкала</text>',
+    ]
+    for i, (name, _, before, after) in enumerate(rows):
+        y = 50 + i * row_h
+        out.append(f'<text x="12" y="{y + 16}" fill="#222">{name}</text>')
+        for offset, value, color in ((0, before, "#b0413e"), (18, after, "#2f6f9f")):
+            out.append(
+                f'<rect x="{left}" y="{y + offset}" width="{max(x_of(value) - left, 1):.1f}" '
+                f'height="14" fill="{color}"/>'
+            )
+            out.append(
+                f'<text x="{x_of(value) + 6:.1f}" y="{y + offset + 11}" fill="#444">{humanize(value)}</text>'
+            )
+    out.append(
+        f'<rect x="12" y="{height - 22}" width="10" height="10" fill="#b0413e"/>'
+        f'<text x="28" y="{height - 13}" fill="#444">до оптимизации</text>'
+        f'<rect x="140" y="{height - 22}" width="10" height="10" fill="#2f6f9f"/>'
+        f'<text x="156" y="{height - 13}" fill="#444">после</text>'
+    )
+    out.append("</svg>")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(out), encoding="utf-8", newline="\n")
+
+
+def copy_plots(bench):
+    """Копирует графики бенчмарка в artifacts/plots и возвращает то, что нашлось."""
+    found = []
+    for source, name, caption in PLOTS:
+        src = CRITERION / bench / "report" / source
+        if not src.exists():
+            continue
+        dst = ARTIFACTS / "plots" / bench / name
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(src.read_bytes())
+        found.append((f"plots/{bench}/{name}", caption))
+    return found
+
+
+def change_cell(change):
+    if not change:
+        return "—"
+    ci = change["mean"]["confidence_interval"]
+    return (
+        f"{change['mean']['point_estimate'] * 100:+.2f}% "
+        f"({ci['lower_bound'] * 100:+.2f} … {ci['upper_bound'] * 100:+.2f})"
+    )
+
+
 def bench_report():
     if not CRITERION.exists():
         sys.exit(f"нет данных criterion в {CRITERION}, сначала ./scripts/compare.sh")
 
-    rows = []
+    rows, raw, sections = [], [], []
     for bench in BENCHES:
         before, after = estimates(bench, "fixed"), estimates(bench, "new")
         change = estimates(bench, "change")
         if not (before and after):
             continue
-        cell = "—"
-        if change:
-            point = change["mean"]["point_estimate"] * 100
-            ci = change["mean"]["confidence_interval"]
-            cell = (
-                f"{point:+.2f}% "
-                f"({ci['lower_bound'] * 100:+.2f} … {ci['upper_bound'] * 100:+.2f})"
-            )
+        cell = change_cell(change)
         rows.append(
             (bench, humanize(point_estimate(before)), humanize(point_estimate(after)), cell)
         )
+        raw.append((bench, cell, point_estimate(before), point_estimate(after)))
+        sections += [
+            f"## `{bench}`",
+            "",
+            "| До оптимизации | После | Изменение среднего, 95% ДИ |",
+            "|---|---|---|",
+            f"| {humanize(point_estimate(before))} | {humanize(point_estimate(after))} | {cell} |",
+            "",
+        ]
+        for path, caption in copy_plots(bench):
+            sections += [f"![{bench}]({path})", "", f"*{caption}*", ""]
 
     allocs = collections.defaultdict(dict)
     for stage, _ in STAGES:
@@ -81,10 +159,14 @@ def bench_report():
         "не оптимизирован, `after` — после оптимизации. Имена бенчмарков между",
         "прогонами не менялись, иначе criterion не сопоставил бы замеры.",
         "",
+        "## Сводка",
+        "",
+        "![сводка](plots/summary.svg)",
+        "",
         "| Бенчмарк | До оптимизации | После | Изменение среднего, 95% ДИ |",
         "|---|---|---|---|",
     ]
-    out += [f"| `{n}` | {b} | {a} | {c} |" for n, b, a, c in rows]
+    out += [f"| [`{n}`](#{n}) | {b} | {a} | {c} |" for n, b, a, c in rows]
 
     if allocs:
         out += [
@@ -101,7 +183,10 @@ def bench_report():
             for name, v in allocs.items()
         ]
 
-    out += ["", "Собрано `python scripts/report.py bench`.", ""]
+    svg_summary(raw, ARTIFACTS / "plots" / "summary.svg")
+    out += ["", "# По бенчмаркам", ""] + sections
+    out += ["Собрано `python scripts/report.py bench`: числа из json-данных criterion,",
+            "графики — его же, скопированы в `artifacts/plots/`.", ""]
     write(ARTIFACTS / "benchmarks.md", out)
 
 
@@ -142,14 +227,15 @@ def profile_report():
         if not svg.exists():
             continue
         total, frames = top_frames(svg)
-        out += [
-            f"## {title.capitalize()} (`artifacts/{stage}/flamegraph.svg`)",
-            "",
-            f"Всего выборок: {total}.",
-            "",
-            "| Доля | Выборок | Кадр |",
-            "|---|---|---|",
-        ]
+        out += [f"## {title.capitalize()}", "", f"Всего выборок: {total}.", ""]
+        if (ARTIFACTS / stage / "flamegraph.png").exists():
+            out += [
+                f"[![флеймграф]({stage}/flamegraph.png)]({stage}/flamegraph.svg)",
+                "",
+                f"*Картинка кликается — рядом лежит `{stage}/flamegraph.svg`, в нём работает поиск по кадрам.*",
+                "",
+            ]
+        out += ["| Доля | Выборок | Кадр |", "|---|---|---|"]
         out += [f"| {100 * s / total:.2f}% | {s} | `{n}` |" for n, s in frames]
         out.append("")
     out += ["Собрано `python scripts/report.py profile`.", ""]

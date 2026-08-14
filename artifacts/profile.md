@@ -3,9 +3,13 @@
 Нагрузка — `benches/baseline.rs`: `demo` отрабатывает за единицы миллисекунд,
 и выборок на нём не набирается. Доли считаются от всех выборок прогона.
 
-## До оптимизации (`artifacts/fixed/flamegraph.svg`)
+## До оптимизации
 
 Всего выборок: 800.
+
+[![флеймграф](fixed/flamegraph.png)](fixed/flamegraph.svg)
+
+*Картинка кликается — рядом лежит `fixed/flamegraph.svg`, в нём работает поиск по кадрам.*
 
 | Доля | Выборок | Кадр |
 |---|---|---|
@@ -20,9 +24,13 @@
 | 10.88% | 87 | `core::ops::function::FnMut::call_mut` |
 | 10.88% | 87 | `core::cmp::impls::impl$66::lt` |
 
-## После (`artifacts/after/flamegraph.svg`)
+## После
 
 Всего выборок: 204.
+
+[![флеймграф](after/flamegraph.png)](after/flamegraph.svg)
+
+*Картинка кликается — рядом лежит `after/flamegraph.svg`, в нём работает поиск по кадрам.*
 
 | Доля | Выборок | Кадр |
 |---|---|---|
