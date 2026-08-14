@@ -30,6 +30,7 @@ jobs:
       # Код берём с нужного коммита, а бенчмарки — всегда из main: входы и имена
       # обязаны совпадать между прогонами, иначе сравнивать замеры бессмысленно.
       - name: Взять бенчмарки из main
+        if: inputs.stage != 'before'
         run: |
           git checkout origin/main -- benches/criterion.rs
           git --no-pager diff --stat HEAD -- benches/
@@ -45,7 +46,7 @@ jobs:
       - name: Установить инструменты
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq valgrind librsvg2-bin \
+          sudo apt-get install -y -qq valgrind gdb librsvg2-bin \
             linux-tools-common linux-tools-generic
           cargo install critcmp flamegraph --locked
 
@@ -152,6 +153,7 @@ jobs:
       # `--bench --test` — режим criterion, в котором каждый бенчмарк
       # прогоняется ровно один раз: как раз то, что нужно мерить.
       - name: DHAT
+        if: inputs.stage != 'before'
         continue-on-error: true
         run: |
           cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
@@ -163,8 +165,37 @@ jobs:
             || echo "--- завершился с ошибкой" >> logs/dhat.txt
           cat logs/dhat.txt
 
+      # Отладчик — такое же подтверждение прогона, как Miri и Valgrind. На
+      # исходном коде он ловит SIGABRT прямо в get_unchecked и показывает кадр.
+      - name: Отладчик
+        continue-on-error: true
+        run: |
+          bin=$(grep regression /tmp/bins.txt | head -1)
+          for t in sum_even_handles_empty_slice use_after_free_returns_the_boxed_value; do
+            echo "=== $t" >> logs/gdb.txt
+            timeout 300 gdb -batch -nx \
+              -ex "set confirm off" -ex run -ex bt -ex "info locals" \
+              --args "$bin" --exact "$t" --test-threads=1 >> logs/gdb.txt 2>&1 \
+              || echo "--- gdb завершился с ошибкой" >> logs/gdb.txt
+          done
+          cat logs/gdb.txt
+
+      # Счётчик инструкций: в отличие от времени он не зависит от того, чем
+      # занят раннер, поэтому «до/после» по нему не спорят.
+      - name: Callgrind
+        if: inputs.stage != 'before'
+        continue-on-error: true
+        run: |
+          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            /tmp/bench.json | sort -u | head -1)
+          timeout 3600 valgrind --tool=callgrind --callgrind-out-file=logs/callgrind.out \
+            "$bench" --bench --test > /dev/null 2>&1 || true
+          callgrind_annotate logs/callgrind.out > logs/callgrind.txt
+          head -40 logs/callgrind.txt
+
       # Замеры и профиль тоже здесь: одна кнопка на стадию, ничего руками.
       - name: Бенчмарки
+        if: inputs.stage != 'before'
         continue-on-error: true
         run: |
           cargo bench --bench criterion -- --save-baseline ${{ inputs.stage }} \
@@ -177,10 +208,13 @@ jobs:
           fi
 
       - name: Профиль
+        if: inputs.stage != 'before'
         continue-on-error: true
         run: |
           sudo sysctl -w kernel.perf_event_paranoid=1
           cargo flamegraph --bench criterion --output logs/flamegraph.svg \
+            --title "broken-app: ${{ inputs.stage }}" \
+            --subtitle "criterion --profile-time 5, коммит $(git rev-parse --short HEAD)" \
             -- --bench --profile-time 5
           rsvg-convert --width 1600 -o logs/flamegraph.png logs/flamegraph.svg
 
@@ -188,3 +222,4 @@ jobs:
         with:
           name: analysis-${{ inputs.stage }}
           path: logs/
+          overwrite: true
