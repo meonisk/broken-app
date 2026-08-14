@@ -9,3 +9,6 @@
 *.yml  text eol=lf
 *.sh   text eol=lf
 *.svg  text eol=lf
+
+# Картинки не нормализуем.
+*.png binary

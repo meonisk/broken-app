@@ -106,7 +106,16 @@ benches/baseline.rs   время и число аллокаций на вызо�
 artifacts/before/     анализ на исходном коде
 artifacts/fixed/      анализ, профиль и базовая линия после исправлений
 artifacts/after/      то же после оптимизации
+artifacts/criterion-report/  HTML-отчёт criterion с графиками
 ```
+
+В каждом каталоге `artifacts/` лежат логи `cargo test`, Miri, Valgrind, ASan и
+TSan, а в `fixed/` и `after/` — ещё `criterion.txt`, `baseline.txt` и профиль:
+`flamegraph.svg` (интерактивный, с поиском) и `flamegraph.png` (тот же кадр
+картинкой). Точка входа в отчёт criterion —
+[`artifacts/criterion-report/report/index.html`](artifacts/criterion-report/report/index.html):
+там графики плотности, доверительные интервалы и отдельная страница `change`
+на каждый бенчмарк, где базовая линия `fixed` сравнивается с текущим замером.
 
 Имена `slow_dedup` и `slow_fib` оставлены как в задании: переименование
 потянуло бы за собой тесты, бенчмарки и demo, а идентификаторы бенчмарков
