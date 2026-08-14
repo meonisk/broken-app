@@ -31,7 +31,7 @@ fn average_positive_ignores_non_positive() {
 /// Значение должно читаться до освобождения бокса, а не после.
 #[test]
 fn use_after_free_returns_the_boxed_value() {
-    assert_eq!(unsafe { use_after_free() }, 84);
+    assert_eq!(use_after_free(), 84);
 }
 
 /// Дубликаты убираются, порядок — по возрастанию.
