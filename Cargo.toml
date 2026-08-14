@@ -12,5 +12,9 @@ criterion = "0.5"
 name = "baseline"
 harness = false
 
+[[bench]]
+name = "criterion"
+harness = false
+
 [profile.bench]
 debug = true

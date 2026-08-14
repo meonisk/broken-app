@@ -1,0 +1,20 @@
+sum_even_50k            time:   [16.234 µs 16.389 µs 16.557 µs]
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+
+dedup_20k               time:   [225.55 ms 228.26 ms 231.32 ms]
+Found 10 outliers among 100 measurements (10.00%)
+  3 (3.00%) high mild
+  7 (7.00%) high severe
+
+fib_32                  time:   [6.4513 ms 6.5000 ms 6.5590 ms]
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+
+normalize_700k          time:   [1.6087 ms 1.6619 ms 1.7229 ms]
+Found 13 outliers among 100 measurements (13.00%)
+  4 (4.00%) high mild
+  9 (9.00%) high severe
+
