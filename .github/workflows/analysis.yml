@@ -1,6 +1,6 @@
-# Всё, чем меряют проект: Miri, Valgrind, ASan, TSan, DHAT, criterion, critcmp и
-# flamegraph. Запускается руками на нужном коммите, потому что снимать надо
-# дважды — до исправлений и после.
+# Поиск ошибок: отладчик, Miri, Valgrind, ASan и TSan. Запускается руками на
+# нужном коммите, потому что снимать надо трижды — до исправлений, после них и
+# после оптимизации. Замеры живут отдельно, в bench.yml.
 name: analysis
 
 on:
@@ -19,21 +19,12 @@ env:
 
 jobs:
   analysis:
-    name: анализ, замеры и профиль
+    name: gdb + miri + valgrind + asan + tsan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
-          fetch-depth: 0
-
-      # Код берём с нужного коммита, а бенчмарки — всегда из main: входы и имена
-      # обязаны совпадать между прогонами, иначе сравнивать замеры бессмысленно.
-      - name: Взять бенчмарки из main
-        if: inputs.stage != 'before'
-        run: |
-          git checkout origin/main -- benches/criterion.rs
-          git --no-pager diff --stat HEAD -- benches/
 
       - name: Установить стабильный Rust
         uses: dtolnay/rust-toolchain@stable
@@ -44,11 +35,7 @@ jobs:
           components: miri, rust-src
 
       - name: Установить инструменты
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq valgrind gdb librsvg2-bin \
-            linux-tools-common linux-tools-generic
-          cargo install critcmp flamegraph --locked
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq valgrind gdb
 
       - name: Собрать тестовые бинарники
         run: |
@@ -149,22 +136,6 @@ jobs:
           done < /tmp/tsan-bins.txt
           cat logs/tsan.txt
 
-      # DHAT считает аллокации вместо самописного счётчика в GlobalAlloc.
-      # `--bench --test` — режим criterion, в котором каждый бенчмарк
-      # прогоняется ровно один раз: как раз то, что нужно мерить.
-      - name: DHAT
-        if: inputs.stage != 'before'
-        continue-on-error: true
-        run: |
-          cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
-          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
-            /tmp/bench.json | sort -u | head -1)
-          echo "=== $(basename "$bench")" >> logs/dhat.txt
-          timeout 1800 valgrind --tool=dhat --dhat-out-file=logs/dhat.json \
-            "$bench" --bench --test >> logs/dhat.txt 2>&1 \
-            || echo "--- завершился с ошибкой" >> logs/dhat.txt
-          cat logs/dhat.txt
-
       # Отладчик — такое же подтверждение прогона, как Miri и Valgrind. На
       # исходном коде он ловит SIGABRT прямо в get_unchecked и показывает кадр.
       - name: Отладчик
@@ -179,44 +150,6 @@ jobs:
               || echo "--- gdb завершился с ошибкой" >> logs/gdb.txt
           done
           cat logs/gdb.txt
-
-      # Счётчик инструкций: в отличие от времени он не зависит от того, чем
-      # занят раннер, поэтому «до/после» по нему не спорят.
-      - name: Callgrind
-        if: inputs.stage != 'before'
-        continue-on-error: true
-        run: |
-          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
-            /tmp/bench.json | sort -u | head -1)
-          timeout 3600 valgrind --tool=callgrind --callgrind-out-file=logs/callgrind.out \
-            "$bench" --bench --test > /dev/null 2>&1 || true
-          callgrind_annotate logs/callgrind.out > logs/callgrind.txt
-          head -40 logs/callgrind.txt
-
-      # Замеры и профиль тоже здесь: одна кнопка на стадию, ничего руками.
-      - name: Бенчмарки
-        if: inputs.stage != 'before'
-        continue-on-error: true
-        run: |
-          cargo bench --bench criterion -- --save-baseline ${{ inputs.stage }} \
-            2>&1 | tee logs/criterion.txt
-          critcmp --export ${{ inputs.stage }} > logs/baseline-${{ inputs.stage }}.json
-          cp -r target/criterion logs/criterion-report
-          base=artifacts/baseline-fixed.json
-          if [ -f "$base" ] && [ "${{ inputs.stage }}" != fixed ]; then
-            critcmp "$base" logs/baseline-${{ inputs.stage }}.json | tee logs/critcmp.txt
-          fi
-
-      - name: Профиль
-        if: inputs.stage != 'before'
-        continue-on-error: true
-        run: |
-          sudo sysctl -w kernel.perf_event_paranoid=1
-          cargo flamegraph --bench criterion --output logs/flamegraph.svg \
-            --title "broken-app: ${{ inputs.stage }}" \
-            --subtitle "criterion --profile-time 5, коммит $(git rev-parse --short HEAD)" \
-            -- --bench --profile-time 5
-          rsvg-convert --width 1600 -o logs/flamegraph.png logs/flamegraph.svg
 
       - uses: actions/upload-artifact@v4
         with:

@@ -1,0 +1,93 @@
+# Замеры «до» и «после» одним прогоном на одной машине: только так criterion
+# рисует сравнение с базовой линией, а разница во времени не объясняется тем,
+# что стадиям достались разные раннеры.
+name: bench
+
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Коммит с кодом до оптимизации"
+        required: true
+        default: 84355fb
+
+env:
+  CARGO_TERM_COLOR: never
+
+jobs:
+  bench:
+    name: criterion + critcmp + callgrind + dhat + flamegraph
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Установить инструменты
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq valgrind librsvg2-bin \
+            linux-tools-common linux-tools-generic
+          cargo install critcmp flamegraph --locked
+          sudo sysctl -w kernel.perf_event_paranoid=1
+          mkdir -p logs/fixed logs/after
+
+      # Бенчмарки и входы всё время одни и те же, меняется только src/.
+      - name: Код до оптимизации
+        run: |
+          git checkout ${{ inputs.base }} -- src/
+          git --no-pager diff --stat HEAD -- src/
+
+      - name: Замеры до оптимизации
+        run: |
+          cargo bench --bench criterion -- --save-baseline fixed 2>&1 | tee logs/fixed/criterion.txt
+          cargo flamegraph --bench criterion --output logs/fixed/flamegraph.svg \
+            --title "broken-app: до оптимизации" \
+            --subtitle "criterion --profile-time 5, коммит ${{ inputs.base }}" \
+            -- --bench --profile-time 5
+          rsvg-convert --width 1600 -o logs/fixed/flamegraph.png logs/fixed/flamegraph.svg
+          cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
+          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            /tmp/bench.json | sort -u | head -1)
+          valgrind --tool=callgrind --callgrind-out-file=logs/fixed/callgrind.out \
+            "$bench" --bench --test > /dev/null 2>&1
+          callgrind_annotate logs/fixed/callgrind.out > logs/fixed/callgrind.txt
+          valgrind --tool=dhat --dhat-out-file=logs/fixed/dhat.json \
+            "$bench" --bench --test > logs/fixed/dhat.txt 2>&1
+
+      - name: Вернуть оптимизированный код
+        run: |
+          git checkout HEAD -- src/
+          git --no-pager diff --stat HEAD -- src/
+
+      - name: Замеры после оптимизации
+        run: |
+          cargo bench --bench criterion -- --baseline fixed 2>&1 | tee logs/after/criterion.txt
+          cargo flamegraph --bench criterion --output logs/after/flamegraph.svg \
+            --title "broken-app: после оптимизации" \
+            --subtitle "criterion --profile-time 5, коммит $(git rev-parse --short HEAD)" \
+            -- --bench --profile-time 5
+          rsvg-convert --width 1600 -o logs/after/flamegraph.png logs/after/flamegraph.svg
+          cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
+          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            /tmp/bench.json | sort -u | head -1)
+          valgrind --tool=callgrind --callgrind-out-file=logs/after/callgrind.out \
+            "$bench" --bench --test > /dev/null 2>&1
+          callgrind_annotate logs/after/callgrind.out > logs/after/callgrind.txt
+          valgrind --tool=dhat --dhat-out-file=logs/after/dhat.json \
+            "$bench" --bench --test > logs/after/dhat.txt 2>&1
+
+      - name: Сравнение
+        run: |
+          critcmp --export fixed > logs/baseline-fixed.json
+          critcmp --export new > logs/baseline-after.json
+          critcmp fixed new | tee logs/critcmp.txt
+          cp -r target/criterion logs/criterion-report
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bench
+          path: logs/
+          overwrite: true
