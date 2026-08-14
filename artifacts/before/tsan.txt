@@ -1,0 +1,180 @@
+=== demo-05d27ac79f1816f2
+=== integration-616f6b6d8ee0ca14
+--- averages_only_positive: ОШИБКА
+
+running 1 test
+test averages_only_positive ... FAILED
+
+failures:
+
+---- averages_only_positive stdout ----
+
+thread 'averages_only_positive' (6992) panicked at tests/integration.rs:36:5:
+assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    averages_only_positive
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+--- counts_non_zero_bytes: OK
+--- dedup_preserves_uniques: OK
+--- fib_small_numbers: OK
+--- normalize_simple: OK
+--- sums_even_numbers: ОШИБКА
+
+running 1 test
+
+thread 'sums_even_numbers' (7019) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+=== regression-a9e0d938f4b74bb2
+--- average_positive_ignores_non_positive: ОШИБКА
+
+running 1 test
+test average_positive_ignores_non_positive ... FAILED
+
+failures:
+
+---- average_positive_ignores_non_positive stdout ----
+
+thread 'average_positive_ignores_non_positive' (7030) panicked at tests/regression.rs:27:5:
+assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    average_positive_ignores_non_positive
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- counter_keeps_every_increment_and_is_visible_after_join: ОШИБКА
+
+running 1 test
+==================
+WARNING: ThreadSanitizer: data race (pid=7035)
+  Read of size 8 at 0x5648ff126b90 by thread T3:
+    #0 broken_app::concurrency::race_increment::{closure#0} /home/runner/work/broken-app/broken-app/src/concurrency.rs:15 (regression-a9e0d938f4b74bb2+0x3ac2c1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (regression-a9e0d938f4b74bb2+0x3a8ed1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (regression-a9e0d938f4b74bb2+0x3abffc) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:275 (regression-a9e0d938f4b74bb2+0x3a6d49) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:576 (regression-a9e0d938f4b74bb2+0x3a03ef) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #5 __rust_try broken_app.30f6486c98d40777-cgu.0:? (regression-a9e0d938f4b74bb2+0x3a74b8) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:544 (regression-a9e0d938f4b74bb2+0x39836b) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (regression-a9e0d938f4b74bb2+0x3a7999) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (regression-a9e0d938f4b74bb2+0x3abac2) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (regression-a9e0d938f4b74bb2+0x3ac485) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2318 (regression-a9e0d938f4b74bb2+0x442054) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #11 <std::sys::thread::unix::Thread>::new::thread_start /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:123 (regression-a9e0d938f4b74bb2+0x41fb1e) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+
+  Previous write of size 8 at 0x5648ff126b90 by thread T2:
+    #0 broken_app::concurrency::race_increment::{closure#0} /home/runner/work/broken-app/broken-app/src/concurrency.rs:15 (regression-a9e0d938f4b74bb2+0x3ac320) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (regression-a9e0d938f4b74bb2+0x3a8ed1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (regression-a9e0d938f4b74bb2+0x3abffc) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:275 (regression-a9e0d938f4b74bb2+0x3a6d49) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:576 (regression-a9e0d938f4b74bb2+0x3a03ef) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #5 __rust_try broken_app.30f6486c98d40777-cgu.0:? (regression-a9e0d938f4b74bb2+0x3a74b8) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:544 (regression-a9e0d938f4b74bb2+0x39836b) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (regression-a9e0d938f4b74bb2+0x3a7999) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (regression-a9e0d938f4b74bb2+0x3abac2) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (regression-a9e0d938f4b74bb2+0x3ac485) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2318 (regression-a9e0d938f4b74bb2+0x442054) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+--- dedup_returns_sorted_unique_values: OK
+--- fib_matches_known_values: OK
+--- normalize_removes_all_whitespace: ОШИБКА
+
+running 1 test
+test normalize_removes_all_whitespace ... FAILED
+
+failures:
+
+---- normalize_removes_all_whitespace stdout ----
+
+thread 'normalize_removes_all_whitespace' (7059) panicked at tests/regression.rs:21:5:
+assertion `left == right` failed
+  left: "hello\tbig\nworld"
+ right: "hellobigworld"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    normalize_removes_all_whitespace
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- sum_even_handles_empty_slice: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_handles_empty_slice' (7066) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+--- sum_even_sums_only_even_values: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_sums_only_even_values' (7073) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+--- use_after_free_returns_the_boxed_value: ОШИБКА
+
+running 1 test
+==================
+WARNING: ThreadSanitizer: heap-use-after-free (pid=7078)
+  Read of size 4 at 0x7204000001c0 by thread T1:
+    #0 broken_app::use_after_free /home/runner/work/broken-app/broken-app/src/lib.rs:62 (regression-a9e0d938f4b74bb2+0x3a1576) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #1 regression::use_after_free_returns_the_boxed_value /home/runner/work/broken-app/broken-app/tests/regression.rs:34 (regression-a9e0d938f4b74bb2+0x2498b6) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #2 regression::use_after_free_returns_the_boxed_value::{closure#0} /home/runner/work/broken-app/broken-app/tests/regression.rs:33 (regression-a9e0d938f4b74bb2+0x248dfb) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #3 <regression::use_after_free_returns_the_boxed_value::{closure#0} as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (regression-a9e0d938f4b74bb2+0x24be16) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #4 <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (regression-a9e0d938f4b74bb2+0x29da9d) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #5 test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:733 (regression-a9e0d938f4b74bb2+0x24ee3a) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #6 <test::types::RunnableTest>::run /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/types.rs:145 (regression-a9e0d938f4b74bb2+0x364eb9) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #7 test::run_test_in_process::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:756 (regression-a9e0d938f4b74bb2+0x257764) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #8 <core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:275 (regression-a9e0d938f4b74bb2+0x2c19d4) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #9 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:576 (regression-a9e0d938f4b74bb2+0x26422d) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #10 __rust_try test.bddef0e2aaf21171-cgu.12:? (regression-a9e0d938f4b74bb2+0x273b28) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #11 std::panicking::catch_unwind::<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:544 (regression-a9e0d938f4b74bb2+0x263697) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #12 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (regression-a9e0d938f4b74bb2+0x2f9b98) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #13 test::run_test_in_process /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:756 (regression-a9e0d938f4b74bb2+0x25a2fe) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #14 test::run_test::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:677 (regression-a9e0d938f4b74bb2+0x2587cb) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #15 test::run_test::{closure#1} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:707 (regression-a9e0d938f4b74bb2+0x258ccc) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #16 std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (regression-a9e0d938f4b74bb2+0x2c73b1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #17 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (regression-a9e0d938f4b74bb2+0x279353) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #18 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:275 (regression-a9e0d938f4b74bb2+0x2c1969) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #19 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:576 (regression-a9e0d938f4b74bb2+0x2640ff) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #20 __rust_try test.bddef0e2aaf21171-cgu.12:? (regression-a9e0d938f4b74bb2+0x273b28) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #21 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:544 (regression-a9e0d938f4b74bb2+0x26397b) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #22 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (regression-a9e0d938f4b74bb2+0x2f9b19) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #23 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (regression-a9e0d938f4b74bb2+0x278b82) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+    #24 <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (regression-a9e0d938f4b74bb2+0x298125) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
+=== broken_app-d8231d1bb431edaa
+=== leak-f7a82c2e507d9905
+--- leak_buffer_frees_everything_it_allocates: ОШИБКА
+
+running 1 test
+test leak_buffer_frees_everything_it_allocates ... FAILED
+
+failures:
+
+---- leak_buffer_frees_everything_it_allocates stdout ----
+
+thread 'leak_buffer_frees_everything_it_allocates' (7099) panicked at tests/leak.rs:38:5:
+assertion `left == right` failed: 1 аллокаций, освобождено 0
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    leak_buffer_frees_everything_it_allocates
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+=== demo

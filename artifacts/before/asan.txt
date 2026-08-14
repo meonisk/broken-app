@@ -1,0 +1,204 @@
+=== leak-6ec601183f8c6225
+--- leak_buffer_frees_everything_it_allocates: ОШИБКА
+
+running 1 test
+test leak_buffer_frees_everything_it_allocates ... FAILED
+
+failures:
+
+---- leak_buffer_frees_everything_it_allocates stdout ----
+
+thread 'leak_buffer_frees_everything_it_allocates' (6007) panicked at tests/leak.rs:38:5:
+assertion `left == right` failed: 1 аллокаций, освобождено 0
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    leak_buffer_frees_everything_it_allocates
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+=================================================================
+==6006==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 6 byte(s) in 1 object(s) allocated from:
+    #0 0x556239d59d54  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/6ec601183f8c6225/out/leak-6ec601183f8c6225+0xfdd54) (BuildId: 25ea1add40cdcd19979af7b6aee557251ca6fef1)
+    #1 0x556239d893ae  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/6ec601183f8c6225/out/leak-6ec601183f8c6225+0x12d3ae) (BuildId: 25ea1add40cdcd19979af7b6aee557251ca6fef1)
+    #2 0x556239d88d14  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/6ec601183f8c6225/out/leak-6ec601183f8c6225+0x12cd14) (BuildId: 25ea1add40cdcd19979af7b6aee557251ca6fef1)
+    #3 0x556239d8be55  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/6ec601183f8c6225/out/leak-6ec601183f8c6225+0x12fe55) (BuildId: 25ea1add40cdcd19979af7b6aee557251ca6fef1)
+    #4 0x556239d8a92e  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/6ec601183f8c6225/out/leak-6ec601183f8c6225+0x12e92e) (BuildId: 25ea1add40cdcd19979af7b6aee557251ca6fef1)
+=== demo-6fce9bb466e52f90
+=== broken_app-8d1f527c74efdbea
+=== integration-de5184a8dc96f257
+--- averages_only_positive: ОШИБКА
+
+running 1 test
+test averages_only_positive ... FAILED
+
+failures:
+
+---- averages_only_positive stdout ----
+
+thread 'averages_only_positive' (6033) panicked at tests/integration.rs:36:5:
+assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    averages_only_positive
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+--- counts_non_zero_bytes: ОШИБКА
+
+running 1 test
+test counts_non_zero_bytes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+
+
+=================================================================
+==6040==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 5 byte(s) in 1 object(s) allocated from:
+    #0 0x55821938f234  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x106234) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #1 0x55821944d582  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x1c4582) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #2 0x55821940c5b5  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x1835b5) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #3 0x558219409d1e  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x180d1e) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #4 0x5582193be7ee  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x1357ee) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #5 0x5582193be046  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x135046) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #6 0x5582193cd7e4  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x1447e4) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #7 0x5582193c7ca3  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x13eca3) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #8 0x5582193d0941  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x147941) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #9 0x5582194461a7  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x1bd1a7) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+    #10 0x55821938c576  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/de5184a8dc96f257/out/integration-de5184a8dc96f257+0x103576) (BuildId: 2b7cf6ef5f2da86c7a472469126f603dc718348b)
+
+SUMMARY: AddressSanitizer: 5 byte(s) leaked in 1 allocation(s).
+--- dedup_preserves_uniques: OK
+--- fib_small_numbers: OK
+--- normalize_simple: OK
+--- sums_even_numbers: ОШИБКА
+
+running 1 test
+
+thread 'sums_even_numbers' (6067) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+=== regression-f20743166693cd9f
+--- average_positive_ignores_non_positive: ОШИБКА
+
+running 1 test
+test average_positive_ignores_non_positive ... FAILED
+
+failures:
+
+---- average_positive_ignores_non_positive stdout ----
+
+thread 'average_positive_ignores_non_positive' (6079) panicked at tests/regression.rs:27:5:
+assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    average_positive_ignores_non_positive
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- counter_keeps_every_increment_and_is_visible_after_join: ОШИБКА
+
+running 1 test
+test counter_keeps_every_increment_and_is_visible_after_join ... FAILED
+
+failures:
+
+---- counter_keeps_every_increment_and_is_visible_after_join stdout ----
+
+thread 'counter_keeps_every_increment_and_is_visible_after_join' (6087) panicked at tests/regression.rs:58:5:
+assertion `left == right` failed
+  left: 30127
+ right: 40000
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    counter_keeps_every_increment_and_is_visible_after_join
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.01s
+--- dedup_returns_sorted_unique_values: OK
+--- fib_matches_known_values: OK
+--- normalize_removes_all_whitespace: ОШИБКА
+
+running 1 test
+test normalize_removes_all_whitespace ... FAILED
+
+failures:
+
+---- normalize_removes_all_whitespace stdout ----
+
+thread 'normalize_removes_all_whitespace' (6111) panicked at tests/regression.rs:21:5:
+assertion `left == right` failed
+  left: "hello\tbig\nworld"
+ right: "hellobigworld"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    normalize_removes_all_whitespace
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- sum_even_handles_empty_slice: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_handles_empty_slice' (6119) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+--- sum_even_sums_only_even_values: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_sums_only_even_values' (6125) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+--- use_after_free_returns_the_boxed_value: ОШИБКА
+
+running 1 test
+=================================================================
+==6130==ERROR: AddressSanitizer: heap-use-after-free on address 0x7b742e3e1010 at pc 0x55a08937c0a6 bp 0x7b542bdfe380 sp 0x7b542bdfe378
+READ of size 4 at 0x7b742e3e1010 thread T1
+    #0 0x55a08937c0a5  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x18d0a5) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #1 0x55a08932a48a  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x13b48a) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #2 0x55a089329266  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x13a266) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #3 0x55a08932bbe5  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x13cbe5) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #4 0x55a08932bcda  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x13ccda) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #5 0x55a089339344  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x14a344) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #6 0x55a089333803  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x144803) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #7 0x55a08933c4a1  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x14d4a1) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #8 0x55a0893ba3e7  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x1cb3e7) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #9 0x55a0892f75e6  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x1085e6) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #10 0x7f542f29cb83  (/lib/x86_64-linux-gnu/libc.so.6+0x9cb83) (BuildId: 328820b908de8ea1ef79afa8995e302e819163d7)
+    #11 0x7f542f329d6b  (/lib/x86_64-linux-gnu/libc.so.6+0x129d6b) (BuildId: 328820b908de8ea1ef79afa8995e302e819163d7)
+
+0x7b742e3e1010 is located 0 bytes inside of 4-byte region [0x7b742e3e1010,0x7b742e3e1014)
+freed by thread T1 here:
+    #0 0x55a0892f9cd6  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x10acd6) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #1 0x55a0893817a4  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x1927a4) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #2 0x55a08937c01a  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x18d01a) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #3 0x55a089329266  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x13a266) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #4 0x55a089339344  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x14a344) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #5 0x55a089333803  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x144803) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #6 0x55a08933c4a1  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x14d4a1) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #7 0x55a0893ba3e7  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x1cb3e7) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+    #8 0x55a0892f75e6  (/home/runner/work/broken-app/broken-app/target/x86_64-unknown-linux-gnu/debug/build/broken-app/f20743166693cd9f/out/regression-f20743166693cd9f+0x1085e6) (BuildId: 1cc121b15df80f7cc5b46ab5ba27e5cb0c581df9)
+
+=== demo
