@@ -17,3 +17,6 @@ fi
 
 # Второй набор — про аллокации, criterion их не считает.
 cargo bench --bench baseline | tee "artifacts/$stage/baseline.txt"
+
+# Сводка в markdown: HTML-отчёт criterion остаётся в каталоге сборки.
+python3 scripts/report.py bench 2>/dev/null || python scripts/report.py bench

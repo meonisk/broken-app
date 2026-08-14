@@ -103,19 +103,26 @@ tests/leak.rs         утечка: считает аллокации своим
 benches/criterion.rs  criterion, фиксированные входы и имена
 benches/baseline.rs   время и число аллокаций на вызов
 
+scripts/report.py     сводит логи criterion и профиля в markdown
+
 artifacts/before/     анализ на исходном коде
 artifacts/fixed/      анализ, профиль и базовая линия после исправлений
 artifacts/after/      то же после оптимизации
-artifacts/criterion-report/  HTML-отчёт criterion с графиками
+artifacts/benchmarks.md  сводка замеров и аллокаций
+artifacts/profile.md     верхние кадры профиля до и после
 ```
 
 В каждом каталоге `artifacts/` лежат логи `cargo test`, Miri, Valgrind, ASan и
 TSan, а в `fixed/` и `after/` — ещё `criterion.txt`, `baseline.txt` и профиль:
 `flamegraph.svg` (интерактивный, с поиском) и `flamegraph.png` (тот же кадр
-картинкой). Точка входа в отчёт criterion —
-[`artifacts/criterion-report/report/index.html`](artifacts/criterion-report/report/index.html):
-там графики плотности, доверительные интервалы и отдельная страница `change`
-на каждый бенчмарк, где базовая линия `fixed` сравнивается с текущим замером.
+картинкой).
+
+Готовые выводы собраны в двух отчётах: [`artifacts/benchmarks.md`](artifacts/benchmarks.md)
+— время и число аллокаций до и после, с доверительными интервалами, и
+[`artifacts/profile.md`](artifacts/profile.md) — верхние кадры обоих профилей.
+Оба генерируются `scripts/report.py` из json-данных criterion и самих svg, так
+что пересобираются одной командой. Собственный HTML-отчёт criterion (113 файлов
+графиков) остаётся в каталоге сборки: `$CARGO_TARGET_DIR/criterion/report/index.html`.
 
 Имена `slow_dedup` и `slow_fib` оставлены как в задании: переименование
 потянуло бы за собой тесты, бенчмарки и demo, а идентификаторы бенчмарков

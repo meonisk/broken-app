@@ -11,3 +11,5 @@ stage="${1:-after}"
 mkdir -p "artifacts/$stage"
 
 cargo flamegraph --bench baseline --output "artifacts/$stage/flamegraph.svg"
+
+python3 scripts/report.py profile 2>/dev/null || python scripts/report.py profile
