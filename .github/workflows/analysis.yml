@@ -14,7 +14,7 @@ on:
         default: after
 
 env:
-  CARGO_TERM_COLOR: always
+  CARGO_TERM_COLOR: never
 
 jobs:
   analysis:
@@ -88,22 +88,52 @@ jobs:
           done < /tmp/bins.txt
           cat logs/valgrind.txt
 
+      # Санитайзеры — тоже по одному тесту: выход за границу среза завершает
+      # процесс аварийно, и до утечки с гонкой очередь бы не дошла.
       - name: AddressSanitizer
         continue-on-error: true
         env:
           RUSTFLAGS: -Zsanitizer=address
           ASAN_OPTIONS: detect_leaks=1
         run: |
-          timeout 900 cargo +nightly test --target x86_64-unknown-linux-gnu \
-            -- --test-threads=1 2>&1 | tee logs/asan.txt
+          cargo +nightly test --target x86_64-unknown-linux-gnu --no-run \
+            --message-format=json > /tmp/asan-build.json 2>/dev/null || true
+          jq -r 'select(.executable != null and .target.test == true) | .executable' \
+            /tmp/asan-build.json | sort -u > /tmp/asan-bins.txt
+          while read -r b; do
+            echo "=== $(basename "$b")" >> logs/asan.txt
+            "$b" --list 2>/dev/null | sed -n 's/: test$//p' | while read -r t; do
+              if out=$(timeout 300 "$b" --exact "$t" 2>&1); then
+                echo "--- $t: OK" >> logs/asan.txt
+              else
+                echo "--- $t: ОШИБКА" >> logs/asan.txt
+                echo "$out" | head -30 >> logs/asan.txt
+              fi
+            done
+          done < /tmp/asan-bins.txt
+          cat logs/asan.txt
 
       - name: ThreadSanitizer
         continue-on-error: true
         env:
           RUSTFLAGS: -Zsanitizer=thread
         run: |
-          timeout 900 cargo +nightly test -Zbuild-std --target x86_64-unknown-linux-gnu \
-            -- --test-threads=1 2>&1 | tee logs/tsan.txt
+          cargo +nightly test -Zbuild-std --target x86_64-unknown-linux-gnu --no-run \
+            --message-format=json > /tmp/tsan-build.json 2>/dev/null || true
+          jq -r 'select(.executable != null and .target.test == true) | .executable' \
+            /tmp/tsan-build.json | sort -u > /tmp/tsan-bins.txt
+          while read -r b; do
+            echo "=== $(basename "$b")" >> logs/tsan.txt
+            "$b" --list 2>/dev/null | sed -n 's/: test$//p' | while read -r t; do
+              if out=$(timeout 300 "$b" --exact "$t" 2>&1); then
+                echo "--- $t: OK" >> logs/tsan.txt
+              else
+                echo "--- $t: ОШИБКА" >> logs/tsan.txt
+                echo "$out" | head -30 >> logs/tsan.txt
+              fi
+            done
+          done < /tmp/tsan-bins.txt
+          cat logs/tsan.txt
 
       - uses: actions/upload-artifact@v4
         with:
