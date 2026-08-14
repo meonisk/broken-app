@@ -13,20 +13,23 @@ pub fn leak_buffer(input: &[u8]) -> usize {
     boxed.iter().filter(|&&b| b != 0).count()
 }
 
-/// Небрежная нормализация строки: удаляем пробелы и приводим к нижнему регистру,
-/// но игнорируем повторяющиеся пробелы/табуляции внутри текста.
+/// Нормализация строки: убираем любые пробельные символы, а не только пробел
+/// U+0020, и приводим к нижнему регистру.
 pub fn normalize(input: &str) -> String {
-    input.replace(' ', "").to_lowercase()
+    input.split_whitespace().collect::<String>().to_lowercase()
 }
 
-/// Логическая ошибка: усредняет по всем элементам, хотя требуется учитывать
-/// только положительные. Деление на длину среза даёт неверный результат.
+/// Среднее по положительным значениям. Делить надо на их количество, а не на
+/// длину всего среза.
 pub fn average_positive(values: &[i64]) -> f64 {
-    let sum: i64 = values.iter().sum();
-    if values.is_empty() {
+    let (sum, count) = values
+        .iter()
+        .filter(|&&v| v > 0)
+        .fold((0_i64, 0_usize), |(sum, count), &v| (sum + v, count + 1));
+    if count == 0 {
         return 0.0;
     }
-    sum as f64 / values.len() as f64
+    sum as f64 / count as f64
 }
 
 /// Удвоенное значение из бокса. Оба чтения происходят до освобождения, поэтому
