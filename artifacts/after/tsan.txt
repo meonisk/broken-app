@@ -1,12 +1,15 @@
-=== demo-05d27ac79f1816f2
-=== integration-616f6b6d8ee0ca14
+=== broken_app-65753616b13272bc
+=== leak-69e826d5fac24585
+--- leak_buffer_frees_everything_it_allocates: OK
+=== demo-6e2b70f67465c42e
+=== integration-7589c5a0a0c21c18
 --- averages_only_positive: OK
 --- counts_non_zero_bytes: OK
 --- dedup_preserves_uniques: OK
 --- fib_small_numbers: OK
 --- normalize_simple: OK
 --- sums_even_numbers: OK
-=== regression-a9e0d938f4b74bb2
+=== regression-a39c1bab7b6efbee
 --- average_positive_ignores_non_positive: OK
 --- counter_keeps_every_increment_and_is_visible_after_join: OK
 --- dedup_returns_sorted_unique_values: OK
@@ -15,7 +18,4 @@
 --- sum_even_handles_empty_slice: OK
 --- sum_even_sums_only_even_values: OK
 --- use_after_free_returns_the_boxed_value: OK
-=== broken_app-d8231d1bb431edaa
-=== leak-f7a82c2e507d9905
---- leak_buffer_frees_everything_it_allocates: OK
 === demo

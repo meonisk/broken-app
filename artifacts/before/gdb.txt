@@ -1,0 +1,124 @@
+=== sum_even_handles_empty_slice
+warning: Missing auto-load script at offset 0 in section .debug_gdb_scripts
+of file /home/runner/work/broken-app/broken-app/target/debug/build/broken-app/98ee89622b3d2522/out/regression-98ee89622b3d2522.
+Use `info auto-load python-scripts [REGEXP]' to list them.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+running 1 test
+test sum_even_handles_empty_slice ... [New Thread 0x7ffff7bff6c0 (LWP 9014)]
+
+thread 'sum_even_handles_empty_slice' (9014) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+
+Thread 2 "sum_even_handle" received signal SIGABRT, Aborted.
+[Switching to Thread 0x7ffff7bff6c0 (LWP 9014)]
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=<optimized out>) at ./nptl/pthread_kill.c:44
+warning: 44	./nptl/pthread_kill.c: No such file or directory
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=<optimized out>) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=<optimized out>) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=<optimized out>, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7c4527e in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff7c288ff in __GI_abort () at ./stdlib/abort.c:79
+#5  0x000055555561249a in std::sys::pal::unix::abort_internal () at library/std/src/sys/pal/unix/mod.rs:300
+#6  0x000055555560ed69 in std::process::abort () at library/std/src/process.rs:2639
+#7  0x000055555560f0d3 in std::panicking::panic_with_hook () at library/std/src/rt.rs:44
+#8  0x00005555555f2dd4 in std::panicking::panic_handler::{closure#0} () at library/std/src/panicking.rs:681
+#9  0x00005555555eb739 in std::sys::backtrace::__rust_end_short_backtrace<std::panicking::panic_handler::{closure_env#0}, !> () at library/std/src/sys/backtrace.rs:182
+#10 0x00005555555f399d in std::panicking::panic_handler () at library/std/src/panicking.rs:679
+#11 0x000055555562bfdd in core::panicking::panic_nounwind_fmt::runtime () at library/core/src/panicking.rs:122
+#12 core::panicking::panic_nounwind_fmt () at library/core/src/intrinsics/mod.rs:2636
+#13 0x00005555555d8714 in core::slice::index::{impl#2}::get_unchecked::precondition_check (this=0, len=0) at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ub_checks.rs:73
+#14 0x00005555555d87f9 in core::slice::index::{impl#2}::get_unchecked<i64> (self=0, slice=...) at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ub_checks.rs:78
+#15 0x00005555555d95b9 in core::slice::{impl#0}::get_unchecked<i64, usize> (self=..., index=0) at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/mod.rs:647
+#16 0x00005555555dba44 in broken_app::sum_even (values=...) at src/lib.rs:11
+#17 0x00005555555904e3 in regression::sum_even_handles_empty_slice () at tests/regression.rs:9
+#18 0x0000555555590197 in regression::sum_even_handles_empty_slice::{closure#0} () at tests/regression.rs:8
+#19 0x0000555555591646 in core::ops::function::FnOnce::call_once<regression::sum_even_handles_empty_slice::{closure_env#0}, ()> () at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250
+#20 0x000055555559178b in core::ops::function::FnOnce::call_once<fn() -> core::result::Result<(), alloc::string::String>, ()> () at library/core/src/ops/function.rs:250
+#21 test::__rust_begin_short_backtrace<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> () at library/test/src/lib.rs:733
+#22 0x000055555559edf5 in test::run_test_in_process::{closure#0} () at library/test/src/lib.rs:756
+#23 core::panic::unwind_safe::{impl#23}::call_once<core::result::Result<(), alloc::string::String>, test::run_test_in_process::{closure_env#0}> () at library/core/src/panic/unwind_safe.rs:275
+#24 std::panicking::catch_unwind::do_call<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> () at library/std/src/panicking.rs:576
+#25 std::panicking::catch_unwind<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>> () at library/std/src/panicking.rs:544
+#26 std::panic::catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> () at library/std/src/panic.rs:359
+#27 test::run_test_in_process () at library/test/src/lib.rs:756
+#28 test::run_test::{closure#0} () at library/test/src/lib.rs:677
+#29 0x00005555555992b4 in test::run_test::{closure#1} () at library/test/src/lib.rs:707
+#30 std::sys::backtrace::__rust_begin_short_backtrace<test::run_test::{closure_env#1}, ()> () at library/std/src/sys/backtrace.rs:166
+#31 0x00005555555a1f52 in std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure#0}<test::run_test::{closure_env#1}, ()> () at library/std/src/thread/lifecycle.rs:70
+#32 core::panic::unwind_safe::{impl#23}::call_once<(), std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>> () at library/core/src/panic/unwind_safe.rs:275
+#33 std::panicking::catch_unwind::do_call<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> () at library/std/src/panicking.rs:576
+#34 std::panicking::catch_unwind<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>> () at library/std/src/panicking.rs:544
+#35 std::panic::catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> () at library/std/src/panic.rs:359
+#36 std::thread::lifecycle::spawn_unchecked::{closure#1}<test::run_test::{closure_env#1}, ()> () at library/std/src/thread/lifecycle.rs:68
+#37 core::ops::function::FnOnce::call_once<std::thread::lifecycle::spawn_unchecked::{closure_env#1}<test::run_test::{closure_env#1}, ()>, ()> () at library/core/src/ops/function.rs:250
+#38 0x0000555555616628 in alloc::boxed::{impl#31}::call_once<(), (dyn core::ops::function::FnOnce<(), Output=()> + core::marker::Send), alloc::alloc::Global> () at library/alloc/src/boxed.rs:2318
+#39 std::sys::thread::unix::{impl#2}::new::thread_start () at library/std/src/sys/thread/unix.rs:123
+#40 0x00007ffff7c9cb84 in start_thread (arg=<optimized out>) at ./nptl/pthread_create.c:447
+#41 0x00007ffff7d29d6c in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+tid = <optimized out>
+ret = 0
+pd = <optimized out>
+old_mask = {__val = {140737349935552}}
+ret = <optimized out>
+pd = <optimized out>
+old_mask = <optimized out>
+ret = <optimized out>
+tid = <optimized out>
+ret = <optimized out>
+resultvar = <optimized out>
+resultvar = <optimized out>
+__arg3 = <optimized out>
+__arg2 = <optimized out>
+__arg1 = <optimized out>
+_a3 = <optimized out>
+_a2 = <optimized out>
+_a1 = <optimized out>
+__futex = <optimized out>
+resultvar = <optimized out>
+__arg3 = <optimized out>
+__arg2 = <optimized out>
+__arg1 = <optimized out>
+_a3 = <optimized out>
+_a2 = <optimized out>
+_a1 = <optimized out>
+__futex = <optimized out>
+__private = <optimized out>
+__oldval = <optimized out>
+=== use_after_free_returns_the_boxed_value
+warning: Missing auto-load script at offset 0 in section .debug_gdb_scripts
+of file /home/runner/work/broken-app/broken-app/target/debug/build/broken-app/98ee89622b3d2522/out/regression-98ee89622b3d2522.
+Use `info auto-load python-scripts [REGEXP]' to list them.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+running 1 test
+test use_after_free_returns_the_boxed_value ... [New Thread 0x7ffff7bff6c0 (LWP 9023)]
+FAILED
+
+failures:
+
+---- use_after_free_returns_the_boxed_value stdout ----
+
+thread 'use_after_free_returns_the_boxed_value' (9023) panicked at tests/regression.rs:34:5:
+assertion `left == right` failed
+  left: 3215183
+ right: 84
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    use_after_free_returns_the_boxed_value
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+[Thread 0x7ffff7bff6c0 (LWP 9023) exited]
+[Inferior 1 (process 9020) exited with code 0145]
+No stack.
+No frame selected.
+--- gdb завершился с ошибкой

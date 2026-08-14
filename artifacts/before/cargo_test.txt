@@ -2,7 +2,7 @@
 === leak-704037d84614b581
 --- leak_buffer_frees_everything_it_allocates: ОШИБКА
 
-thread 'leak_buffer_frees_everything_it_allocates' (3441) panicked at tests/leak.rs:38:5:
+thread 'leak_buffer_frees_everything_it_allocates' (5375) panicked at tests/leak.rs:38:5:
 assertion `left == right` failed: 1 аллокаций, освобождено 0
   left: 1
  right: 0
@@ -19,7 +19,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 ---- average_positive_ignores_non_positive stdout ----
 
-thread 'average_positive_ignores_non_positive' (3455) panicked at tests/regression.rs:27:5:
+thread 'average_positive_ignores_non_positive' (5389) panicked at tests/regression.rs:27:5:
 assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -30,9 +30,9 @@ failures:
 test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
 --- counter_keeps_every_increment_and_is_visible_after_join: ОШИБКА
 
-thread 'counter_keeps_every_increment_and_is_visible_after_join' (3461) panicked at tests/regression.rs:58:5:
+thread 'counter_keeps_every_increment_and_is_visible_after_join' (5395) panicked at tests/regression.rs:58:5:
 assertion `left == right` failed
-  left: 30197
+  left: 30488
  right: 40000
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -45,7 +45,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; 
 --- fib_matches_known_values: OK
 --- normalize_removes_all_whitespace: ОШИБКА
 
-thread 'normalize_removes_all_whitespace' (3479) panicked at tests/regression.rs:21:5:
+thread 'normalize_removes_all_whitespace' (5413) panicked at tests/regression.rs:21:5:
 assertion `left == right` failed
   left: "hello\tbig\nworld"
  right: "hellobigworld"
@@ -60,7 +60,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; 
 
 running 1 test
 
-thread 'sum_even_handles_empty_slice' (3485) panicked at src/lib.rs:11:29:
+thread 'sum_even_handles_empty_slice' (5419) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
@@ -71,7 +71,7 @@ timeout: the monitored command dumped core
 
 running 1 test
 
-thread 'sum_even_sums_only_even_values' (3499) panicked at src/lib.rs:11:29:
+thread 'sum_even_sums_only_even_values' (5434) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
@@ -80,9 +80,9 @@ thread caused non-unwinding panic. aborting.
 timeout: the monitored command dumped core
 --- use_after_free_returns_the_boxed_value: ОШИБКА
 
-thread 'use_after_free_returns_the_boxed_value' (3513) panicked at tests/regression.rs:34:5:
+thread 'use_after_free_returns_the_boxed_value' (5449) panicked at tests/regression.rs:34:5:
 assertion `left == right` failed
-  left: -1625611007
+  left: 513233863
  right: 84
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -96,7 +96,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; 
 
 ---- averages_only_positive stdout ----
 
-thread 'averages_only_positive' (3527) panicked at tests/integration.rs:36:5:
+thread 'averages_only_positive' (5461) panicked at tests/integration.rs:36:5:
 assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -104,7 +104,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 failures:
     averages_only_positive
 
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.01s
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
 --- counts_non_zero_bytes: OK
 --- dedup_preserves_uniques: OK
 --- fib_small_numbers: OK
@@ -113,7 +113,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; 
 
 running 1 test
 
-thread 'sums_even_numbers' (3550) panicked at src/lib.rs:11:29:
+thread 'sums_even_numbers' (5483) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.

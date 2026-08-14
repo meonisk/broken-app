@@ -9,7 +9,7 @@ failures:
 
 ---- averages_only_positive stdout ----
 
-thread 'averages_only_positive' (6992) panicked at tests/integration.rs:36:5:
+thread 'averages_only_positive' (8887) panicked at tests/integration.rs:36:5:
 assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -26,7 +26,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; 
 
 running 1 test
 
-thread 'sums_even_numbers' (7019) panicked at src/lib.rs:11:29:
+thread 'sums_even_numbers' (8914) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
@@ -42,7 +42,7 @@ failures:
 
 ---- average_positive_ignores_non_positive stdout ----
 
-thread 'average_positive_ignores_non_positive' (7030) panicked at tests/regression.rs:27:5:
+thread 'average_positive_ignores_non_positive' (8925) panicked at tests/regression.rs:27:5:
 assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -55,8 +55,8 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; 
 
 running 1 test
 ==================
-WARNING: ThreadSanitizer: data race (pid=7035)
-  Read of size 8 at 0x5648ff126b90 by thread T3:
+WARNING: ThreadSanitizer: data race (pid=8930)
+  Read of size 8 at 0x563702115b90 by thread T3:
     #0 broken_app::concurrency::race_increment::{closure#0} /home/runner/work/broken-app/broken-app/src/concurrency.rs:15 (regression-a9e0d938f4b74bb2+0x3ac2c1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (regression-a9e0d938f4b74bb2+0x3a8ed1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (regression-a9e0d938f4b74bb2+0x3abffc) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
@@ -70,7 +70,7 @@ WARNING: ThreadSanitizer: data race (pid=7035)
     #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2318 (regression-a9e0d938f4b74bb2+0x442054) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #11 <std::sys::thread::unix::Thread>::new::thread_start /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:123 (regression-a9e0d938f4b74bb2+0x41fb1e) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
 
-  Previous write of size 8 at 0x5648ff126b90 by thread T2:
+  Previous write of size 8 at 0x563702115b90 by thread T2:
     #0 broken_app::concurrency::race_increment::{closure#0} /home/runner/work/broken-app/broken-app/src/concurrency.rs:15 (regression-a9e0d938f4b74bb2+0x3ac320) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (regression-a9e0d938f4b74bb2+0x3a8ed1) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (regression-a9e0d938f4b74bb2+0x3abffc) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
@@ -93,7 +93,7 @@ failures:
 
 ---- normalize_removes_all_whitespace stdout ----
 
-thread 'normalize_removes_all_whitespace' (7059) panicked at tests/regression.rs:21:5:
+thread 'normalize_removes_all_whitespace' (8954) panicked at tests/regression.rs:21:5:
 assertion `left == right` failed
   left: "hello\tbig\nworld"
  right: "hellobigworld"
@@ -108,7 +108,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; 
 
 running 1 test
 
-thread 'sum_even_handles_empty_slice' (7066) panicked at src/lib.rs:11:29:
+thread 'sum_even_handles_empty_slice' (8961) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
@@ -118,7 +118,7 @@ thread caused non-unwinding panic. aborting.
 
 running 1 test
 
-thread 'sum_even_sums_only_even_values' (7073) panicked at src/lib.rs:11:29:
+thread 'sum_even_sums_only_even_values' (8968) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
@@ -128,7 +128,7 @@ thread caused non-unwinding panic. aborting.
 
 running 1 test
 ==================
-WARNING: ThreadSanitizer: heap-use-after-free (pid=7078)
+WARNING: ThreadSanitizer: heap-use-after-free (pid=8973)
   Read of size 4 at 0x7204000001c0 by thread T1:
     #0 broken_app::use_after_free /home/runner/work/broken-app/broken-app/src/lib.rs:62 (regression-a9e0d938f4b74bb2+0x3a1576) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
     #1 regression::use_after_free_returns_the_boxed_value /home/runner/work/broken-app/broken-app/tests/regression.rs:34 (regression-a9e0d938f4b74bb2+0x2498b6) (BuildId: 5912f68ca95149d503634e156f15fdfe58c5dcfa)
@@ -166,7 +166,7 @@ failures:
 
 ---- leak_buffer_frees_everything_it_allocates stdout ----
 
-thread 'leak_buffer_frees_everything_it_allocates' (7099) panicked at tests/leak.rs:38:5:
+thread 'leak_buffer_frees_everything_it_allocates' (8992) panicked at tests/leak.rs:38:5:
 assertion `left == right` failed: 1 аллокаций, освобождено 0
   left: 1
  right: 0

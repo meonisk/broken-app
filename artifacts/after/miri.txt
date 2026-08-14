@@ -1,30 +1,30 @@
 === average_positive_ignores_non_positive
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test average_positive_ignores_non_positive ... ok
@@ -39,32 +39,32 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === averages_only_positive
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test averages_only_positive ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.18s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -78,36 +78,36 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === counter_keeps_every_increment_and_is_visible_after_join
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test counter_keeps_every_increment_and_is_visible_after_join ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 3.69s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 3.76s
 
    Doc-tests broken_app
 
@@ -116,33 +116,33 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 === counts_non_zero_bytes
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test counts_non_zero_bytes ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.14s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -156,32 +156,32 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === dedup_preserves_uniques
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test dedup_preserves_uniques ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.18s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -195,73 +195,34 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === dedup_returns_sorted_unique_values
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test dedup_returns_sorted_unique_values ... ok
-
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.18s
-
-   Doc-tests broken_app
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-
-=== fib_matches_known_values
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
-
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
-
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
-
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
-
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
-
-running 1 test
-test fib_matches_known_values ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.19s
 
@@ -271,34 +232,73 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
+=== fib_matches_known_values
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.05s
+
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
+
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
+
+running 1 test
+test fib_matches_known_values ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.17s
+
+   Doc-tests broken_app
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
 === fib_small_numbers
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test fib_small_numbers ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.17s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.19s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -312,32 +312,32 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === leak_buffer_frees_everything_it_allocates
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 1 test
 test leak_buffer_frees_everything_it_allocates ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -351,36 +351,36 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === normalize_removes_all_whitespace
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test normalize_removes_all_whitespace ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.16s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.18s
 
    Doc-tests broken_app
 
@@ -390,32 +390,32 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === normalize_simple
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test normalize_simple ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.15s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.16s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -429,73 +429,34 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === sum_even_handles_empty_slice
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test sum_even_handles_empty_slice ... ok
-
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.14s
-
-   Doc-tests broken_app
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-
-=== sum_even_sums_only_even_values
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
-
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
-
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
-
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
-
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
-
-running 1 test
-test sum_even_sums_only_even_values ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.16s
 
@@ -505,34 +466,73 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
+=== sum_even_sums_only_even_values
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
+
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
+
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
+
+running 1 test
+test sum_even_sums_only_even_values ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.18s
+
+   Doc-tests broken_app
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
 === sums_even_numbers
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 1 test
 test sums_even_numbers ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.17s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.18s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 0 tests
 
@@ -546,36 +546,36 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 === use_after_free_returns_the_boxed_value
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/c4ee110ef1b71810/out/broken_app-c4ee110ef1b71810)
+     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/153cbfa78f9ec423/out/broken_app-153cbfa78f9ec423)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
+     Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/021dadd206d70908/out/demo-021dadd206d70908)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/8b1c45984ddb0b92/out/integration-8b1c45984ddb0b92)
+     Running tests/integration.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/595498c4853f6737/out/integration-595498c4853f6737)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
 
-     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
+     Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/3e6dbefb205c3e04/out/leak-3e6dbefb205c3e04)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
 
-     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
+     Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/90f3f4f305567490/out/regression-90f3f4f305567490)
 
 running 1 test
 test use_after_free_returns_the_boxed_value ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.14s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.15s
 
    Doc-tests broken_app
 

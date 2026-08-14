@@ -1,28 +1,52 @@
-sum_even_50k            time:   [16.434 µs 16.654 µs 16.895 µs]
-                        change: [-20.134% -16.222% -12.297%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 8 outliers among 100 measurements (8.00%)
-  5 (5.00%) high mild
-  3 (3.00%) high severe
+   Compiling broken-app v0.1.0 (/home/runner/work/broken-app/broken-app)
+    Finished `bench` profile [optimized + debuginfo] target(s) in 5.88s
+     Running benches/criterion.rs (target/release/deps/criterion-256fa2044db235a1)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even_50k
+Benchmarking sum_even_50k: Warming up for 3.0000 s
+Benchmarking sum_even_50k: Collecting 100 samples in estimated 5.0266 s (369k iterations)
+Benchmarking sum_even_50k: Analyzing
+sum_even_50k            time:   [15.725 µs 17.408 µs 19.032 µs]
+                        change: [+4.7066% +10.111% +16.211%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 23 outliers among 100 measurements (23.00%)
+  4 (4.00%) low mild
+  4 (4.00%) high mild
+  15 (15.00%) high severe
 
-dedup_20k               time:   [956.21 µs 967.71 µs 979.57 µs]
-                        change: [-99.602% -99.589% -99.576%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high severe
+Benchmarking dedup_20k
+Benchmarking dedup_20k: Warming up for 3.0000 s
 
-fib_32                  time:   [8.1092 ns 8.1972 ns 8.2896 ns]
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.3s, enable flat sampling, or reduce sample count to 60.
+Benchmarking dedup_20k: Collecting 100 samples in estimated 5.2818 s (5050 iterations)
+Benchmarking dedup_20k: Analyzing
+dedup_20k               time:   [902.99 µs 904.83 µs 906.78 µs]
+                        change: [-99.686% -99.683% -99.679%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+
+Benchmarking fib_32
+Benchmarking fib_32: Warming up for 3.0000 s
+Benchmarking fib_32: Collecting 100 samples in estimated 5.0000 s (900M iterations)
+Benchmarking fib_32: Analyzing
+fib_32                  time:   [5.5522 ns 5.5816 ns 5.6218 ns]
                         change: [-100.000% -100.000% -100.000%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 4 outliers among 100 measurements (4.00%)
-  1 (1.00%) low mild
-  1 (1.00%) high mild
-  2 (2.00%) high severe
-
-normalize_700k          time:   [1.2535 ms 1.2635 ms 1.2747 ms]
-                        change: [-15.046% -13.869% -12.715%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 4 outliers among 100 measurements (4.00%)
-  1 (1.00%) low mild
+Found 10 outliers among 100 measurements (10.00%)
   3 (3.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking normalize_700k
+Benchmarking normalize_700k: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.5s, enable flat sampling, or reduce sample count to 60.
+Benchmarking normalize_700k: Collecting 100 samples in estimated 5.4511 s (5050 iterations)
+Benchmarking normalize_700k: Analyzing
+normalize_700k          time:   [1.0778 ms 1.0790 ms 1.0802 ms]
+                        change: [-25.839% -24.386% -23.037%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  5 (5.00%) high mild
+  2 (2.00%) high severe
 

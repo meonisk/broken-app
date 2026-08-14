@@ -1,0 +1,36 @@
+=== sum_even_handles_empty_slice
+warning: Missing auto-load script at offset 0 in section .debug_gdb_scripts
+of file /home/runner/work/broken-app/broken-app/target/debug/build/broken-app/88dafa220437d14f/out/regression-88dafa220437d14f.
+Use `info auto-load python-scripts [REGEXP]' to list them.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+running 1 test
+test sum_even_handles_empty_slice ... [New Thread 0x7ffff7bff6c0 (LWP 9584)]
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+[Thread 0x7ffff7bff6c0 (LWP 9584) exited]
+[Inferior 1 (process 9581) exited normally]
+No stack.
+No frame selected.
+--- gdb завершился с ошибкой
+=== use_after_free_returns_the_boxed_value
+warning: Missing auto-load script at offset 0 in section .debug_gdb_scripts
+of file /home/runner/work/broken-app/broken-app/target/debug/build/broken-app/88dafa220437d14f/out/regression-88dafa220437d14f.
+Use `info auto-load python-scripts [REGEXP]' to list them.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+running 1 test
+test use_after_free_returns_the_boxed_value ... [New Thread 0x7ffff7bff6c0 (LWP 9593)]
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+[Thread 0x7ffff7bff6c0 (LWP 9593) exited]
+[Inferior 1 (process 9590) exited normally]
+No stack.
+No frame selected.
+--- gdb завершился с ошибкой

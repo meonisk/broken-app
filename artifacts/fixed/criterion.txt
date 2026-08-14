@@ -1,50 +1,144 @@
-   Compiling broken-app v0.1.0 (C:\Users\user\AppData\Local\Temp\claude\C--Users-user-Documents-RUST\95c2dc3a-dd20-4fc2-a5cb-3a5fa910ba4d\scratchpad\wt-baseline)
-    Finished `bench` profile [optimized + debuginfo] target(s) in 5.37s
-     Running benches\criterion.rs (C:\Users\user\dev\cargo-target\release\deps\criterion-12581d15e9c63601.exe)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded anstyle v1.0.13
+  Downloaded cast v0.3.0
+  Downloaded ciborium-ll v0.2.2
+  Downloaded ciborium-io v0.2.2
+  Downloaded clap_lex v0.7.6
+  Downloaded autocfg v1.5.0
+  Downloaded crossbeam-deque v0.8.6
+  Downloaded anes v0.1.6
+  Downloaded either v1.15.0
+  Downloaded is-terminal v0.4.17
+  Downloaded criterion-plot v0.5.0
+  Downloaded itoa v1.0.15
+  Downloaded stats_alloc v0.1.10
+  Downloaded plotters-backend v0.3.7
+  Downloaded plotters-svg v0.3.7
+  Downloaded tinytemplate v1.2.1
+  Downloaded walkdir v2.5.0
+  Downloaded crossbeam-epoch v0.9.18
+  Downloaded once_cell v1.21.3
+  Downloaded oorandom v11.1.5
+  Downloaded quote v1.0.42
+  Downloaded serde_derive v1.0.228
+  Downloaded unicode-ident v1.0.22
+  Downloaded ryu v1.0.20
+  Downloaded rayon-core v1.13.0
+  Downloaded crossbeam-utils v0.8.21
+  Downloaded clap v4.5.53
+  Downloaded serde_core v1.0.228
+  Downloaded ciborium v0.2.2
+  Downloaded num-traits v0.2.19
+  Downloaded proc-macro2 v1.0.103
+  Downloaded serde v1.0.228
+  Downloaded half v2.7.1
+  Downloaded memchr v2.7.6
+  Downloaded zerocopy-derive v0.8.31
+  Downloaded criterion v0.5.1
+  Downloaded itertools v0.10.5
+  Downloaded plotters v0.3.7
+  Downloaded regex v1.12.2
+  Downloaded serde_json v1.0.145
+  Downloaded aho-corasick v1.1.4
+  Downloaded clap_builder v4.5.53
+  Downloaded rayon v1.11.0
+  Downloaded zerocopy v0.8.31
+  Downloaded syn v2.0.111
+  Downloaded regex-syntax v0.8.8
+  Downloaded regex-automata v0.4.13
+  Downloaded libc v0.2.178
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling serde_core v1.0.228
+   Compiling crossbeam-utils v0.8.21
+   Compiling zerocopy v0.8.31
+   Compiling syn v2.0.111
+   Compiling serde v1.0.228
+   Compiling autocfg v1.5.0
+   Compiling zerocopy-derive v0.8.31
+   Compiling num-traits v0.2.19
+   Compiling serde_derive v1.0.228
+   Compiling crossbeam-epoch v0.9.18
+   Compiling rayon-core v1.13.0
+   Compiling libc v0.2.178
+   Compiling serde_json v1.0.145
+   Compiling cfg-if v1.0.4
+   Compiling either v1.15.0
+   Compiling half v2.7.1
+   Compiling crossbeam-deque v0.8.6
+   Compiling ryu v1.0.20
+   Compiling anstyle v1.0.13
+   Compiling plotters-backend v0.3.7
+   Compiling memchr v2.7.6
+   Compiling ciborium-io v0.2.2
+   Compiling regex-syntax v0.8.8
+   Compiling itoa v1.0.15
+   Compiling clap_lex v0.7.6
+   Compiling clap_builder v4.5.53
+   Compiling regex-automata v0.4.13
+   Compiling ciborium-ll v0.2.2
+   Compiling plotters-svg v0.3.7
+   Compiling itertools v0.10.5
+   Compiling cast v0.3.0
+   Compiling same-file v1.0.6
+   Compiling criterion-plot v0.5.0
+   Compiling walkdir v2.5.0
+   Compiling is-terminal v0.4.17
+   Compiling rayon v1.11.0
+   Compiling plotters v0.3.7
+   Compiling ciborium v0.2.2
+   Compiling tinytemplate v1.2.1
+   Compiling regex v1.12.2
+   Compiling clap v4.5.53
+   Compiling once_cell v1.21.3
+   Compiling broken-app v0.1.0 (/home/runner/work/broken-app/broken-app)
+   Compiling oorandom v11.1.5
+   Compiling anes v0.1.6
+   Compiling criterion v0.5.1
+   Compiling stats_alloc v0.1.10
+    Finished `bench` profile [optimized + debuginfo] target(s) in 56.53s
+     Running benches/criterion.rs (target/release/deps/criterion-256fa2044db235a1)
 Gnuplot not found, using plotters backend
 Benchmarking sum_even_50k
 Benchmarking sum_even_50k: Warming up for 3.0000 s
-Benchmarking sum_even_50k: Collecting 100 samples in estimated 5.0547 s (288k iterations)
+Benchmarking sum_even_50k: Collecting 100 samples in estimated 5.0038 s (364k iterations)
 Benchmarking sum_even_50k: Analyzing
-sum_even_50k            time:   [17.033 µs 17.595 µs 18.321 µs]
-                        change: [+16.399% +21.549% +27.352%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  7 (7.00%) high mild
+sum_even_50k            time:   [13.661 µs 13.680 µs 13.702 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  5 (5.00%) high mild
+  7 (7.00%) high severe
 
 Benchmarking dedup_20k
 Benchmarking dedup_20k: Warming up for 3.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 22.6s, or reduce sample count to 20.
-Benchmarking dedup_20k: Collecting 100 samples in estimated 22.566 s (100 iterations)
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 28.4s, or reduce sample count to 10.
+Benchmarking dedup_20k: Collecting 100 samples in estimated 28.351 s (100 iterations)
 Benchmarking dedup_20k: Analyzing
-dedup_20k               time:   [228.91 ms 235.03 ms 241.93 ms]
-                        change: [-0.0168% +2.9643% +6.2485%] (p = 0.06 > 0.05)
-                        No change in performance detected.
-Found 16 outliers among 100 measurements (16.00%)
-  1 (1.00%) high mild
-  15 (15.00%) high severe
+dedup_20k               time:   [283.63 ms 284.30 ms 285.16 ms]
+Found 12 outliers among 100 measurements (12.00%)
+  7 (7.00%) high mild
+  5 (5.00%) high severe
 
 Benchmarking fib_32
 Benchmarking fib_32: Warming up for 3.0000 s
-Benchmarking fib_32: Collecting 100 samples in estimated 5.4714 s (700 iterations)
+Benchmarking fib_32: Collecting 100 samples in estimated 5.5470 s (900 iterations)
 Benchmarking fib_32: Analyzing
-fib_32                  time:   [6.5920 ms 6.6314 ms 6.6729 ms]
-                        change: [+0.9230% +2.0216% +3.0158%] (p = 0.00 < 0.05)
-                        Change within noise threshold.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
+fib_32                  time:   [6.1495 ms 6.1527 ms 6.1564 ms]
+Found 10 outliers among 100 measurements (10.00%)
+  4 (4.00%) high mild
+  6 (6.00%) high severe
 
 Benchmarking normalize_700k
 Benchmarking normalize_700k: Warming up for 3.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 8.8s, enable flat sampling, or reduce sample count to 50.
-Benchmarking normalize_700k: Collecting 100 samples in estimated 8.8102 s (5050 iterations)
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 50.
+Benchmarking normalize_700k: Collecting 100 samples in estimated 7.0595 s (5050 iterations)
 Benchmarking normalize_700k: Analyzing
-normalize_700k          time:   [1.4387 ms 1.4530 ms 1.4680 ms]
-                        change: [-11.904% -9.5591% -7.3848%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
-  4 (4.00%) high mild
-  1 (1.00%) high severe
+normalize_700k          time:   [1.3979 ms 1.4043 ms 1.4142 ms]
+Found 19 outliers among 100 measurements (19.00%)
+  11 (11.00%) low mild
+  1 (1.00%) high mild
+  7 (7.00%) high severe
 

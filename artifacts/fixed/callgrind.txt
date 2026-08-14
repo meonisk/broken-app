@@ -1,0 +1,83 @@
+--------------------------------------------------------------------------------
+Profile data file 'logs/fixed/callgrind.out' (creator: callgrind-3.22.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 1220816759
+Trigger: Program termination
+Profiled target:  /home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1 --bench --test (PID 5898, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                     
+--------------------------------------------------------------------------------
+3,492,733,986 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                      file:function
+--------------------------------------------------------------------------------
+1,000,028,970 (28.63%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/mod.rs:core::slice::sort::unstable::ipnsort::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+  800,040,001 (22.91%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/non_null.rs:broken_app::algo::slow_dedup
+  400,180,002 (11.46%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:broken_app::algo::slow_dedup
+  400,080,022 (11.45%)  src/algo.rs:broken_app::algo::slow_dedup [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+  400,000,190 (11.45%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:broken_app::algo::slow_dedup
+  399,979,620 (11.45%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::unstable::ipnsort::<u64, <u64 as core::cmp::PartialOrd>::lt>
+   71,323,483 ( 2.04%)  src/algo.rs:broken_app::algo::slow_fib'2 [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/algo.rs
+--------------------------------------------------------------------------------
+Ir                   
+
+          .           /// Намеренно низкопроизводительная реализация.
+          8 ( 0.00%)  pub fn slow_dedup(values: &[u64]) -> Vec<u64> {
+          .               let mut out = Vec::new();
+          .               for v in values {
+          .                   let mut seen = false;
+          .                   for existing in &out {
+400,000,000 (11.45%)              if existing == v {
+          .                           seen = true;
+          .                           break;
+          .                       }
+          .                   }
+          .                   if !seen {
+          .                       // лишняя копия, хотя можно было пушить значение напрямую
+     20,000 ( 0.00%)              out.push(*v);
+     19,999 ( 0.00%)              out.sort_unstable(); // бесполезная сортировка на каждой вставке
+          .                   }
+          .               }
+          6 ( 0.00%)      out
+          9 ( 0.00%)  }
+          .           
+          .           /// Классическая экспоненциальная реализация без мемоизации — будет медленной на больших n.
+ 17,622,890 ( 0.50%)  pub fn slow_fib(n: u64) -> u64 {
+ 14,098,310 ( 0.40%)      match n {
+          .                   0 => 0,
+          .                   1 => 1,
+ 14,098,308 ( 0.40%)          _ => slow_fib(n - 1) + slow_fib(n - 2),
+ 71,323,483 ( 2.04%)  => src/algo.rs:broken_app::algo::slow_fib'2 (16x)
+          .               }
+ 17,622,890 ( 0.50%)  }
+
+  7,921,196 ( 0.23%)  <counts for unidentified lines in src/algo.rs>
+
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs
+  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/non_null.rs
+  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs
+  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/mod.rs
+
+--------------------------------------------------------------------------------
+Ir                   
+--------------------------------------------------------------------------------
+463,482,420 (13.27%)  events annotated
+
