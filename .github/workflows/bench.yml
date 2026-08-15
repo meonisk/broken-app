@@ -44,8 +44,10 @@ jobs:
 
       # Бенчмарки и входы всё время одни и те же, меняется только src/.
       - name: Код до оптимизации
+        env:
+          BASE: ${{ inputs.base }}
         run: |
-          git checkout ${{ inputs.base }} -- src/
+          git checkout "$BASE" -- src/
           git --no-pager diff --stat HEAD -- src/
 
       # REPEAT подобран так, чтобы в профиле набралось несколько тысяч выборок.

@@ -22,9 +22,20 @@ jobs:
     name: gdb + miri + valgrind + asan + tsan
     runs-on: ubuntu-latest
     steps:
+      # Полная история и переход отдельным шагом: actions/checkout понимает
+      # коммит только в виде полного 40-символьного SHA, короткий он принимает
+      # за имя ветки и не находит. Так работает любая форма — короткий SHA,
+      # полный, имя ветки или тег.
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Перейти на нужный коммит
+        env:
+          REF: ${{ inputs.ref }}
+        run: |
+          git checkout --detach "$REF"
+          git --no-pager log -1 --format='%H %cI %s'
 
       # Nightly ставится первым: последний установленный тулчейн становится
       # умолчанием, а по умолчанию всё должно считаться стабильным — nightly
