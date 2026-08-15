@@ -59,6 +59,16 @@ jobs:
             --subtitle "criterion --bench --test x$REPEAT, коммит ${{ inputs.base }}" \
             /tmp/folded.txt > logs/fixed/flamegraph.svg
           rsvg-convert --width 1600 -o logs/fixed/flamegraph.png logs/fixed/flamegraph.svg
+          # Отдельно fib: в общем профиле он около процента, на такой ширине
+          # рекурсию не разглядеть.
+          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf-fib.data -- \
+            bash -c 'for i in $(seq 300); do "$BENCH" --bench --test fib > /dev/null; done'
+          perf script -i /tmp/perf-fib.data | inferno-collapse-perf > /tmp/folded-fib.txt
+          sort -t' ' -k2 -nr /tmp/folded-fib.txt | head -20 > logs/fixed/profile-top-fib.txt
+          inferno-flamegraph --title "broken-app: slow_fib до оптимизации" \
+            --subtitle "criterion --bench --test fib x300, коммит ${{ inputs.base }}" \
+            /tmp/folded-fib.txt > logs/fixed/flamegraph-fib.svg
+          rsvg-convert --width 1600 -o logs/fixed/flamegraph-fib.png logs/fixed/flamegraph-fib.svg
           valgrind --tool=callgrind --callgrind-out-file=logs/fixed/callgrind.out \
             "$BENCH" --bench --test > /dev/null 2>&1
           callgrind_annotate logs/fixed/callgrind.out > logs/fixed/callgrind.txt
