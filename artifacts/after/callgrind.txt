@@ -4,9 +4,9 @@ Profile data file 'logs/after/callgrind.out' (creator: callgrind-3.22.0)
 I1 cache: 
 D1 cache: 
 LL cache: 
-Timerange: Basic block 0 - 6876732
+Timerange: Basic block 0 - 6875727
 Trigger: Program termination
-Profiled target:  /home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1 --bench --test (PID 6123, part 1)
+Profiled target:  /home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1 --bench --test (PID 8229, part 1)
 Events recorded:  Ir
 Events shown:     Ir
 Event sort order: Ir
@@ -18,7 +18,7 @@ Auto-annotation:  on
 --------------------------------------------------------------------------------
 Ir                  
 --------------------------------------------------------------------------------
-28,537,995 (100.0%)  PROGRAM TOTALS
+28,543,182 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
 Ir                  file:function
@@ -28,47 +28,47 @@ Ir                  file:function
 2,800,000 ( 9.81%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/validations.rs:broken_app::normalize
 1,500,007 ( 5.26%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/raw_vec/mod.rs:broken_app::normalize
 1,500,000 ( 5.26%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/vec/mod.rs:broken_app::normalize
-1,062,345 ( 3.72%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
+1,062,639 ( 3.72%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
   700,000 ( 2.45%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/non_null.rs:broken_app::normalize
   700,000 ( 2.45%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:broken_app::normalize
-  617,803 ( 2.16%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/unstable/quicksort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2 [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-  504,869 ( 1.77%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+  636,379 ( 2.23%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/unstable/quicksort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2 [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+  520,589 ( 1.82%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
   500,024 ( 1.75%)  src/lib.rs:broken_app::normalize [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
   500,003 ( 1.75%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/string.rs:broken_app::normalize
-  400,807 ( 1.40%)  /rust/deps/hashbrown-0.17.1/src/raw.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+  400,777 ( 1.40%)  /rust/deps/hashbrown-0.17.1/src/raw.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
   400,000 ( 1.40%)  /rust/deps/hashbrown-0.17.1/src/control/tag.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
-  333,873 ( 1.17%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
-  284,968 ( 1.00%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
-  230,770 ( 0.81%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/smallsort.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+  344,383 ( 1.21%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+  285,308 ( 1.00%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+  225,808 ( 0.79%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/smallsort.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
   180,000 ( 0.63%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/../../stdarch/crates/core_arch/src/x86/sse2.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
-  140,400 ( 0.49%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/intrinsics/mod.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
-  140,026 ( 0.49%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/unstable/quicksort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+  140,385 ( 0.49%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/intrinsics/mod.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+  125,326 ( 0.44%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/unstable/quicksort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
   125,000 ( 0.44%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/iter/adapters/filter.rs:broken_app::sum_even
-  121,547 ( 0.43%)  /rust/deps/hashbrown-0.17.1/src/control/bitmask.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+  121,504 ( 0.43%)  /rust/deps/hashbrown-0.17.1/src/control/bitmask.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
   120,008 ( 0.42%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
-  119,884 ( 0.42%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>
+  107,284 ( 0.38%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>
   102,342 ( 0.36%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
   102,168 ( 0.36%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/memchr.rs:core::slice::memchr::memchr_aligned [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-  101,200 ( 0.35%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+  101,155 ( 0.35%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    99,995 ( 0.35%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/vec/mod.rs:broken_app::algo::slow_dedup
    83,923 ( 0.29%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
-   80,102 ( 0.28%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
    80,000 ( 0.28%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/hash/mod.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
-   79,881 ( 0.28%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>
-   72,372 ( 0.25%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>'2 [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-   71,249 ( 0.25%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+   79,372 ( 0.28%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+   72,822 ( 0.26%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+   71,538 ( 0.25%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>'2 [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+   71,481 ( 0.25%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>
    65,716 ( 0.23%)  ./string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:__memset_avx2_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
    64,096 ( 0.22%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:broken_app::algo::slow_dedup
    62,517 ( 0.22%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:broken_app::sum_even
    60,000 ( 0.21%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/uint_macros.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    60,000 ( 0.21%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    56,400 ( 0.20%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
-   56,347 ( 0.20%)  /rust/deps/hashbrown-0.17.1/src/control/bitmask.rs:broken_app::algo::slow_dedup
+   56,340 ( 0.20%)  /rust/deps/hashbrown-0.17.1/src/control/bitmask.rs:broken_app::algo::slow_dedup
    55,000 ( 0.19%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:<alloc::vec::Vec<u64> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<u64, core::iter::adapters::flatten::FlatMap<core::ops::range::Range<u64>, [u64; 2], criterion::bench_dedup::{closure#0}>>>::from_iter
    53,188 ( 0.19%)  ./stdio-common/./stdio-common/vfscanf-internal.c:__vfscanf_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
    50,003 ( 0.18%)  src/lib.rs:broken_app::sum_even
    46,875 ( 0.16%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/int_macros.rs:criterion::main
-   40,800 ( 0.14%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/nonzero.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+   40,770 ( 0.14%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/nonzero.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    40,028 ( 0.14%)  /rust/deps/hashbrown-0.17.1/src/raw.rs:broken_app::algo::slow_dedup
    40,010 ( 0.14%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/vec/spec_from_iter_nested.rs:broken_app::algo::slow_dedup
    40,006 ( 0.14%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
@@ -78,27 +78,27 @@ Ir                  file:function
    35,658 ( 0.12%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/pattern.rs:<core::str::pattern::StrSearcher>::new [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
    35,294 ( 0.12%)  ./elf/../sysdeps/x86_64/dl-machine.h:_dl_relocate_object
    34,904 ( 0.12%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/pattern.rs:<str>::find::<&str>
-   33,453 ( 0.12%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+   33,639 ( 0.12%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
    28,040 ( 0.10%)  ./elf/./elf/do-rel.h:_dl_relocate_object
    25,594 ( 0.09%)  ./stdlib/../stdlib/strtol_l.c:____strtoul_l_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
    25,077 ( 0.09%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:criterion::main
    24,841 ( 0.09%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
    24,149 ( 0.08%)  ./elf/./elf/dl-reloc.c:_dl_relocate_object [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
    24,038 ( 0.08%)  ./string/../sysdeps/x86_64/multiarch/../multiarch/strcmp-sse2.S:strcmp [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
-   23,800 ( 0.08%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-   22,741 ( 0.08%)  ./malloc/./malloc/malloc.c:malloc_consolidate [/usr/lib/x86_64-linux-gnu/libc.so.6]
+   23,900 ( 0.08%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
+   22,731 ( 0.08%)  ./malloc/./malloc/malloc.c:malloc_consolidate [/usr/lib/x86_64-linux-gnu/libc.so.6]
    22,592 ( 0.08%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
    21,550 ( 0.08%)  ./elf/../sysdeps/generic/dl-new-hash.h:_dl_lookup_symbol_x
    21,432 ( 0.08%)  ./string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S:__memcmp_avx2_movbe [/usr/lib/x86_64-linux-gnu/libc.so.6]
-   20,400 ( 0.07%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
+   20,385 ( 0.07%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    20,000 ( 0.07%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/macros/mod.rs:<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::adapters::map::map_fold<u64, (u64, ()), (), <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}, core::iter::traits::iterator::Iterator::for_each::call<(u64, ()), <hashbrown::map::HashMap<u64, (), std::hash::random::RandomState> as core::iter::traits::collect::Extend<(u64, ())>>::extend<core::iter::adapters::map::Map<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>, <hashbrown::set::HashSet<u64, std::hash::random::RandomState> as core::iter::traits::collect::Extend<u64>>::extend<core::iter::adapters::copied::Copied<core::slice::iter::Iter<u64>>>::{closure#0}>>::{closure#0}>::{closure#0}>::{closure#0}>
    19,999 ( 0.07%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/nonzero.rs:broken_app::algo::slow_dedup
    18,146 ( 0.06%)  /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::compile [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
    15,818 ( 0.06%)  ./elf/./elf/dl-lookup.c:check_match [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
    13,458 ( 0.05%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/char/methods.rs:<str>::trim_end_matches::<<char>::is_whitespace>
-   12,323 ( 0.04%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/smallsort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+   12,383 ( 0.04%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/smallsort.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
    11,939 ( 0.04%)  ./elf/./elf/dl-version.c:_dl_check_map_versions [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
-   10,856 ( 0.04%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+   10,928 ( 0.04%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/sort/shared/pivot.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
    10,464 ( 0.04%)  ./malloc/./malloc/malloc.c:unlink_chunk.isra.0 [/usr/lib/x86_64-linux-gnu/libc.so.6]
    10,192 ( 0.04%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/vec/spec_from_iter_nested.rs:<alloc::vec::Vec<tinytemplate::instruction::PathStep> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<tinytemplate::instruction::PathStep, core::iter::adapters::map::Map<core::str::iter::Split<char>, <tinytemplate::compiler::TemplateCompiler>::parse_path::{closure#0}>>>::from_iter [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
    10,152 ( 0.04%)  /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
@@ -112,22 +112,22 @@ Ir                  file:function
     8,849 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/memchr.rs:<core::str::pattern::CharSearcher as core::str::pattern::Searcher>::next_match
     8,580 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/uint_macros.rs:<core::str::pattern::CharSearcher as core::str::pattern::Searcher>::next_match
     8,550 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:<core::str::pattern::StrSearcher>::new
-    8,520 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+    8,436 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/cmp.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
     8,130 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/iter/adapters/map.rs:<core::iter::adapters::map::Map<core::str::iter::Split<char>, <tinytemplate::compiler::TemplateCompiler>::parse_path::{closure#0}> as core::iter::traits::iterator::Iterator>::next [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-    7,943 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
     7,716 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/raw_vec/mod.rs:<alloc::raw_vec::RawVecInner>::finish_grow [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-    7,655 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/uint_macros.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
-    7,314 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+    7,705 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+    7,703 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/uint_macros.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+    7,402 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mut_ptr.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
     7,198 ( 0.03%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<tinytemplate::compiler::TemplateCompiler>::compile
-    7,076 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/iter/range.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
+    7,114 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/iter/range.rs:core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>
     6,882 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/iter.rs:<core::iter::adapters::map::Map<core::str::iter::Split<char>, <tinytemplate::compiler::TemplateCompiler>::parse_path::{closure#0}> as core::iter::traits::iterator::Iterator>::next
     6,408 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/std/src/sys/alloc/unix.rs:__rustc::__rdl_alloc
     6,252 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/validations.rs:<str>::trim_matches::<<char>::is_whitespace>
     6,240 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
-    5,856 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+    5,892 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
     5,818 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/mod.rs:<hashbrown::raw::RawTable<(&str, tinytemplate::template::Template)> as core::ops::drop::Drop>::drop
     5,630 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/num/mod.rs:core::slice::memchr::memchr_aligned
-    5,377 ( 0.02%)  ./elf/./elf/dl-tunables.h:__GI___tunables_init
+    5,488 ( 0.02%)  ./elf/./elf/dl-tunables.h:__GI___tunables_init
     5,358 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag
     5,332 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/iter/macros.rs:<str>::trim_matches::<<char>::is_whitespace>
     5,042 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/pattern.rs:<core::iter::adapters::map::Map<core::str::iter::Split<char>, <tinytemplate::compiler::TemplateCompiler>::parse_path::{closure#0}> as core::iter::traits::iterator::Iterator>::next
@@ -139,7 +139,7 @@ Ir                  file:function
     4,392 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/vec/mod.rs:<tinytemplate::compiler::TemplateCompiler>::compile
     4,312 ( 0.02%)  ./libio/./libio/genops.c:_IO_sputbackc [/usr/lib/x86_64-linux-gnu/libc.so.6]
     4,312 ( 0.02%)  ./malloc/./malloc/malloc.c:realloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
-    4,284 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>
+    4,302 ( 0.02%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>
     4,158 ( 0.01%)  ./malloc/./malloc/malloc.c:_int_realloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
     4,096 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/../../stdarch/crates/core_arch/src/x86/sse2.rs:broken_app::algo::slow_dedup
     4,096 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/const_ptr.rs:broken_app::algo::slow_dedup
@@ -150,13 +150,13 @@ Ir                  file:function
     3,516 ( 0.01%)  /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/builder/arg.rs:<criterion::Criterion>::configure_from_args
     3,328 ( 0.01%)  /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path [/home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1]
     3,324 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/index.rs:<core::str::pattern::StrSearcher>::new
-    3,202 ( 0.01%)  ./stdlib/./stdlib/getenv.c:getenv [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    3,274 ( 0.01%)  ./stdlib/./stdlib/getenv.c:getenv [/usr/lib/x86_64-linux-gnu/libc.so.6]
     3,196 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/mod.rs:<tinytemplate::compiler::TemplateCompiler>::compile
     3,158 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/ptr/non_null.rs:<str>::trim_matches::<<char>::is_whitespace>
     3,096 ( 0.01%)  ./elf/../sysdeps/x86/dl-cacheinfo.h:intel_check_word.constprop.0 [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
     3,080 ( 0.01%)  ./elf/./elf/dl-load.c:_dl_map_object_from_fd [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
     2,954 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/alloc/src/raw_vec/mod.rs:core::ptr::drop_glue::<clap_builder::builder::arg::Arg>
-    2,928 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
+    2,946 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/slice/mod.rs:core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>'2
     2,880 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/validations.rs:<tinytemplate::compiler::TemplateCompiler>::compile
     2,860 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/result.rs:<tinytemplate::compiler::TemplateCompiler>::compile
     2,808 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/profiling.rs:<core::str::pattern::StrSearcher>::new
@@ -168,782 +168,6 @@ Ir                  file:function
     2,432 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/char/methods.rs:<tinytemplate::compiler::TemplateCompiler>::compile
     2,409 ( 0.01%)  ./malloc/./malloc/arena.c:free
     2,394 ( 0.01%)  /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/traits.rs:<tinytemplate::compiler::TemplateCompiler>::compile
-
---------------------------------------------------------------------------------
--- Auto-annotated source: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/builder/arg.rs
---------------------------------------------------------------------------------
-Ir             
-
--- line 51 ----------------------------------------
-    .           ///       .short('c')
-    .           ///       .long("config")
-    .           ///       .action(ArgAction::Set)
-    .           ///       .value_name("FILE")
-    .           ///       .help("Provides a config file to myprog");
-    .           /// // Using a usage string (setting a similar argument to the one above)
-    .           /// let input = arg!(-i --input <FILE> "Provides an input file to the program");
-    .           /// ```
-  838 ( 0.00%)  #[derive(Default, Clone)]
-    .           pub struct Arg {
-    .               pub(crate) id: Id,
-    .               pub(crate) help: Option<StyledStr>,
-    .               pub(crate) long_help: Option<StyledStr>,
-    .               pub(crate) action: Option<ArgAction>,
-    .               pub(crate) value_parser: Option<super::ValueParser>,
-    .               pub(crate) blacklist: Vec<Id>,
-    .               pub(crate) settings: ArgFlags,
--- line 67 ----------------------------------------
--- line 124 ----------------------------------------
-    .               }
-    .           
-    .               /// Set the identifier used for referencing this argument in the clap API.
-    .               ///
-    .               /// See [`Arg::new`] for more details.
-    .               #[must_use]
-    .               pub fn id(mut self, id: impl Into<Id>) -> Self {
-    .                   self.id = id.into();
-  186 ( 0.00%)          self
-    .               }
-    .           
-    .               /// Sets the short version of the argument without the preceding `-`.
-    .               ///
-    .               /// By default `V` and `h` are used by the auto-generated `version` and `help` arguments,
-    .               /// respectively. You will need to disable the auto-generated flags
-    .               /// ([`disable_help_flag`][crate::Command::disable_help_flag],
-    .               /// [`disable_version_flag`][crate::Command::disable_version_flag]) and define your own.
--- line 140 ----------------------------------------
--- line 222 ----------------------------------------
-    .               ///     ]);
-    .               ///
-    .               /// assert_eq!(m.get_one::<String>("cfg").map(String::as_str), Some("file.toml"));
-    .               /// ```
-    .               #[inline]
-    .               #[must_use]
-    .               pub fn long(mut self, l: impl IntoResettable<Str>) -> Self {
-    .                   self.long = l.into_resettable().into_option();
-1,018 ( 0.00%)          self
-    .               }
-    .           
-    .               /// Add an alias, which functions as a hidden long flag.
-    .               ///
-    .               /// This is more efficient, and easier than creating multiple hidden arguments as one only
-    .               /// needs to check for the existence of this command, and not all variants.
-    .               ///
-    .               /// # Examples
--- line 238 ----------------------------------------
--- line 248 ----------------------------------------
-    .               ///        .get_matches_from(vec![
-    .               ///             "prog", "--alias", "cool"
-    .               ///         ]);
-    .               /// assert_eq!(m.get_one::<String>("test").unwrap(), "cool");
-    .               /// ```
-    .               #[must_use]
-    .               pub fn alias(mut self, name: impl IntoResettable<Str>) -> Self {
-    .                   if let Some(name) = name.into_resettable().into_option() {
-    2 ( 0.00%)              self.aliases.push((name, false));
-    .                   } else {
-    .                       self.aliases.clear();
-    .                   }
-    6 ( 0.00%)          self
-  178 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (2x)
-    .               }
-    .           
-    .               /// Add an alias, which functions as a hidden short flag.
-    .               ///
-    .               /// This is more efficient, and easier than creating multiple hidden arguments as one only
-    .               /// needs to check for the existence of this command, and not all variants.
-    .               ///
-    .               /// # Examples
--- line 268 ----------------------------------------
--- line 819 ----------------------------------------
-    .               /// assert_eq!(res.unwrap_err().kind(), ErrorKind::MissingRequiredArgument);
-    .               /// ```
-    .               /// [`Arg::requires(name)`]: Arg::requires()
-    .               /// [Conflicting]: Arg::conflicts_with()
-    .               /// [override]: Arg::overrides_with()
-    .               #[must_use]
-    .               pub fn requires(mut self, arg_id: impl IntoResettable<Id>) -> Self {
-    .                   if let Some(arg_id) = arg_id.into_resettable().into_option() {
-    2 ( 0.00%)              self.requires.push((ArgPredicate::IsPresent, arg_id));
-    .                   } else {
-    .                       self.requires.clear();
-    .                   }
-    4 ( 0.00%)          self
-  178 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (2x)
-    .               }
-    .           
-    .               /// This argument must be passed alone; it conflicts with all other arguments.
-    .               ///
-    .               /// # Examples
-    .               ///
-    .               /// ```rust
-    .               /// # use clap_builder as clap;
--- line 839 ----------------------------------------
--- line 1040 ----------------------------------------
-    .               /// let hostname: &String = m.get_one("hostname")
-    .               ///     .expect("required");
-    .               /// assert_eq!(hostname, "rust-lang.org");
-    .               ///
-    .               /// let port: u16 = *m.get_one("port")
-    .               ///     .expect("required");
-    .               /// assert_eq!(port, 3001);
-    .               /// ```
-  208 ( 0.00%)      pub fn value_parser(mut self, parser: impl IntoResettable<super::ValueParser>) -> Self {
-   72 ( 0.00%)          self.value_parser = parser.into_resettable().into_option();
-   80 ( 0.00%)          self
-  178 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (2x)
-  216 ( 0.00%)      }
-    .           
-    .               /// Specifies the number of arguments parsed per occurrence
-    .               ///
-    .               /// For example, if you had a `-f <file>` argument where you wanted exactly 3 'files' you would
-    .               /// set `.num_args(3)`, and this argument wouldn't be satisfied unless the user
-    .               /// provided 3 and only 3 values.
-    .               ///
-    .               /// Users may specify values for arguments in any of the following methods
--- line 1059 ----------------------------------------
--- line 1203 ----------------------------------------
-    .               /// let files: Vec<_> = m.get_many::<String>("file").unwrap().collect();
-    .               /// assert_eq!(files, ["file1", "file2", "file3"]);
-    .               /// assert_eq!(m.get_one::<String>("word").unwrap(), "word");
-    .               /// ```
-    .               #[inline]
-    .               #[must_use]
-    .               pub fn num_args(mut self, qty: impl IntoResettable<ValueRange>) -> Self {
-    .                   self.num_vals = qty.into_resettable().into_option();
-  768 ( 0.00%)          self
-    .               }
-    .           
-    .               #[doc(hidden)]
-    .               #[cfg_attr(
-    .                   feature = "deprecated",
-    .                   deprecated(since = "4.0.0", note = "Replaced with `Arg::num_args`")
-    .               )]
-    .               pub fn number_of_values(self, qty: usize) -> Self {
--- line 1219 ----------------------------------------
--- line 1845 ----------------------------------------
-    .               /// ```
-    .               /// [`Arg::action(ArgAction::Set)`]: Arg::action()
-    .               /// [`ArgMatches::contains_id`]: crate::ArgMatches::contains_id()
-    .               /// [`Arg::default_value_if`]: Arg::default_value_if()
-    .               #[inline]
-    .               #[must_use]
-    .               pub fn default_value(mut self, val: impl IntoResettable<OsStr>) -> Self {
-    .                   if let Some(val) = val.into_resettable().into_option() {
-   82 ( 0.00%)              self.default_values([val])
-  534 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (6x)
-    .                   } else {
-    .                       self.default_vals.clear();
-    .                       self
-    .                   }
-    .               }
-    .           
-    .               #[inline]
-    .               #[must_use]
--- line 1861 ----------------------------------------
--- line 1871 ----------------------------------------
-    .               /// Value for the argument when not present.
-    .               ///
-    .               /// See [`Arg::default_value`].
-    .               ///
-    .               /// [`Arg::default_value`]: Arg::default_value()
-    .               #[inline]
-    .               #[must_use]
-    .               pub fn default_values(mut self, vals: impl IntoIterator<Item = impl Into<OsStr>>) -> Self {
-   40 ( 0.00%)          self.default_vals = vals.into_iter().map(|s| s.into()).collect();
-   16 ( 0.00%)          self
-  712 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (8x)
-    .               }
-    .           
-    .               #[inline]
-    .               #[must_use]
-    .               #[doc(hidden)]
-    .               #[cfg_attr(
-    .                   feature = "deprecated",
-    .                   deprecated(since = "4.0.0", note = "Replaced with `Arg::default_values`")
--- line 1888 ----------------------------------------
--- line 2262 ----------------------------------------
-    .               ///     --config     Some help text describing the --config arg
-    .               /// -h, --help       Print help information
-    .               /// -V, --version    Print version information
-    .               /// ```
-    .               /// [`Arg::long_help`]: Arg::long_help()
-    .               #[inline]
-    .               #[must_use]
-    .               pub fn help(mut self, h: impl IntoResettable<StyledStr>) -> Self {
-  276 ( 0.00%)          self.help = h.into_resettable().into_option();
-  222 ( 0.00%)          self
-4,984 ( 0.02%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (56x)
-    .               }
-    .           
-    .               /// Sets the description of the argument for long help (`--help`).
-    .               ///
-    .               /// Typically this a more detailed (multi-line) message
-    .               /// that describes the arg.
-    .               ///
-    .               /// If [`Arg::help`] is not specified, this message will be displayed for `-h`.
--- line 2279 ----------------------------------------
--- line 3996 ----------------------------------------
-    .               /// [`Arg::exclusive(true)`]: Arg::exclusive()
-    .               #[must_use]
-    .               pub fn conflicts_with(mut self, arg_id: impl IntoResettable<Id>) -> Self {
-    .                   if let Some(arg_id) = arg_id.into_resettable().into_option() {
-    .                       self.blacklist.push(arg_id);
-    .                   } else {
-    .                       self.blacklist.clear();
-    .                   }
-   12 ( 0.00%)          self
-  534 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (6x)
-    .               }
-    .           
-    .               /// This argument is mutually exclusive with the specified arguments.
-    .               ///
-    .               /// See [`Arg::conflicts_with`].
-    .               ///
-    .               /// <div class="warning">
-    .               ///
--- line 4012 ----------------------------------------
--- line 4059 ----------------------------------------
-    .               ///
-    .               /// assert!(res.is_err());
-    .               /// assert_eq!(res.unwrap_err().kind(), ErrorKind::ArgumentConflict);
-    .               /// ```
-    .               /// [`Arg::conflicts_with`]: Arg::conflicts_with()
-    .               /// [`Arg::exclusive(true)`]: Arg::exclusive()
-    .               #[must_use]
-    .               pub fn conflicts_with_all(mut self, names: impl IntoIterator<Item = impl Into<Id>>) -> Self {
-    6 ( 0.00%)          self.blacklist.extend(names.into_iter().map(Into::into));
-   30 ( 0.00%)          self
-1,068 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (12x)
-    .               }
-    .           
-    .               /// Sets an overridable argument.
-    .               ///
-    .               /// i.e. this argument and the following argument
-    .               /// will override each other in POSIX style (whichever argument was specified at runtime
-    .               /// **last** "wins")
-    .               ///
--- line 4076 ----------------------------------------
--- line 4163 ----------------------------------------
-    .               }
-    .           }
-    .           
-    .           /// # Reflection
-    .           impl Arg {
-    .               /// Get the name of the argument
-    .               #[inline]
-    .               pub fn get_id(&self) -> &Id {
-   34 ( 0.00%)          &self.id
-    .               }
-    .           
-    .               /// Get the help specified for this argument, if any
-    .               #[inline]
-    .               pub fn get_help(&self) -> Option<&StyledStr> {
-    .                   self.help.as_ref()
-    .               }
-    .           
--- line 4179 ----------------------------------------
--- line 4344 ----------------------------------------
-    .               #[inline]
-    .               pub(crate) fn get_min_vals(&self) -> usize {
-    .                   self.get_num_args().expect(INTERNAL_ERROR_MSG).min_values()
-    .               }
-    .           
-    .               /// Get the delimiter between multiple values
-    .               #[inline]
-    .               pub fn get_value_delimiter(&self) -> Option<char> {
-   34 ( 0.00%)          self.val_delim
-    .               }
-    .           
-    .               /// Get the value terminator for this argument. The `value_terminator` is a value
-    .               /// that terminates parsing of multi-valued arguments.
-    .               #[inline]
-    .               pub fn get_value_terminator(&self) -> Option<&Str> {
-    .                   self.terminator.as_ref()
-    .               }
--- line 4360 ----------------------------------------
--- line 4472 ----------------------------------------
-    .               ///             .value_parser(clap::value_parser!(usize))
-    .               ///     );
-    .               /// let value_parser = cmd.get_arguments()
-    .               ///     .find(|a| a.get_id() == "port").unwrap()
-    .               ///     .get_value_parser();
-    .               /// println!("{value_parser:?}");
-    .               /// ```
-    .               pub fn get_value_parser(&self) -> &super::ValueParser {
-  126 ( 0.00%)          if let Some(value_parser) = self.value_parser.as_ref() {
-    .                       value_parser
-    .                   } else {
-    .                       static DEFAULT: super::ValueParser = super::ValueParser::string();
-    .                       &DEFAULT
-    .                   }
-    .               }
-    .           
-    .               /// Report whether [`Arg::global`] is set
--- line 4488 ----------------------------------------
--- line 4567 ----------------------------------------
-    .               #[cfg(feature = "unstable-ext")]
-    .               pub fn remove<T: ArgExt + Extension>(mut self) -> Option<T> {
-    .                   self.ext.remove::<T>()
-    .               }
-    .           }
-    .           
-    .           /// # Internally used only
-    .           impl Arg {
-  480 ( 0.00%)      pub(crate) fn _build(&mut self) {
-   60 ( 0.00%)          if self.action.is_none() {
-    .                       if self.num_vals == Some(ValueRange::EMPTY) {
-    .                           let action = ArgAction::SetTrue;
-  104 ( 0.00%)                  self.action = Some(action);
-    .                       } else {
-    .                           let action =
-    .                               if self.is_positional() && self.num_vals.unwrap_or_default().is_unbounded() {
-    .                                   // Allow collecting arguments interleaved with flags
-    .                                   //
-    .                                   // Bounded values are probably a group and the user should explicitly opt-in to
-    .                                   // Append
-    .                                   ArgAction::Append
-    .                               } else {
-    .                                   ArgAction::Set
-    .                               };
-   34 ( 0.00%)                  self.action = Some(action);
-    .                       }
-    .                   }
-    .                   if let Some(action) = self.action.as_ref() {
-    .                       if let Some(default_value) = action.default_value() {
-  104 ( 0.00%)                  if self.default_vals.is_empty() {
-  156 ( 0.00%)                      self.default_vals = vec![default_value.into()];
-    .                           }
-    .                       }
-    .                       if let Some(default_value) = action.default_missing_value() {
-   52 ( 0.00%)                  if self.default_missing_vals.is_empty() {
-  182 ( 0.00%)                      self.default_missing_vals = vec![default_value.into()];
-    .                           }
-    .                       }
-    .                   }
-    .           
-   60 ( 0.00%)          if self.value_parser.is_none() {
-    .                       if let Some(default) = self.action.as_ref().and_then(|a| a.default_value_parser()) {
-  104 ( 0.00%)                  self.value_parser = Some(default);
-    .                       } else {
-   10 ( 0.00%)                  self.value_parser = Some(super::ValueParser::string());
-    .                       }
-    .                   }
-    .           
-    .                   let val_names_len = self.val_names.len();
-  120 ( 0.00%)          if val_names_len > 1 {
-    .                       self.num_vals.get_or_insert(val_names_len.into());
-    .                   } else {
-    .                       let nargs = self.get_action().default_num_args();
-    .                       self.num_vals.get_or_insert(nargs);
-    .                   }
-  480 ( 0.00%)      }
-    .           
-    .               // Used for positionals when printing
-    .               pub(crate) fn name_no_brackets(&self) -> String {
-    .                   debug!("Arg::name_no_brackets:{}", self.get_id());
-    .                   let delim = " ";
-    .                   if !self.val_names.is_empty() {
-    .                       debug!("Arg::name_no_brackets: val_names={:#?}", self.val_names);
-    .           
--- line 4630 ----------------------------------------
-
-  352 ( 0.00%)  <counts for unidentified lines in /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/builder/arg.rs>
-
---------------------------------------------------------------------------------
--- Auto-annotated source: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs
---------------------------------------------------------------------------------
-Ir             
-
--- line 34 ----------------------------------------
-    .           
-    .               /// When we see a `{foo -}` or similar, we need to remember to left-trim the next text block we
-    .               /// encounter.
-    .               trim_next: bool,
-    .           }
-    .           impl<'template> TemplateCompiler<'template> {
-    .               /// Create a new template compiler to parse and compile the given template.
-    .               pub fn new(text: &'template str) -> TemplateCompiler<'template> {
-  104 ( 0.00%)          TemplateCompiler {
-    .                       original_text: text,
-    .                       remaining_text: text,
-    .                       instructions: vec![],
-    .                       block_stack: vec![],
-    .                       trim_next: false,
-    .                   }
-    .               }
-    .           
-    .               /// Consume the template compiler to parse the template and return the generated bytecode.
-   72 ( 0.00%)      pub fn compile(mut self) -> Result<Vec<Instruction<'template>>> {
-1,728 ( 0.01%)          while !self.remaining_text.is_empty() {
-    .                       // Comment, denoted by {# comment text #}
-1,136 ( 0.00%)              if self.remaining_text.starts_with("{#") {
-    6 ( 0.00%)                  self.trim_next = false;
-    .           
-   30 ( 0.00%)                  let tag = self.consume_tag("#}")?;
-3,914 ( 0.01%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (6x)
-    6 ( 0.00%)                  let comment = tag[2..(tag.len() - 2)].trim();
-    6 ( 0.00%)                  if comment.starts_with('-') {
-    .                               self.trim_last_whitespace();
-    .                           }
-    6 ( 0.00%)                  if comment.ends_with('-') {
-    .                               self.trim_next_whitespace();
-    .                           }
-    .                       // Block tag. Block tags are wrapped in {{ }} and always have one word at the start
-    .                       // to identify which kind of tag it is. Depending on the tag type there may be more.
-  562 ( 0.00%)              } else if self.remaining_text.starts_with("{{") {
-  132 ( 0.00%)                  self.trim_next = false;
-    .           
-  264 ( 0.00%)                  let (discriminant, rest) = self.consume_block()?;
-    .                           match discriminant {
-   34 ( 0.00%)                      "if" => {
-   34 ( 0.00%)                          let (path, negated) = if rest.starts_with("not") {
-    .                                       (self.parse_path(&rest[4..])?, true)
-    .                                   } else {
-  170 ( 0.00%)                              (self.parse_path(rest)?, false)
-18,249 ( 0.06%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (34x)
-    .                                   };
-    .                                   self.block_stack
-    .                                       .push((discriminant, Block::Branch(self.instructions.len())));
-    .                                   self.instructions
-  272 ( 0.00%)                              .push(Instruction::Branch(path, !negated, UNKNOWN));
-    .                               }
-   28 ( 0.00%)                      "else" => {
-   64 ( 0.00%)                          self.expect_empty(rest)?;
-   16 ( 0.00%)                          let num_instructions = self.instructions.len() + 1;
-   64 ( 0.00%)                          self.close_branch(num_instructions, discriminant)?;
-  576 ( 0.00%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::close_branch (16x)
-    .                                   self.block_stack
-    .                                       .push((discriminant, Block::Branch(self.instructions.len())));
-   32 ( 0.00%)                          self.instructions.push(Instruction::Goto(UNKNOWN))
-    .                               }
-   34 ( 0.00%)                      "endif" => {
-  136 ( 0.00%)                          self.expect_empty(rest)?;
-    .                                   let num_instructions = self.instructions.len();
-  136 ( 0.00%)                          self.close_branch(num_instructions, discriminant)?;
-1,256 ( 0.00%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::close_branch (34x)
-    .                               }
-   12 ( 0.00%)                      "with" => {
-    .                                   let (path, name) = self.parse_with(rest)?;
-    .                                   let instruction = Instruction::PushNamedContext(path, name);
-    .                                   self.instructions.push(instruction);
-    .                                   self.block_stack.push((discriminant, Block::With));
-    .                               }
-    .                               "endwith" => {
-    .                                   self.expect_empty(rest)?;
-    .                                   if let Some((_, Block::With)) = self.block_stack.pop() {
--- line 105 ----------------------------------------
--- line 106 ----------------------------------------
-    .                                       self.instructions.push(Instruction::PopContext)
-    .                                   } else {
-    .                                       return Err(self.parse_error(
-    .                                           discriminant,
-    .                                           "Found a closing endwith that doesn't match with a preceeding with.".to_string()
-    .                                       ));
-    .                                   }
-    .                               }
-   18 ( 0.00%)                      "for" => {
-  108 ( 0.00%)                          let (path, name) = self.parse_for(rest)?;
-    .                                   self.instructions
-  108 ( 0.00%)                              .push(Instruction::PushIterationContext(path, name));
-    .                                   self.block_stack
-    .                                       .push((discriminant, Block::For(self.instructions.len())));
-   36 ( 0.00%)                          self.instructions.push(Instruction::Iterate(UNKNOWN));
-    .                               }
-   18 ( 0.00%)                      "endfor" => {
-   72 ( 0.00%)                          self.expect_empty(rest)?;
-    .                                   let num_instructions = self.instructions.len() + 1;
-    .                                   let goto_target = self.close_for(num_instructions, discriminant)?;
-   36 ( 0.00%)                          self.instructions.push(Instruction::Goto(goto_target));
-   18 ( 0.00%)                          self.instructions.push(Instruction::PopContext);
-    .                               }
-   12 ( 0.00%)                      "call" => {
-   72 ( 0.00%)                          let (name, path) = self.parse_call(rest)?;
-   72 ( 0.00%)                          self.instructions.push(Instruction::Call(name, path));
-    .                               }
-    .                               _ => {
-    .                                   return Err(self.parse_error(
-    .                                       discriminant,
-    .                                       format!("Unknown block type '{}'", discriminant),
-    .                                   ));
-    .                               }
-    .                           }
-    .                       // Values, of the form { dotted.path.to.value.in.context }
-    .                       // Note that it is not (currently) possible to escape curly braces in the templates to
-    .                       // prevent them from being interpreted as values.
-  430 ( 0.00%)              } else if self.remaining_text.starts_with('{') {
-  144 ( 0.00%)                  self.trim_next = false;
-    .           
-    .                           let (path, name) = self.consume_value()?;
-    .                           let instruction = match name {
-    .                               Some(name) => Instruction::FormattedValue(path, name),
-  720 ( 0.00%)                      None => Instruction::Value(path),
-    .                           };
-    .                           self.instructions.push(instruction);
-    .                       // All other text - just consume characters until we see a {
-    .                       } else {
-    .                           let mut escaped = false;
-    .                           loop {
-    .                               let mut text = self.consume_text(escaped);
-  704 ( 0.00%)                      if self.trim_next {
-    .                                   text = text.trim_left();
-    4 ( 0.00%)                          self.trim_next = false;
-    .                               }
-    .                               escaped = text.ends_with('\\');
-  350 ( 0.00%)                      if escaped {
-    .                                   text = &text[0..(text.len() - 1)];
-    .                               }
-1,056 ( 0.00%)                      self.instructions.push(Instruction::Literal(text));
-    .           
-  704 ( 0.00%)                      if !escaped {
-    .                                   break;
-    .                               }
-    .                           }
-    .                       }
-    .                   }
-    .           
-    .                   if let Some((text, _)) = self.block_stack.pop() {
-    .                       return Err(self.parse_error(
-    .                           text,
-    .                           "Expected block-closing tag, but reached the end of input.".to_string(),
-    .                       ));
-    .                   }
-    .           
-   56 ( 0.00%)          Ok(self.instructions)
-  120 ( 0.00%)      }
-  696 ( 0.00%)  => ???:__rustc::__rust_dealloc (8x)
-    .           
-    .               /// Splits a string into a list of named segments which can later be used to look up values in the
-    .               /// context.
-1,456 ( 0.01%)      fn parse_path(&self, text: &'template str) -> Result<Path<'template>> {
-  208 ( 0.00%)          if !text.starts_with('@') {
-  416 ( 0.00%)              Ok(text
-    .                           .split('.')
-    .                           .map(|s| match s.parse::<usize>() {
-    .                               Ok(n) => PathStep::Index(s, n),
-    .                               Err(_) => PathStep::Name(s),
-    .                           })
-    .                           .collect::<Vec<_>>())
-    .                   } else if KNOWN_KEYWORDS.iter().any(|k| *k == text) {
-    .                       Ok(vec![PathStep::Name(text)])
-    .                   } else {
-    .                       Err(self.parse_error(text, format!("Invalid keyword name '{}'", text)))
-    .                   }
-1,040 ( 0.00%)      }
-    .           
-    .               /// Finds the line number and column where an error occurred. Location is the substring of
-    .               /// self.original_text where the error was found, and msg is the error message.
-    .               fn parse_error(&self, location: &str, msg: String) -> Error {
-    .                   let (line, column) = get_offset(self.original_text, location);
-    .                   ParseError { msg, line, column }
-    .               }
-    .           
-    .               /// Tags which should have no text after the discriminant use this to raise an error if
-    .               /// text is found.
-    .               fn expect_empty(&self, text: &str) -> Result<()> {
-  136 ( 0.00%)          if text.is_empty() {
-    .                       Ok(())
-    .                   } else {
-    .                       Err(self.parse_error(text, format!("Unexpected text '{}'", text)))
-    .                   }
-    .               }
-    .           
-    .               /// Close the branch that is on top of the block stack by setting its target instruction
-    .               /// and popping it from the stack. Returns an error if the top of the block stack is not a
-    .               /// branch.
-  400 ( 0.00%)      fn close_branch(&mut self, new_target: usize, discriminant: &str) -> Result<()> {
-    .                   let branch_block = self.block_stack.pop();
-  100 ( 0.00%)          if let Some((_, Block::Branch(index))) = branch_block {
-  182 ( 0.00%)              match &mut self.instructions[index] {
-    .                           Instruction::Branch(_, _, target) => {
-    .                               *target = new_target;
-    .                               Ok(())
-    .                           }
-    .                           Instruction::Goto(target) => {
-    .                               *target = new_target;
-    .                               Ok(())
-    .                           }
--- line 233 ----------------------------------------
--- line 235 ----------------------------------------
-    .                       }
-    .                   } else {
-    .                       Err(self.parse_error(
-    .                           discriminant,
-    .                           "Found a closing endif or else which doesn't match with a preceding if."
-    .                               .to_string(),
-    .                       ))
-    .                   }
-  300 ( 0.00%)      }
-    .           
-    .               /// Close the for loop that is on top of the block stack by setting its target instruction and
-    .               /// popping it from the stack. Returns an error if the top of the stack is not a for loop.
-    .               /// Returns the index of the loop's Iterate instruction for further processing.
-    .               fn close_for(&mut self, new_target: usize, discriminant: &str) -> Result<usize> {
-    .                   let branch_block = self.block_stack.pop();
-   36 ( 0.00%)          if let Some((_, Block::For(index))) = branch_block {
-   54 ( 0.00%)              match &mut self.instructions[index] {
-    .                           Instruction::Iterate(target) => {
-   18 ( 0.00%)                      *target = new_target;
-    .                               Ok(index)
-    .                           }
-    .                           _ => panic!(),
-    .                       }
-    .                   } else {
-    .                       Err(self.parse_error(
-    .                           discriminant,
-    .                           "Found a closing endfor which doesn't match with a preceding for.".to_string(),
--- line 261 ----------------------------------------
--- line 275 ----------------------------------------
-    .                   let mut position = search_substr
-    .                       .find('{')
-    .                       .unwrap_or_else(|| search_substr.len());
-    .                   if escaped {
-    .                       position += 1;
-    .                   }
-    .           
-    .                   let (text, remaining) = self.remaining_text.split_at(position);
-  704 ( 0.00%)          self.remaining_text = remaining;
-    .                   text
-    .               }
-    .           
-    .               /// Advance the cursor to the end of the value tag and return the value's path and optional
-    .               /// formatter name.
-    .               fn consume_value(&mut self) -> Result<(Path<'template>, Option<&'template str>)> {
-  720 ( 0.00%)          let tag = self.consume_tag("}")?;
-82,512 ( 0.29%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (144x)
-  144 ( 0.00%)          let mut tag = tag[1..(tag.len() - 1)].trim();
-  144 ( 0.00%)          if tag.starts_with('-') {
-    .                       tag = tag[1..].trim();
-    .                       self.trim_last_whitespace();
-    .                   }
-  144 ( 0.00%)          if tag.ends_with('-') {
-    .                       tag = tag[0..tag.len() - 1].trim();
-    .                       self.trim_next_whitespace();
-    .                   }
-    .           
-  288 ( 0.00%)          if let Some(index) = tag.find('|') {
-    .                       let (path_str, name_str) = tag.split_at(index);
-    .                       let name = name_str[1..].trim();
-    .                       let path = self.parse_path(path_str.trim())?;
-    .                       Ok((path, Some(name)))
-    .                   } else {
-  864 ( 0.00%)              Ok((self.parse_path(tag)?, None))
-83,478 ( 0.29%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (144x)
-    .                   }
-    .               }
-    .           
-    .               /// Right-trim whitespace from the last text block we parsed.
-    .               fn trim_last_whitespace(&mut self) {
-  342 ( 0.00%)          if let Some(Instruction::Literal(text)) = self.instructions.last_mut() {
-  456 ( 0.00%)              *text = text.trim_right();
-    .                   }
-    .               }
-    .           
-    .               /// Make a note to left-trim whitespace from the next text block we parse.
-    .               fn trim_next_whitespace(&mut self) {
-    4 ( 0.00%)          self.trim_next = true;
-    .               }
-    .           
-    .               /// Advance the cursor to the end of the current block tag and return the discriminant substring
-    .               /// and the rest of the text in the tag. Also handles trimming whitespace where needed.
-    .               fn consume_block(&mut self) -> Result<(&'template str, &'template str)> {
-  660 ( 0.00%)          let tag = self.consume_tag("}}")?;
-85,790 ( 0.30%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (132x)
-  132 ( 0.00%)          let mut block = tag[2..(tag.len() - 2)].trim();
-  132 ( 0.00%)          if block.starts_with('-') {
-    .                       block = block[1..].trim();
-  228 ( 0.00%)              self.trim_last_whitespace();
-    .                   }
-  136 ( 0.00%)          if block.ends_with('-') {
-    4 ( 0.00%)              block = block[0..block.len() - 1].trim();
-    .                       self.trim_next_whitespace();
-    .                   }
-    .                   let discriminant = block.split_whitespace().next().unwrap_or(block);
-    .                   let rest = block[discriminant.len()..].trim();
-    .                   Ok((discriminant, rest))
-    .               }
-    .           
-    .               /// Advance the cursor to after the given expected_close string and return the text in between
-    .               /// (including the expected_close characters), or return an error message if we reach the end
-    .               /// of a line of text without finding it.
-3,666 ( 0.01%)      fn consume_tag(&mut self, expected_close: &str) -> Result<&'template str> {
-  564 ( 0.00%)          if let Some(line) = self.remaining_text.lines().next() {
-1,692 ( 0.01%)              if let Some(pos) = line.find(expected_close) {
-96,394 ( 0.34%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (282x)
-    .                           let (tag, remaining) = self.remaining_text.split_at(pos + expected_close.len());
-  846 ( 0.00%)                  self.remaining_text = remaining;
-1,128 ( 0.00%)                  Ok(tag)
-    .                       } else {
-    .                           Err(self.parse_error(
-    .                               line,
-    .                               format!(
-    .                                   "Expected a closing '{}' but found end-of-line instead.",
-    .                                   expected_close
-    .                               ),
-    .                           ))
--- line 357 ----------------------------------------
--- line 360 ----------------------------------------
-    .                       Err(self.parse_error(
-    .                           self.remaining_text,
-    .                           format!(
-    .                               "Expected a closing '{}' but found end-of-text instead.",
-    .                               expected_close
-    .                           ),
-    .                       ))
-    .                   }
-2,256 ( 0.01%)      }
-    .           
-    .               /// Parse a with tag to separate the value path from the (optional) name.
-    .               fn parse_with(&self, with_text: &'template str) -> Result<(Path<'template>, &'template str)> {
-    .                   if let Some(index) = with_text.find(" as ") {
-    .                       let (path_str, name_str) = with_text.split_at(index);
-    .                       let path = self.parse_path(path_str.trim())?;
-    .                       let name = name_str[" as ".len()..].trim();
-    .                       Ok((path, name))
--- line 376 ----------------------------------------
--- line 382 ----------------------------------------
-    .                               with_text
-    .                           ),
-    .                       ))
-    .                   }
-    .               }
-    .           
-    .               /// Parse a for tag to separate the value path from the name.
-    .               fn parse_for(&self, for_text: &'template str) -> Result<(Path<'template>, &'template str)> {
-  126 ( 0.00%)          if let Some(index) = for_text.find(" in ") {
-6,290 ( 0.02%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (18x)
-    .                       let (name_str, path_str) = for_text.split_at(index);
-    .                       let name = name_str.trim();
-  108 ( 0.00%)              let path = self.parse_path(path_str[" in ".len()..].trim())?;
-11,079 ( 0.04%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (18x)
-    .                       Ok((path, name))
-    .                   } else {
-    .                       Err(self.parse_error(
-    .                           for_text,
-    .                           format!("Unable to parse for block text '{}'", for_text),
-    .                       ))
-    .                   }
-    .               }
-    .           
-    .               /// Parse a call tag to separate the template name and context value.
-    .               fn parse_call(&self, call_text: &'template str) -> Result<(&'template str, Path<'template>)> {
-   84 ( 0.00%)          if let Some(index) = call_text.find(" with ") {
-9,696 ( 0.03%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (12x)
-    .                       let (name_str, path_str) = call_text.split_at(index);
-    .                       let name = name_str.trim();
-   72 ( 0.00%)              let path = self.parse_path(path_str[" with ".len()..].trim())?;
-5,989 ( 0.02%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (12x)
-    .                       Ok((name, path))
-    .                   } else {
-    .                       Err(self.parse_error(
-    .                           call_text,
-    .                           format!("Unable to parse call block text '{}'", call_text),
-    .                       ))
-    .                   }
-    .               }
--- line 416 ----------------------------------------
-
-2,930 ( 0.01%)  <counts for unidentified lines in /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs>
 
 --------------------------------------------------------------------------------
 -- Auto-annotated source: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/parser/parser.rs
@@ -1593,6 +817,387 @@ Ir
 542 ( 0.00%)  <counts for unidentified lines in /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/parser/parser.rs>
 
 --------------------------------------------------------------------------------
+-- Auto-annotated source: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/builder/arg.rs
+--------------------------------------------------------------------------------
+Ir             
+
+-- line 51 ----------------------------------------
+    .           ///       .short('c')
+    .           ///       .long("config")
+    .           ///       .action(ArgAction::Set)
+    .           ///       .value_name("FILE")
+    .           ///       .help("Provides a config file to myprog");
+    .           /// // Using a usage string (setting a similar argument to the one above)
+    .           /// let input = arg!(-i --input <FILE> "Provides an input file to the program");
+    .           /// ```
+  838 ( 0.00%)  #[derive(Default, Clone)]
+    .           pub struct Arg {
+    .               pub(crate) id: Id,
+    .               pub(crate) help: Option<StyledStr>,
+    .               pub(crate) long_help: Option<StyledStr>,
+    .               pub(crate) action: Option<ArgAction>,
+    .               pub(crate) value_parser: Option<super::ValueParser>,
+    .               pub(crate) blacklist: Vec<Id>,
+    .               pub(crate) settings: ArgFlags,
+-- line 67 ----------------------------------------
+-- line 124 ----------------------------------------
+    .               }
+    .           
+    .               /// Set the identifier used for referencing this argument in the clap API.
+    .               ///
+    .               /// See [`Arg::new`] for more details.
+    .               #[must_use]
+    .               pub fn id(mut self, id: impl Into<Id>) -> Self {
+    .                   self.id = id.into();
+  186 ( 0.00%)          self
+    .               }
+    .           
+    .               /// Sets the short version of the argument without the preceding `-`.
+    .               ///
+    .               /// By default `V` and `h` are used by the auto-generated `version` and `help` arguments,
+    .               /// respectively. You will need to disable the auto-generated flags
+    .               /// ([`disable_help_flag`][crate::Command::disable_help_flag],
+    .               /// [`disable_version_flag`][crate::Command::disable_version_flag]) and define your own.
+-- line 140 ----------------------------------------
+-- line 222 ----------------------------------------
+    .               ///     ]);
+    .               ///
+    .               /// assert_eq!(m.get_one::<String>("cfg").map(String::as_str), Some("file.toml"));
+    .               /// ```
+    .               #[inline]
+    .               #[must_use]
+    .               pub fn long(mut self, l: impl IntoResettable<Str>) -> Self {
+    .                   self.long = l.into_resettable().into_option();
+1,018 ( 0.00%)          self
+    .               }
+    .           
+    .               /// Add an alias, which functions as a hidden long flag.
+    .               ///
+    .               /// This is more efficient, and easier than creating multiple hidden arguments as one only
+    .               /// needs to check for the existence of this command, and not all variants.
+    .               ///
+    .               /// # Examples
+-- line 238 ----------------------------------------
+-- line 248 ----------------------------------------
+    .               ///        .get_matches_from(vec![
+    .               ///             "prog", "--alias", "cool"
+    .               ///         ]);
+    .               /// assert_eq!(m.get_one::<String>("test").unwrap(), "cool");
+    .               /// ```
+    .               #[must_use]
+    .               pub fn alias(mut self, name: impl IntoResettable<Str>) -> Self {
+    .                   if let Some(name) = name.into_resettable().into_option() {
+    2 ( 0.00%)              self.aliases.push((name, false));
+    .                   } else {
+    .                       self.aliases.clear();
+    .                   }
+    6 ( 0.00%)          self
+  178 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (2x)
+    .               }
+    .           
+    .               /// Add an alias, which functions as a hidden short flag.
+    .               ///
+    .               /// This is more efficient, and easier than creating multiple hidden arguments as one only
+    .               /// needs to check for the existence of this command, and not all variants.
+    .               ///
+    .               /// # Examples
+-- line 268 ----------------------------------------
+-- line 819 ----------------------------------------
+    .               /// assert_eq!(res.unwrap_err().kind(), ErrorKind::MissingRequiredArgument);
+    .               /// ```
+    .               /// [`Arg::requires(name)`]: Arg::requires()
+    .               /// [Conflicting]: Arg::conflicts_with()
+    .               /// [override]: Arg::overrides_with()
+    .               #[must_use]
+    .               pub fn requires(mut self, arg_id: impl IntoResettable<Id>) -> Self {
+    .                   if let Some(arg_id) = arg_id.into_resettable().into_option() {
+    2 ( 0.00%)              self.requires.push((ArgPredicate::IsPresent, arg_id));
+    .                   } else {
+    .                       self.requires.clear();
+    .                   }
+    4 ( 0.00%)          self
+  178 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (2x)
+    .               }
+    .           
+    .               /// This argument must be passed alone; it conflicts with all other arguments.
+    .               ///
+    .               /// # Examples
+    .               ///
+    .               /// ```rust
+    .               /// # use clap_builder as clap;
+-- line 839 ----------------------------------------
+-- line 1040 ----------------------------------------
+    .               /// let hostname: &String = m.get_one("hostname")
+    .               ///     .expect("required");
+    .               /// assert_eq!(hostname, "rust-lang.org");
+    .               ///
+    .               /// let port: u16 = *m.get_one("port")
+    .               ///     .expect("required");
+    .               /// assert_eq!(port, 3001);
+    .               /// ```
+  208 ( 0.00%)      pub fn value_parser(mut self, parser: impl IntoResettable<super::ValueParser>) -> Self {
+   72 ( 0.00%)          self.value_parser = parser.into_resettable().into_option();
+   80 ( 0.00%)          self
+  534 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (6x)
+  216 ( 0.00%)      }
+    .           
+    .               /// Specifies the number of arguments parsed per occurrence
+    .               ///
+    .               /// For example, if you had a `-f <file>` argument where you wanted exactly 3 'files' you would
+    .               /// set `.num_args(3)`, and this argument wouldn't be satisfied unless the user
+    .               /// provided 3 and only 3 values.
+    .               ///
+    .               /// Users may specify values for arguments in any of the following methods
+-- line 1059 ----------------------------------------
+-- line 1203 ----------------------------------------
+    .               /// let files: Vec<_> = m.get_many::<String>("file").unwrap().collect();
+    .               /// assert_eq!(files, ["file1", "file2", "file3"]);
+    .               /// assert_eq!(m.get_one::<String>("word").unwrap(), "word");
+    .               /// ```
+    .               #[inline]
+    .               #[must_use]
+    .               pub fn num_args(mut self, qty: impl IntoResettable<ValueRange>) -> Self {
+    .                   self.num_vals = qty.into_resettable().into_option();
+  768 ( 0.00%)          self
+    .               }
+    .           
+    .               #[doc(hidden)]
+    .               #[cfg_attr(
+    .                   feature = "deprecated",
+    .                   deprecated(since = "4.0.0", note = "Replaced with `Arg::num_args`")
+    .               )]
+    .               pub fn number_of_values(self, qty: usize) -> Self {
+-- line 1219 ----------------------------------------
+-- line 1845 ----------------------------------------
+    .               /// ```
+    .               /// [`Arg::action(ArgAction::Set)`]: Arg::action()
+    .               /// [`ArgMatches::contains_id`]: crate::ArgMatches::contains_id()
+    .               /// [`Arg::default_value_if`]: Arg::default_value_if()
+    .               #[inline]
+    .               #[must_use]
+    .               pub fn default_value(mut self, val: impl IntoResettable<OsStr>) -> Self {
+    .                   if let Some(val) = val.into_resettable().into_option() {
+   82 ( 0.00%)              self.default_values([val])
+  534 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (6x)
+    .                   } else {
+    .                       self.default_vals.clear();
+    .                       self
+    .                   }
+    .               }
+    .           
+    .               #[inline]
+    .               #[must_use]
+-- line 1861 ----------------------------------------
+-- line 1871 ----------------------------------------
+    .               /// Value for the argument when not present.
+    .               ///
+    .               /// See [`Arg::default_value`].
+    .               ///
+    .               /// [`Arg::default_value`]: Arg::default_value()
+    .               #[inline]
+    .               #[must_use]
+    .               pub fn default_values(mut self, vals: impl IntoIterator<Item = impl Into<OsStr>>) -> Self {
+   40 ( 0.00%)          self.default_vals = vals.into_iter().map(|s| s.into()).collect();
+   16 ( 0.00%)          self
+  712 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (8x)
+    .               }
+    .           
+    .               #[inline]
+    .               #[must_use]
+    .               #[doc(hidden)]
+    .               #[cfg_attr(
+    .                   feature = "deprecated",
+    .                   deprecated(since = "4.0.0", note = "Replaced with `Arg::default_values`")
+-- line 1888 ----------------------------------------
+-- line 2262 ----------------------------------------
+    .               ///     --config     Some help text describing the --config arg
+    .               /// -h, --help       Print help information
+    .               /// -V, --version    Print version information
+    .               /// ```
+    .               /// [`Arg::long_help`]: Arg::long_help()
+    .               #[inline]
+    .               #[must_use]
+    .               pub fn help(mut self, h: impl IntoResettable<StyledStr>) -> Self {
+  276 ( 0.00%)          self.help = h.into_resettable().into_option();
+  222 ( 0.00%)          self
+4,984 ( 0.02%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (56x)
+    .               }
+    .           
+    .               /// Sets the description of the argument for long help (`--help`).
+    .               ///
+    .               /// Typically this a more detailed (multi-line) message
+    .               /// that describes the arg.
+    .               ///
+    .               /// If [`Arg::help`] is not specified, this message will be displayed for `-h`.
+-- line 2279 ----------------------------------------
+-- line 3996 ----------------------------------------
+    .               /// [`Arg::exclusive(true)`]: Arg::exclusive()
+    .               #[must_use]
+    .               pub fn conflicts_with(mut self, arg_id: impl IntoResettable<Id>) -> Self {
+    .                   if let Some(arg_id) = arg_id.into_resettable().into_option() {
+    .                       self.blacklist.push(arg_id);
+    .                   } else {
+    .                       self.blacklist.clear();
+    .                   }
+   12 ( 0.00%)          self
+  534 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (6x)
+    .               }
+    .           
+    .               /// This argument is mutually exclusive with the specified arguments.
+    .               ///
+    .               /// See [`Arg::conflicts_with`].
+    .               ///
+    .               /// <div class="warning">
+    .               ///
+-- line 4012 ----------------------------------------
+-- line 4059 ----------------------------------------
+    .               ///
+    .               /// assert!(res.is_err());
+    .               /// assert_eq!(res.unwrap_err().kind(), ErrorKind::ArgumentConflict);
+    .               /// ```
+    .               /// [`Arg::conflicts_with`]: Arg::conflicts_with()
+    .               /// [`Arg::exclusive(true)`]: Arg::exclusive()
+    .               #[must_use]
+    .               pub fn conflicts_with_all(mut self, names: impl IntoIterator<Item = impl Into<Id>>) -> Self {
+    6 ( 0.00%)          self.blacklist.extend(names.into_iter().map(Into::into));
+   30 ( 0.00%)          self
+1,068 ( 0.00%)  => ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms (12x)
+    .               }
+    .           
+    .               /// Sets an overridable argument.
+    .               ///
+    .               /// i.e. this argument and the following argument
+    .               /// will override each other in POSIX style (whichever argument was specified at runtime
+    .               /// **last** "wins")
+    .               ///
+-- line 4076 ----------------------------------------
+-- line 4163 ----------------------------------------
+    .               }
+    .           }
+    .           
+    .           /// # Reflection
+    .           impl Arg {
+    .               /// Get the name of the argument
+    .               #[inline]
+    .               pub fn get_id(&self) -> &Id {
+   34 ( 0.00%)          &self.id
+    .               }
+    .           
+    .               /// Get the help specified for this argument, if any
+    .               #[inline]
+    .               pub fn get_help(&self) -> Option<&StyledStr> {
+    .                   self.help.as_ref()
+    .               }
+    .           
+-- line 4179 ----------------------------------------
+-- line 4344 ----------------------------------------
+    .               #[inline]
+    .               pub(crate) fn get_min_vals(&self) -> usize {
+    .                   self.get_num_args().expect(INTERNAL_ERROR_MSG).min_values()
+    .               }
+    .           
+    .               /// Get the delimiter between multiple values
+    .               #[inline]
+    .               pub fn get_value_delimiter(&self) -> Option<char> {
+   34 ( 0.00%)          self.val_delim
+    .               }
+    .           
+    .               /// Get the value terminator for this argument. The `value_terminator` is a value
+    .               /// that terminates parsing of multi-valued arguments.
+    .               #[inline]
+    .               pub fn get_value_terminator(&self) -> Option<&Str> {
+    .                   self.terminator.as_ref()
+    .               }
+-- line 4360 ----------------------------------------
+-- line 4472 ----------------------------------------
+    .               ///             .value_parser(clap::value_parser!(usize))
+    .               ///     );
+    .               /// let value_parser = cmd.get_arguments()
+    .               ///     .find(|a| a.get_id() == "port").unwrap()
+    .               ///     .get_value_parser();
+    .               /// println!("{value_parser:?}");
+    .               /// ```
+    .               pub fn get_value_parser(&self) -> &super::ValueParser {
+  126 ( 0.00%)          if let Some(value_parser) = self.value_parser.as_ref() {
+    .                       value_parser
+    .                   } else {
+    .                       static DEFAULT: super::ValueParser = super::ValueParser::string();
+    .                       &DEFAULT
+    .                   }
+    .               }
+    .           
+    .               /// Report whether [`Arg::global`] is set
+-- line 4488 ----------------------------------------
+-- line 4567 ----------------------------------------
+    .               #[cfg(feature = "unstable-ext")]
+    .               pub fn remove<T: ArgExt + Extension>(mut self) -> Option<T> {
+    .                   self.ext.remove::<T>()
+    .               }
+    .           }
+    .           
+    .           /// # Internally used only
+    .           impl Arg {
+  480 ( 0.00%)      pub(crate) fn _build(&mut self) {
+   60 ( 0.00%)          if self.action.is_none() {
+    .                       if self.num_vals == Some(ValueRange::EMPTY) {
+    .                           let action = ArgAction::SetTrue;
+  104 ( 0.00%)                  self.action = Some(action);
+    .                       } else {
+    .                           let action =
+    .                               if self.is_positional() && self.num_vals.unwrap_or_default().is_unbounded() {
+    .                                   // Allow collecting arguments interleaved with flags
+    .                                   //
+    .                                   // Bounded values are probably a group and the user should explicitly opt-in to
+    .                                   // Append
+    .                                   ArgAction::Append
+    .                               } else {
+    .                                   ArgAction::Set
+    .                               };
+   34 ( 0.00%)                  self.action = Some(action);
+    .                       }
+    .                   }
+    .                   if let Some(action) = self.action.as_ref() {
+    .                       if let Some(default_value) = action.default_value() {
+  104 ( 0.00%)                  if self.default_vals.is_empty() {
+  156 ( 0.00%)                      self.default_vals = vec![default_value.into()];
+    .                           }
+    .                       }
+    .                       if let Some(default_value) = action.default_missing_value() {
+   52 ( 0.00%)                  if self.default_missing_vals.is_empty() {
+  182 ( 0.00%)                      self.default_missing_vals = vec![default_value.into()];
+    .                           }
+    .                       }
+    .                   }
+    .           
+   60 ( 0.00%)          if self.value_parser.is_none() {
+    .                       if let Some(default) = self.action.as_ref().and_then(|a| a.default_value_parser()) {
+  104 ( 0.00%)                  self.value_parser = Some(default);
+    .                       } else {
+   10 ( 0.00%)                  self.value_parser = Some(super::ValueParser::string());
+    .                       }
+    .                   }
+    .           
+    .                   let val_names_len = self.val_names.len();
+  120 ( 0.00%)          if val_names_len > 1 {
+    .                       self.num_vals.get_or_insert(val_names_len.into());
+    .                   } else {
+    .                       let nargs = self.get_action().default_num_args();
+    .                       self.num_vals.get_or_insert(nargs);
+    .                   }
+  480 ( 0.00%)      }
+    .           
+    .               // Used for positionals when printing
+    .               pub(crate) fn name_no_brackets(&self) -> String {
+    .                   debug!("Arg::name_no_brackets:{}", self.get_id());
+    .                   let delim = " ";
+    .                   if !self.val_names.is_empty() {
+    .                       debug!("Arg::name_no_brackets: val_names={:#?}", self.val_names);
+    .           
+-- line 4630 ----------------------------------------
+
+  352 ( 0.00%)  <counts for unidentified lines in /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.53/src/builder/arg.rs>
+
+--------------------------------------------------------------------------------
 -- Auto-annotated source: src/lib.rs
 --------------------------------------------------------------------------------
 Ir               
@@ -1640,6 +1245,401 @@ Ir
 -- line 40 ----------------------------------------
 
       2 ( 0.00%)  <counts for unidentified lines in src/lib.rs>
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs
+--------------------------------------------------------------------------------
+Ir             
+
+-- line 34 ----------------------------------------
+    .           
+    .               /// When we see a `{foo -}` or similar, we need to remember to left-trim the next text block we
+    .               /// encounter.
+    .               trim_next: bool,
+    .           }
+    .           impl<'template> TemplateCompiler<'template> {
+    .               /// Create a new template compiler to parse and compile the given template.
+    .               pub fn new(text: &'template str) -> TemplateCompiler<'template> {
+  104 ( 0.00%)          TemplateCompiler {
+    .                       original_text: text,
+    .                       remaining_text: text,
+    .                       instructions: vec![],
+    .                       block_stack: vec![],
+    .                       trim_next: false,
+    .                   }
+    .               }
+    .           
+    .               /// Consume the template compiler to parse the template and return the generated bytecode.
+   72 ( 0.00%)      pub fn compile(mut self) -> Result<Vec<Instruction<'template>>> {
+1,728 ( 0.01%)          while !self.remaining_text.is_empty() {
+    .                       // Comment, denoted by {# comment text #}
+1,136 ( 0.00%)              if self.remaining_text.starts_with("{#") {
+    6 ( 0.00%)                  self.trim_next = false;
+    .           
+   30 ( 0.00%)                  let tag = self.consume_tag("#}")?;
+3,914 ( 0.01%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (6x)
+    6 ( 0.00%)                  let comment = tag[2..(tag.len() - 2)].trim();
+    6 ( 0.00%)                  if comment.starts_with('-') {
+    .                               self.trim_last_whitespace();
+    .                           }
+    6 ( 0.00%)                  if comment.ends_with('-') {
+    .                               self.trim_next_whitespace();
+    .                           }
+    .                       // Block tag. Block tags are wrapped in {{ }} and always have one word at the start
+    .                       // to identify which kind of tag it is. Depending on the tag type there may be more.
+  562 ( 0.00%)              } else if self.remaining_text.starts_with("{{") {
+  132 ( 0.00%)                  self.trim_next = false;
+    .           
+  264 ( 0.00%)                  let (discriminant, rest) = self.consume_block()?;
+    .                           match discriminant {
+   34 ( 0.00%)                      "if" => {
+   34 ( 0.00%)                          let (path, negated) = if rest.starts_with("not") {
+    .                                       (self.parse_path(&rest[4..])?, true)
+    .                                   } else {
+  170 ( 0.00%)                              (self.parse_path(rest)?, false)
+18,249 ( 0.06%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (34x)
+    .                                   };
+    .                                   self.block_stack
+    .                                       .push((discriminant, Block::Branch(self.instructions.len())));
+    .                                   self.instructions
+  272 ( 0.00%)                              .push(Instruction::Branch(path, !negated, UNKNOWN));
+    .                               }
+   28 ( 0.00%)                      "else" => {
+   64 ( 0.00%)                          self.expect_empty(rest)?;
+   16 ( 0.00%)                          let num_instructions = self.instructions.len() + 1;
+   64 ( 0.00%)                          self.close_branch(num_instructions, discriminant)?;
+  576 ( 0.00%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::close_branch (16x)
+    .                                   self.block_stack
+    .                                       .push((discriminant, Block::Branch(self.instructions.len())));
+   32 ( 0.00%)                          self.instructions.push(Instruction::Goto(UNKNOWN))
+    .                               }
+   34 ( 0.00%)                      "endif" => {
+  136 ( 0.00%)                          self.expect_empty(rest)?;
+    .                                   let num_instructions = self.instructions.len();
+  136 ( 0.00%)                          self.close_branch(num_instructions, discriminant)?;
+1,256 ( 0.00%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::close_branch (34x)
+    .                               }
+   12 ( 0.00%)                      "with" => {
+    .                                   let (path, name) = self.parse_with(rest)?;
+    .                                   let instruction = Instruction::PushNamedContext(path, name);
+    .                                   self.instructions.push(instruction);
+    .                                   self.block_stack.push((discriminant, Block::With));
+    .                               }
+    .                               "endwith" => {
+    .                                   self.expect_empty(rest)?;
+    .                                   if let Some((_, Block::With)) = self.block_stack.pop() {
+-- line 105 ----------------------------------------
+-- line 106 ----------------------------------------
+    .                                       self.instructions.push(Instruction::PopContext)
+    .                                   } else {
+    .                                       return Err(self.parse_error(
+    .                                           discriminant,
+    .                                           "Found a closing endwith that doesn't match with a preceeding with.".to_string()
+    .                                       ));
+    .                                   }
+    .                               }
+   18 ( 0.00%)                      "for" => {
+  108 ( 0.00%)                          let (path, name) = self.parse_for(rest)?;
+    .                                   self.instructions
+  108 ( 0.00%)                              .push(Instruction::PushIterationContext(path, name));
+    .                                   self.block_stack
+    .                                       .push((discriminant, Block::For(self.instructions.len())));
+   36 ( 0.00%)                          self.instructions.push(Instruction::Iterate(UNKNOWN));
+    .                               }
+   18 ( 0.00%)                      "endfor" => {
+   72 ( 0.00%)                          self.expect_empty(rest)?;
+    .                                   let num_instructions = self.instructions.len() + 1;
+    .                                   let goto_target = self.close_for(num_instructions, discriminant)?;
+   36 ( 0.00%)                          self.instructions.push(Instruction::Goto(goto_target));
+   18 ( 0.00%)                          self.instructions.push(Instruction::PopContext);
+    .                               }
+   12 ( 0.00%)                      "call" => {
+   72 ( 0.00%)                          let (name, path) = self.parse_call(rest)?;
+   72 ( 0.00%)                          self.instructions.push(Instruction::Call(name, path));
+    .                               }
+    .                               _ => {
+    .                                   return Err(self.parse_error(
+    .                                       discriminant,
+    .                                       format!("Unknown block type '{}'", discriminant),
+    .                                   ));
+    .                               }
+    .                           }
+    .                       // Values, of the form { dotted.path.to.value.in.context }
+    .                       // Note that it is not (currently) possible to escape curly braces in the templates to
+    .                       // prevent them from being interpreted as values.
+  430 ( 0.00%)              } else if self.remaining_text.starts_with('{') {
+  144 ( 0.00%)                  self.trim_next = false;
+    .           
+    .                           let (path, name) = self.consume_value()?;
+    .                           let instruction = match name {
+    .                               Some(name) => Instruction::FormattedValue(path, name),
+  720 ( 0.00%)                      None => Instruction::Value(path),
+    .                           };
+    .                           self.instructions.push(instruction);
+    .                       // All other text - just consume characters until we see a {
+    .                       } else {
+    .                           let mut escaped = false;
+    .                           loop {
+    .                               let mut text = self.consume_text(escaped);
+  704 ( 0.00%)                      if self.trim_next {
+    .                                   text = text.trim_left();
+    4 ( 0.00%)                          self.trim_next = false;
+    .                               }
+    .                               escaped = text.ends_with('\\');
+  350 ( 0.00%)                      if escaped {
+    .                                   text = &text[0..(text.len() - 1)];
+    .                               }
+1,056 ( 0.00%)                      self.instructions.push(Instruction::Literal(text));
+    .           
+  704 ( 0.00%)                      if !escaped {
+    .                                   break;
+    .                               }
+    .                           }
+    .                       }
+    .                   }
+    .           
+    .                   if let Some((text, _)) = self.block_stack.pop() {
+    .                       return Err(self.parse_error(
+    .                           text,
+    .                           "Expected block-closing tag, but reached the end of input.".to_string(),
+    .                       ));
+    .                   }
+    .           
+   56 ( 0.00%)          Ok(self.instructions)
+  120 ( 0.00%)      }
+  696 ( 0.00%)  => ???:__rustc::__rust_dealloc (8x)
+    .           
+    .               /// Splits a string into a list of named segments which can later be used to look up values in the
+    .               /// context.
+1,456 ( 0.01%)      fn parse_path(&self, text: &'template str) -> Result<Path<'template>> {
+  208 ( 0.00%)          if !text.starts_with('@') {
+  416 ( 0.00%)              Ok(text
+    .                           .split('.')
+    .                           .map(|s| match s.parse::<usize>() {
+    .                               Ok(n) => PathStep::Index(s, n),
+    .                               Err(_) => PathStep::Name(s),
+    .                           })
+    .                           .collect::<Vec<_>>())
+    .                   } else if KNOWN_KEYWORDS.iter().any(|k| *k == text) {
+    .                       Ok(vec![PathStep::Name(text)])
+    .                   } else {
+    .                       Err(self.parse_error(text, format!("Invalid keyword name '{}'", text)))
+    .                   }
+1,040 ( 0.00%)      }
+    .           
+    .               /// Finds the line number and column where an error occurred. Location is the substring of
+    .               /// self.original_text where the error was found, and msg is the error message.
+    .               fn parse_error(&self, location: &str, msg: String) -> Error {
+    .                   let (line, column) = get_offset(self.original_text, location);
+    .                   ParseError { msg, line, column }
+    .               }
+    .           
+    .               /// Tags which should have no text after the discriminant use this to raise an error if
+    .               /// text is found.
+    .               fn expect_empty(&self, text: &str) -> Result<()> {
+  136 ( 0.00%)          if text.is_empty() {
+    .                       Ok(())
+    .                   } else {
+    .                       Err(self.parse_error(text, format!("Unexpected text '{}'", text)))
+    .                   }
+    .               }
+    .           
+    .               /// Close the branch that is on top of the block stack by setting its target instruction
+    .               /// and popping it from the stack. Returns an error if the top of the block stack is not a
+    .               /// branch.
+  400 ( 0.00%)      fn close_branch(&mut self, new_target: usize, discriminant: &str) -> Result<()> {
+    .                   let branch_block = self.block_stack.pop();
+  100 ( 0.00%)          if let Some((_, Block::Branch(index))) = branch_block {
+  182 ( 0.00%)              match &mut self.instructions[index] {
+    .                           Instruction::Branch(_, _, target) => {
+    .                               *target = new_target;
+    .                               Ok(())
+    .                           }
+    .                           Instruction::Goto(target) => {
+    .                               *target = new_target;
+    .                               Ok(())
+    .                           }
+-- line 233 ----------------------------------------
+-- line 235 ----------------------------------------
+    .                       }
+    .                   } else {
+    .                       Err(self.parse_error(
+    .                           discriminant,
+    .                           "Found a closing endif or else which doesn't match with a preceding if."
+    .                               .to_string(),
+    .                       ))
+    .                   }
+  300 ( 0.00%)      }
+    .           
+    .               /// Close the for loop that is on top of the block stack by setting its target instruction and
+    .               /// popping it from the stack. Returns an error if the top of the stack is not a for loop.
+    .               /// Returns the index of the loop's Iterate instruction for further processing.
+    .               fn close_for(&mut self, new_target: usize, discriminant: &str) -> Result<usize> {
+    .                   let branch_block = self.block_stack.pop();
+   36 ( 0.00%)          if let Some((_, Block::For(index))) = branch_block {
+   54 ( 0.00%)              match &mut self.instructions[index] {
+    .                           Instruction::Iterate(target) => {
+   18 ( 0.00%)                      *target = new_target;
+    .                               Ok(index)
+    .                           }
+    .                           _ => panic!(),
+    .                       }
+    .                   } else {
+    .                       Err(self.parse_error(
+    .                           discriminant,
+    .                           "Found a closing endfor which doesn't match with a preceding for.".to_string(),
+-- line 261 ----------------------------------------
+-- line 275 ----------------------------------------
+    .                   let mut position = search_substr
+    .                       .find('{')
+    .                       .unwrap_or_else(|| search_substr.len());
+    .                   if escaped {
+    .                       position += 1;
+    .                   }
+    .           
+    .                   let (text, remaining) = self.remaining_text.split_at(position);
+  704 ( 0.00%)          self.remaining_text = remaining;
+    .                   text
+    .               }
+    .           
+    .               /// Advance the cursor to the end of the value tag and return the value's path and optional
+    .               /// formatter name.
+    .               fn consume_value(&mut self) -> Result<(Path<'template>, Option<&'template str>)> {
+  720 ( 0.00%)          let tag = self.consume_tag("}")?;
+82,512 ( 0.29%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (144x)
+  144 ( 0.00%)          let mut tag = tag[1..(tag.len() - 1)].trim();
+  144 ( 0.00%)          if tag.starts_with('-') {
+    .                       tag = tag[1..].trim();
+    .                       self.trim_last_whitespace();
+    .                   }
+  144 ( 0.00%)          if tag.ends_with('-') {
+    .                       tag = tag[0..tag.len() - 1].trim();
+    .                       self.trim_next_whitespace();
+    .                   }
+    .           
+  288 ( 0.00%)          if let Some(index) = tag.find('|') {
+    .                       let (path_str, name_str) = tag.split_at(index);
+    .                       let name = name_str[1..].trim();
+    .                       let path = self.parse_path(path_str.trim())?;
+    .                       Ok((path, Some(name)))
+    .                   } else {
+  864 ( 0.00%)              Ok((self.parse_path(tag)?, None))
+83,478 ( 0.29%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (144x)
+    .                   }
+    .               }
+    .           
+    .               /// Right-trim whitespace from the last text block we parsed.
+    .               fn trim_last_whitespace(&mut self) {
+  342 ( 0.00%)          if let Some(Instruction::Literal(text)) = self.instructions.last_mut() {
+  456 ( 0.00%)              *text = text.trim_right();
+    .                   }
+    .               }
+    .           
+    .               /// Make a note to left-trim whitespace from the next text block we parse.
+    .               fn trim_next_whitespace(&mut self) {
+    4 ( 0.00%)          self.trim_next = true;
+    .               }
+    .           
+    .               /// Advance the cursor to the end of the current block tag and return the discriminant substring
+    .               /// and the rest of the text in the tag. Also handles trimming whitespace where needed.
+    .               fn consume_block(&mut self) -> Result<(&'template str, &'template str)> {
+  660 ( 0.00%)          let tag = self.consume_tag("}}")?;
+85,790 ( 0.30%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::consume_tag (132x)
+  132 ( 0.00%)          let mut block = tag[2..(tag.len() - 2)].trim();
+  132 ( 0.00%)          if block.starts_with('-') {
+    .                       block = block[1..].trim();
+  228 ( 0.00%)              self.trim_last_whitespace();
+    .                   }
+  136 ( 0.00%)          if block.ends_with('-') {
+    4 ( 0.00%)              block = block[0..block.len() - 1].trim();
+    .                       self.trim_next_whitespace();
+    .                   }
+    .                   let discriminant = block.split_whitespace().next().unwrap_or(block);
+    .                   let rest = block[discriminant.len()..].trim();
+    .                   Ok((discriminant, rest))
+    .               }
+    .           
+    .               /// Advance the cursor to after the given expected_close string and return the text in between
+    .               /// (including the expected_close characters), or return an error message if we reach the end
+    .               /// of a line of text without finding it.
+3,666 ( 0.01%)      fn consume_tag(&mut self, expected_close: &str) -> Result<&'template str> {
+  564 ( 0.00%)          if let Some(line) = self.remaining_text.lines().next() {
+1,692 ( 0.01%)              if let Some(pos) = line.find(expected_close) {
+96,394 ( 0.34%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (282x)
+    .                           let (tag, remaining) = self.remaining_text.split_at(pos + expected_close.len());
+  846 ( 0.00%)                  self.remaining_text = remaining;
+1,128 ( 0.00%)                  Ok(tag)
+    .                       } else {
+    .                           Err(self.parse_error(
+    .                               line,
+    .                               format!(
+    .                                   "Expected a closing '{}' but found end-of-line instead.",
+    .                                   expected_close
+    .                               ),
+    .                           ))
+-- line 357 ----------------------------------------
+-- line 360 ----------------------------------------
+    .                       Err(self.parse_error(
+    .                           self.remaining_text,
+    .                           format!(
+    .                               "Expected a closing '{}' but found end-of-text instead.",
+    .                               expected_close
+    .                           ),
+    .                       ))
+    .                   }
+2,256 ( 0.01%)      }
+    .           
+    .               /// Parse a with tag to separate the value path from the (optional) name.
+    .               fn parse_with(&self, with_text: &'template str) -> Result<(Path<'template>, &'template str)> {
+    .                   if let Some(index) = with_text.find(" as ") {
+    .                       let (path_str, name_str) = with_text.split_at(index);
+    .                       let path = self.parse_path(path_str.trim())?;
+    .                       let name = name_str[" as ".len()..].trim();
+    .                       Ok((path, name))
+-- line 376 ----------------------------------------
+-- line 382 ----------------------------------------
+    .                               with_text
+    .                           ),
+    .                       ))
+    .                   }
+    .               }
+    .           
+    .               /// Parse a for tag to separate the value path from the name.
+    .               fn parse_for(&self, for_text: &'template str) -> Result<(Path<'template>, &'template str)> {
+  126 ( 0.00%)          if let Some(index) = for_text.find(" in ") {
+6,290 ( 0.02%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (18x)
+    .                       let (name_str, path_str) = for_text.split_at(index);
+    .                       let name = name_str.trim();
+  108 ( 0.00%)              let path = self.parse_path(path_str[" in ".len()..].trim())?;
+11,079 ( 0.04%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (18x)
+    .                       Ok((path, name))
+    .                   } else {
+    .                       Err(self.parse_error(
+    .                           for_text,
+    .                           format!("Unable to parse for block text '{}'", for_text),
+    .                       ))
+    .                   }
+    .               }
+    .           
+    .               /// Parse a call tag to separate the template name and context value.
+    .               fn parse_call(&self, call_text: &'template str) -> Result<(&'template str, Path<'template>)> {
+   84 ( 0.00%)          if let Some(index) = call_text.find(" with ") {
+9,696 ( 0.03%)  => /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library/core/src/str/mod.rs:<str>::find::<&str> (12x)
+    .                       let (name_str, path_str) = call_text.split_at(index);
+    .                       let name = name_str.trim();
+   72 ( 0.00%)              let path = self.parse_path(path_str[" with ".len()..].trim())?;
+5,989 ( 0.02%)  => /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs:<tinytemplate::compiler::TemplateCompiler>::parse_path (12x)
+    .                       Ok((name, path))
+    .                   } else {
+    .                       Err(self.parse_error(
+    .                           call_text,
+    .                           format!("Unable to parse call block text '{}'", call_text),
+    .                       ))
+    .                   }
+    .               }
+-- line 416 ----------------------------------------
+
+2,930 ( 0.01%)  <counts for unidentified lines in /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/compiler.rs>
 
 --------------------------------------------------------------------------------
 The following files chosen for auto-annotation could not be found:

@@ -58,7 +58,6 @@ jobs:
           perf record -F 997 -g -o /tmp/perf.data -- \
             bash -c 'for i in $(seq "$REPEAT"); do "$BENCH_FP" --bench --test > /dev/null; done'
           perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
-          sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/fixed/profile-top.txt
           inferno-flamegraph --title "broken-app до оптимизации" \
             --subtitle "criterion --bench --test x$REPEAT, коммит ${{ inputs.base }}" \
             /tmp/folded.txt > logs/fixed/flamegraph.svg
@@ -68,7 +67,6 @@ jobs:
           perf record -F 997 -g -o /tmp/perf-fib.data -- \
             bash -c 'for i in $(seq 300); do "$BENCH_FP" --bench --test fib > /dev/null; done'
           perf script -i /tmp/perf-fib.data | inferno-collapse-perf > /tmp/folded-fib.txt
-          sort -t' ' -k2 -nr /tmp/folded-fib.txt | head -20 > logs/fixed/profile-top-fib.txt
           inferno-flamegraph --title "broken-app: только бенчмарк fib_32, до оптимизации" \
             --subtitle "criterion --bench --test fib x300, коммит ${{ inputs.base }}" \
             /tmp/folded-fib.txt > logs/fixed/flamegraph-fib.svg
@@ -101,7 +99,6 @@ jobs:
           perf record -F 997 -g -o /tmp/perf.data -- \
             bash -c 'for i in $(seq "$REPEAT"); do "$BENCH_FP" --bench --test > /dev/null; done'
           perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
-          sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/after/profile-top.txt
           inferno-flamegraph --title "broken-app после оптимизации" \
             --subtitle "criterion --bench --test x$REPEAT, коммит $(git rev-parse --short HEAD)" \
             /tmp/folded.txt > logs/after/flamegraph.svg

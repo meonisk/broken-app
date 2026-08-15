@@ -1,20 +1,20 @@
-==5936== DHAT, a dynamic heap analysis tool
-==5936== Copyright (C) 2010-2018, and GNU GPL'd, by Mozilla Foundation
-==5936== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==5936== Command: /home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1 --bench --test
-==5936== 
-==5937== 
-==5937== Total:     2,950 bytes in 15 blocks
-==5937== At t-gmax: 1,736 bytes in 3 blocks
-==5937== At t-end:  862 bytes in 7 blocks
-==5937== Reads:     22,568 bytes
-==5937== Writes:    13,317 bytes
-==5937== 
-==5937== To view the resulting profile, open
-==5937==   file:///usr/libexec/valgrind/dh_view.html
-==5937== in a web browser, click on "Load...", and then select the file
-==5937==   /home/runner/work/broken-app/broken-app/logs/fixed/dhat.json
-==5937== The text at the bottom explains the abbreviations used in the output.
+==7350== DHAT, a dynamic heap analysis tool
+==7350== Copyright (C) 2010-2018, and GNU GPL'd, by Mozilla Foundation
+==7350== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==7350== Command: /home/runner/work/broken-app/broken-app/target/release/deps/criterion-256fa2044db235a1 --bench --test
+==7350== 
+==7351== 
+==7351== Total:     2,950 bytes in 15 blocks
+==7351== At t-gmax: 1,736 bytes in 3 blocks
+==7351== At t-end:  862 bytes in 7 blocks
+==7351== Reads:     22,568 bytes
+==7351== Writes:    13,317 bytes
+==7351== 
+==7351== To view the resulting profile, open
+==7351==   file:///usr/libexec/valgrind/dh_view.html
+==7351== in a web browser, click on "Load...", and then select the file
+==7351==   /home/runner/work/broken-app/broken-app/logs/fixed/dhat.json
+==7351== The text at the bottom explains the abbreviations used in the output.
 Gnuplot not found or not usable, using plotters backend
 `gnuplot --version` failed with error message:
 
@@ -30,15 +30,15 @@ Success
 Testing normalize_700k
 Success
 
-==5936== 
-==5936== Total:     4,055,509 bytes in 895 blocks
-==5936== At t-gmax: 1,759,452 bytes in 137 blocks
-==5936== At t-end:  560 bytes in 2 blocks
-==5936== Reads:     4,804,672,549 bytes
-==5936== Writes:    3,896,300 bytes
-==5936== 
-==5936== To view the resulting profile, open
-==5936==   file:///usr/libexec/valgrind/dh_view.html
-==5936== in a web browser, click on "Load...", and then select the file
-==5936==   /home/runner/work/broken-app/broken-app/logs/fixed/dhat.json
-==5936== The text at the bottom explains the abbreviations used in the output.
+==7350== 
+==7350== Total:     4,055,509 bytes in 895 blocks
+==7350== At t-gmax: 1,759,452 bytes in 137 blocks
+==7350== At t-end:  560 bytes in 2 blocks
+==7350== Reads:     4,804,672,549 bytes
+==7350== Writes:    3,896,300 bytes
+==7350== 
+==7350== To view the resulting profile, open
+==7350==   file:///usr/libexec/valgrind/dh_view.html
+==7350== in a web browser, click on "Load...", and then select the file
+==7350==   /home/runner/work/broken-app/broken-app/logs/fixed/dhat.json
+==7350== The text at the bottom explains the abbreviations used in the output.

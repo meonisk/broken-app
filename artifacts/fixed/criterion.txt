@@ -1,46 +1,45 @@
     Updating crates.io index
  Downloading crates ...
+  Downloaded ciborium v0.2.2
   Downloaded anstyle v1.0.13
-  Downloaded cast v0.3.0
-  Downloaded ciborium-ll v0.2.2
-  Downloaded ciborium-io v0.2.2
-  Downloaded clap_lex v0.7.6
-  Downloaded autocfg v1.5.0
-  Downloaded crossbeam-deque v0.8.6
   Downloaded anes v0.1.6
+  Downloaded ciborium-ll v0.2.2
+  Downloaded autocfg v1.5.0
+  Downloaded clap_lex v0.7.6
+  Downloaded cast v0.3.0
   Downloaded either v1.15.0
   Downloaded is-terminal v0.4.17
-  Downloaded criterion-plot v0.5.0
-  Downloaded itoa v1.0.15
-  Downloaded stats_alloc v0.1.10
+  Downloaded crossbeam-deque v0.8.6
   Downloaded plotters-backend v0.3.7
+  Downloaded stats_alloc v0.1.10
+  Downloaded ciborium-io v0.2.2
   Downloaded plotters-svg v0.3.7
-  Downloaded tinytemplate v1.2.1
-  Downloaded walkdir v2.5.0
+  Downloaded itoa v1.0.15
+  Downloaded quote v1.0.42
+  Downloaded criterion-plot v0.5.0
+  Downloaded oorandom v11.1.5
+  Downloaded crossbeam-utils v0.8.21
   Downloaded crossbeam-epoch v0.9.18
   Downloaded once_cell v1.21.3
-  Downloaded oorandom v11.1.5
-  Downloaded quote v1.0.42
-  Downloaded serde_derive v1.0.228
-  Downloaded unicode-ident v1.0.22
   Downloaded ryu v1.0.20
-  Downloaded rayon-core v1.13.0
-  Downloaded crossbeam-utils v0.8.21
-  Downloaded clap v4.5.53
+  Downloaded unicode-ident v1.0.22
+  Downloaded walkdir v2.5.0
+  Downloaded tinytemplate v1.2.1
   Downloaded serde_core v1.0.228
-  Downloaded ciborium v0.2.2
-  Downloaded num-traits v0.2.19
   Downloaded proc-macro2 v1.0.103
-  Downloaded serde v1.0.228
+  Downloaded serde_derive v1.0.228
+  Downloaded clap v4.5.53
   Downloaded half v2.7.1
-  Downloaded memchr v2.7.6
+  Downloaded num-traits v0.2.19
+  Downloaded rayon-core v1.13.0
   Downloaded zerocopy-derive v0.8.31
+  Downloaded memchr v2.7.6
+  Downloaded serde v1.0.228
   Downloaded criterion v0.5.1
-  Downloaded itertools v0.10.5
   Downloaded plotters v0.3.7
+  Downloaded itertools v0.10.5
   Downloaded regex v1.12.2
   Downloaded serde_json v1.0.145
-  Downloaded aho-corasick v1.1.4
   Downloaded clap_builder v4.5.53
   Downloaded rayon v1.11.0
   Downloaded zerocopy v0.8.31
@@ -49,96 +48,96 @@
   Downloaded regex-automata v0.4.13
   Downloaded libc v0.2.178
    Compiling proc-macro2 v1.0.103
-   Compiling quote v1.0.42
    Compiling unicode-ident v1.0.22
-   Compiling serde_core v1.0.228
+   Compiling quote v1.0.42
    Compiling crossbeam-utils v0.8.21
+   Compiling serde_core v1.0.228
    Compiling zerocopy v0.8.31
    Compiling syn v2.0.111
-   Compiling serde v1.0.228
    Compiling autocfg v1.5.0
+   Compiling serde v1.0.228
    Compiling zerocopy-derive v0.8.31
-   Compiling num-traits v0.2.19
    Compiling serde_derive v1.0.228
+   Compiling num-traits v0.2.19
    Compiling crossbeam-epoch v0.9.18
-   Compiling rayon-core v1.13.0
-   Compiling libc v0.2.178
    Compiling serde_json v1.0.145
-   Compiling cfg-if v1.0.4
+   Compiling rayon-core v1.13.0
    Compiling either v1.15.0
+   Compiling cfg-if v1.0.4
+   Compiling libc v0.2.178
    Compiling half v2.7.1
    Compiling crossbeam-deque v0.8.6
+   Compiling itoa v1.0.15
+   Compiling regex-syntax v0.8.8
    Compiling ryu v1.0.20
+   Compiling ciborium-io v0.2.2
+   Compiling clap_lex v0.7.6
+   Compiling memchr v2.7.6
    Compiling anstyle v1.0.13
    Compiling plotters-backend v0.3.7
-   Compiling memchr v2.7.6
-   Compiling ciborium-io v0.2.2
-   Compiling regex-syntax v0.8.8
-   Compiling itoa v1.0.15
-   Compiling clap_lex v0.7.6
+   Compiling plotters-svg v0.3.7
    Compiling clap_builder v4.5.53
    Compiling regex-automata v0.4.13
    Compiling ciborium-ll v0.2.2
-   Compiling plotters-svg v0.3.7
    Compiling itertools v0.10.5
-   Compiling cast v0.3.0
    Compiling same-file v1.0.6
+   Compiling cast v0.3.0
    Compiling criterion-plot v0.5.0
    Compiling walkdir v2.5.0
    Compiling is-terminal v0.4.17
    Compiling rayon v1.11.0
    Compiling plotters v0.3.7
    Compiling ciborium v0.2.2
-   Compiling tinytemplate v1.2.1
    Compiling regex v1.12.2
+   Compiling tinytemplate v1.2.1
    Compiling clap v4.5.53
+   Compiling anes v0.1.6
    Compiling once_cell v1.21.3
    Compiling broken-app v0.1.0 (/home/runner/work/broken-app/broken-app)
    Compiling oorandom v11.1.5
-   Compiling anes v0.1.6
    Compiling criterion v0.5.1
    Compiling stats_alloc v0.1.10
-    Finished `bench` profile [optimized + debuginfo] target(s) in 56.53s
+    Finished `bench` profile [optimized + debuginfo] target(s) in 1m 01s
      Running benches/criterion.rs (target/release/deps/criterion-256fa2044db235a1)
 Gnuplot not found, using plotters backend
 Benchmarking sum_even_50k
 Benchmarking sum_even_50k: Warming up for 3.0000 s
-Benchmarking sum_even_50k: Collecting 100 samples in estimated 5.0038 s (364k iterations)
+Benchmarking sum_even_50k: Collecting 100 samples in estimated 5.0474 s (288k iterations)
 Benchmarking sum_even_50k: Analyzing
-sum_even_50k            time:   [13.661 µs 13.680 µs 13.702 µs]
-Found 12 outliers among 100 measurements (12.00%)
-  5 (5.00%) high mild
-  7 (7.00%) high severe
+sum_even_50k            time:   [13.630 µs 13.648 µs 13.671 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  3 (3.00%) high mild
+  6 (6.00%) high severe
 
 Benchmarking dedup_20k
 Benchmarking dedup_20k: Warming up for 3.0000 s
 
 Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 28.4s, or reduce sample count to 10.
-Benchmarking dedup_20k: Collecting 100 samples in estimated 28.351 s (100 iterations)
+Benchmarking dedup_20k: Collecting 100 samples in estimated 28.438 s (100 iterations)
 Benchmarking dedup_20k: Analyzing
-dedup_20k               time:   [283.63 ms 284.30 ms 285.16 ms]
-Found 12 outliers among 100 measurements (12.00%)
-  7 (7.00%) high mild
-  5 (5.00%) high severe
+dedup_20k               time:   [283.53 ms 284.19 ms 285.06 ms]
+Found 15 outliers among 100 measurements (15.00%)
+  4 (4.00%) high mild
+  11 (11.00%) high severe
 
 Benchmarking fib_32
 Benchmarking fib_32: Warming up for 3.0000 s
-Benchmarking fib_32: Collecting 100 samples in estimated 5.5470 s (900 iterations)
+Benchmarking fib_32: Collecting 100 samples in estimated 5.5379 s (900 iterations)
 Benchmarking fib_32: Analyzing
-fib_32                  time:   [6.1495 ms 6.1527 ms 6.1564 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  4 (4.00%) high mild
-  6 (6.00%) high severe
+fib_32                  time:   [6.1534 ms 6.1653 ms 6.1834 ms]
+Found 6 outliers among 100 measurements (6.00%)
+  2 (2.00%) high mild
+  4 (4.00%) high severe
 
 Benchmarking normalize_700k
 Benchmarking normalize_700k: Warming up for 3.0000 s
 
 Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 50.
-Benchmarking normalize_700k: Collecting 100 samples in estimated 7.0595 s (5050 iterations)
+Benchmarking normalize_700k: Collecting 100 samples in estimated 7.0668 s (5050 iterations)
 Benchmarking normalize_700k: Analyzing
-normalize_700k          time:   [1.3979 ms 1.4043 ms 1.4142 ms]
-Found 19 outliers among 100 measurements (19.00%)
+normalize_700k          time:   [1.3605 ms 1.3697 ms 1.3852 ms]
+Found 23 outliers among 100 measurements (23.00%)
   11 (11.00%) low mild
-  1 (1.00%) high mild
-  7 (7.00%) high severe
+  3 (3.00%) high mild
+  9 (9.00%) high severe
 
