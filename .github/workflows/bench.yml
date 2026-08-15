@@ -51,8 +51,12 @@ jobs:
           cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
           export BENCH=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
             /tmp/bench.json | sort -u | head -1)
-          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf.data -- \
-            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH" --bench --test > /dev/null; done'
+          export BENCH_FP=$(RUSTFLAGS="-C force-frame-pointers=yes" CARGO_TARGET_DIR=/tmp/target-fp \
+            cargo bench --no-run --message-format=json 2>/dev/null \
+            | jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            | sort -u | head -1)
+          perf record -F 997 -g -o /tmp/perf.data -- \
+            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH_FP" --bench --test > /dev/null; done'
           perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
           sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/fixed/profile-top.txt
           inferno-flamegraph --title "broken-app до оптимизации" \
@@ -61,11 +65,11 @@ jobs:
           rsvg-convert --width 1600 -o logs/fixed/flamegraph.png logs/fixed/flamegraph.svg
           # Отдельно fib: в общем профиле он около процента, на такой ширине
           # рекурсию не разглядеть.
-          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf-fib.data -- \
-            bash -c 'for i in $(seq 300); do "$BENCH" --bench --test fib > /dev/null; done'
+          perf record -F 997 -g -o /tmp/perf-fib.data -- \
+            bash -c 'for i in $(seq 300); do "$BENCH_FP" --bench --test fib > /dev/null; done'
           perf script -i /tmp/perf-fib.data | inferno-collapse-perf > /tmp/folded-fib.txt
           sort -t' ' -k2 -nr /tmp/folded-fib.txt | head -20 > logs/fixed/profile-top-fib.txt
-          inferno-flamegraph --title "broken-app: slow_fib до оптимизации" \
+          inferno-flamegraph --title "broken-app: только бенчмарк fib_32, до оптимизации" \
             --subtitle "criterion --bench --test fib x300, коммит ${{ inputs.base }}" \
             /tmp/folded-fib.txt > logs/fixed/flamegraph-fib.svg
           rsvg-convert --width 1600 -o logs/fixed/flamegraph-fib.png logs/fixed/flamegraph-fib.svg
@@ -90,8 +94,12 @@ jobs:
           cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
           export BENCH=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
             /tmp/bench.json | sort -u | head -1)
-          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf.data -- \
-            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH" --bench --test > /dev/null; done'
+          export BENCH_FP=$(RUSTFLAGS="-C force-frame-pointers=yes" CARGO_TARGET_DIR=/tmp/target-fp \
+            cargo bench --no-run --message-format=json 2>/dev/null \
+            | jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+            | sort -u | head -1)
+          perf record -F 997 -g -o /tmp/perf.data -- \
+            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH_FP" --bench --test > /dev/null; done'
           perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
           sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/after/profile-top.txt
           inferno-flamegraph --title "broken-app после оптимизации" \
