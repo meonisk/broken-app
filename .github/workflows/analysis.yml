@@ -26,13 +26,16 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
 
-      - name: Установить стабильный Rust
-        uses: dtolnay/rust-toolchain@stable
-
+      # Nightly ставится первым: последний установленный тулчейн становится
+      # умолчанием, а по умолчанию всё должно считаться стабильным — nightly
+      # нужен только Miri и санитайзерам, и они вызываются через +nightly.
       - name: Установить nightly с Miri
         uses: dtolnay/rust-toolchain@nightly
         with:
           components: miri, rust-src
+
+      - name: Установить стабильный Rust
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Установить инструменты
         run: sudo apt-get update -qq && sudo apt-get install -y -qq valgrind gdb
