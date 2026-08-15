@@ -1,102 +1,12 @@
-=== broken_app-008cd06d12508707
-=== leak-704037d84614b581
---- leak_buffer_frees_everything_it_allocates: ОШИБКА
-
-thread 'leak_buffer_frees_everything_it_allocates' (5375) panicked at tests/leak.rs:38:5:
-assertion `left == right` failed: 1 аллокаций, освобождено 0
-  left: 1
- right: 0
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    leak_buffer_frees_everything_it_allocates
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-=== demo-85e64f8a9007c06c
-=== regression-98ee89622b3d2522
---- average_positive_ignores_non_positive: ОШИБКА
-
----- average_positive_ignores_non_positive stdout ----
-
-thread 'average_positive_ignores_non_positive' (5389) panicked at tests/regression.rs:27:5:
-assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    average_positive_ignores_non_positive
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
---- counter_keeps_every_increment_and_is_visible_after_join: ОШИБКА
-
-thread 'counter_keeps_every_increment_and_is_visible_after_join' (5395) panicked at tests/regression.rs:58:5:
-assertion `left == right` failed
-  left: 30488
- right: 40000
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    counter_keeps_every_increment_and_is_visible_after_join
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
---- dedup_returns_sorted_unique_values: OK
---- fib_matches_known_values: OK
---- normalize_removes_all_whitespace: ОШИБКА
-
-thread 'normalize_removes_all_whitespace' (5413) panicked at tests/regression.rs:21:5:
-assertion `left == right` failed
-  left: "hello\tbig\nworld"
- right: "hellobigworld"
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    normalize_removes_all_whitespace
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
---- sum_even_handles_empty_slice: ОШИБКА
-
-running 1 test
-
-thread 'sum_even_handles_empty_slice' (5419) panicked at src/lib.rs:11:29:
-unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
-
-This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-thread caused non-unwinding panic. aborting.
-timeout: the monitored command dumped core
---- sum_even_sums_only_even_values: ОШИБКА
-
-running 1 test
-
-thread 'sum_even_sums_only_even_values' (5434) panicked at src/lib.rs:11:29:
-unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
-
-This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-thread caused non-unwinding panic. aborting.
-timeout: the monitored command dumped core
---- use_after_free_returns_the_boxed_value: ОШИБКА
-
-thread 'use_after_free_returns_the_boxed_value' (5449) panicked at tests/regression.rs:34:5:
-assertion `left == right` failed
-  left: 513233863
- right: 84
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    use_after_free_returns_the_boxed_value
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
-=== integration-ee727e8dac507db8
+=== demo
+=== broken_app-34510a7cf4f87da9
+=== demo-1e5fdbae5b07ac89
+=== integration-f92b40f2256d8fa5
 --- averages_only_positive: ОШИБКА
 
 ---- averages_only_positive stdout ----
 
-thread 'averages_only_positive' (5461) panicked at tests/integration.rs:36:5:
+thread 'averages_only_positive' (3659) panicked at tests/integration.rs:36:5:
 assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
@@ -113,11 +23,101 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; 
 
 running 1 test
 
-thread 'sums_even_numbers' (5483) panicked at src/lib.rs:11:29:
+thread 'sums_even_numbers' (3683) panicked at src/lib.rs:11:29:
 unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
 
 This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 thread caused non-unwinding panic. aborting.
 timeout: the monitored command dumped core
-=== demo
+=== leak-4d4bca27bcd86908
+--- leak_buffer_frees_everything_it_allocates: ОШИБКА
+
+thread 'leak_buffer_frees_everything_it_allocates' (3703) panicked at tests/leak.rs:38:5:
+assertion `left == right` failed: 1 аллокаций, освобождено 0
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    leak_buffer_frees_everything_it_allocates
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+=== regression-0f12519e70bdd354
+--- average_positive_ignores_non_positive: ОШИБКА
+
+---- average_positive_ignores_non_positive stdout ----
+
+thread 'average_positive_ignores_non_positive' (3713) panicked at tests/regression.rs:27:5:
+assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    average_positive_ignores_non_positive
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- counter_keeps_every_increment_and_is_visible_after_join: ОШИБКА
+
+thread 'counter_keeps_every_increment_and_is_visible_after_join' (3719) panicked at tests/regression.rs:58:5:
+assertion `left == right` failed
+  left: 35199
+ right: 40000
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    counter_keeps_every_increment_and_is_visible_after_join
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- dedup_returns_sorted_unique_values: OK
+--- fib_matches_known_values: OK
+--- normalize_removes_all_whitespace: ОШИБКА
+
+thread 'normalize_removes_all_whitespace' (3738) panicked at tests/regression.rs:21:5:
+assertion `left == right` failed
+  left: "hello\tbig\nworld"
+ right: "hellobigworld"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    normalize_removes_all_whitespace
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+--- sum_even_handles_empty_slice: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_handles_empty_slice' (3744) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+timeout: the monitored command dumped core
+--- sum_even_sums_only_even_values: ОШИБКА
+
+running 1 test
+
+thread 'sum_even_sums_only_even_values' (3761) panicked at src/lib.rs:11:29:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread caused non-unwinding panic. aborting.
+timeout: the monitored command dumped core
+--- use_after_free_returns_the_boxed_value: ОШИБКА
+
+thread 'use_after_free_returns_the_boxed_value' (3778) panicked at tests/regression.rs:34:5:
+assertion `left == right` failed
+  left: 1193259023
+ right: 84
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    use_after_free_returns_the_boxed_value
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s

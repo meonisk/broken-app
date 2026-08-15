@@ -74,6 +74,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -90,7 +93,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
@@ -101,7 +104,7 @@ failures:
 
 ---- average_positive_ignores_non_positive stdout ----
 
-thread 'average_positive_ignores_non_positive' (6282) panicked at tests/regression.rs:27:5:
+thread 'average_positive_ignores_non_positive' (4553) panicked at tests/regression.rs:27:5:
 assertion failed: (average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 note: in Miri, you may have to set `MIRIFLAGS=-Zmiri-env-forward=RUST_BACKTRACE` for the environment variable to have an effect
@@ -110,7 +113,7 @@ note: in Miri, you may have to set `MIRIFLAGS=-Zmiri-env-forward=RUST_BACKTRACE`
 failures:
     average_positive_ignores_non_positive
 
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.19s
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.21s
 
 error: test failed, to rerun pass `--test regression`
 --- завершился с ошибкой
@@ -190,6 +193,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -205,7 +211,7 @@ failures:
 
 ---- averages_only_positive stdout ----
 
-thread 'averages_only_positive' (6305) panicked at tests/integration.rs:36:5:
+thread 'averages_only_positive' (4578) panicked at tests/integration.rs:36:5:
 assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 note: in Miri, you may have to set `MIRIFLAGS=-Zmiri-env-forward=RUST_BACKTRACE` for the environment variable to have an effect
@@ -214,7 +220,7 @@ note: in Miri, you may have to set `MIRIFLAGS=-Zmiri-env-forward=RUST_BACKTRACE`
 failures:
     averages_only_positive
 
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.19s
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.21s
 
 error: test failed, to rerun pass `--test integration`
 --- завершился с ошибкой
@@ -294,6 +300,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -304,7 +313,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.05s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
@@ -315,7 +324,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; fini
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
 running 1 test
-test counter_keeps_every_increment_and_is_visible_after_join ... error: Undefined Behavior: Data race detected between (1) non-atomic write on thread `unnamed-2` and (2) non-atomic read on thread `unnamed-3` at alloc44298
+test counter_keeps_every_increment_and_is_visible_after_join ... error: Undefined Behavior: Data race detected between (1) non-atomic write on thread `unnamed-2` and (2) non-atomic read on thread `unnamed-3` at alloc44254
   --> src/concurrency.rs:15:21
    |
 15 |                     COUNTER += 1;
@@ -427,6 +436,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -438,9 +450,9 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 1 test
 test counts_non_zero_bytes ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.15s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.16s
 
-error: memory leaked: alloc44062 (Rust heap, size: 5, align: 1), allocated here:
+error: memory leaked: alloc44116 (Rust heap, size: 5, align: 1), allocated here:
    --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:466:41
     |
 466 |             AllocInit::Uninitialized => alloc.allocate(layout),
@@ -556,6 +568,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -567,7 +582,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 1 test
 test dedup_preserves_uniques ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.18s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.17s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
@@ -663,6 +678,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -673,7 +691,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.05s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
@@ -770,6 +788,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -786,14 +807,14 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
 running 1 test
 test fib_matches_known_values ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.16s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.17s
 
    Doc-tests broken_app
 
@@ -877,6 +898,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -894,7 +918,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
@@ -984,6 +1008,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1005,7 +1032,7 @@ failures:
 
 ---- leak_buffer_frees_everything_it_allocates stdout ----
 
-thread 'leak_buffer_frees_everything_it_allocates' (6519) panicked at tests/leak.rs:38:5:
+thread 'leak_buffer_frees_everything_it_allocates' (4792) panicked at tests/leak.rs:38:5:
 assertion `left == right` failed: 1 аллокаций, освобождено 0
   left: 1
  right: 0
@@ -1096,6 +1123,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1112,7 +1142,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
@@ -1123,7 +1153,7 @@ failures:
 
 ---- normalize_removes_all_whitespace stdout ----
 
-thread 'normalize_removes_all_whitespace' (6551) panicked at tests/regression.rs:21:5:
+thread 'normalize_removes_all_whitespace' (4821) panicked at tests/regression.rs:21:5:
 assertion `left == right` failed
   left: "hello\tbig\nworld"
  right: "hellobigworld"
@@ -1214,6 +1244,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1225,7 +1258,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 1 test
 test normalize_simple ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.19s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.23s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
@@ -1321,6 +1354,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1337,7 +1373,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
@@ -1445,6 +1481,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1455,7 +1494,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.05s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
@@ -1569,6 +1608,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1681,6 +1723,9 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
+warning: 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0133`.
      Running unittests src/bin/demo.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/5004ddb75c614337/out/demo-5004ddb75c614337)
 
 running 0 tests
@@ -1691,18 +1736,18 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.05s
 
      Running tests/leak.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/18146e9c4a3edb0c/out/leak-18146e9c4a3edb0c)
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.04s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.05s
 
      Running tests/regression.rs (target/miri/x86_64-unknown-linux-gnu/debug/build/broken-app/9dee4fdfe65b6855/out/regression-9dee4fdfe65b6855)
 
 running 1 test
-test use_after_free_returns_the_boxed_value ... error: Undefined Behavior: memory access failed: alloc44297 has been freed, so this pointer is dangling
+test use_after_free_returns_the_boxed_value ... error: Undefined Behavior: memory access failed: alloc44414 has been freed, so this pointer is dangling
   --> src/lib.rs:62:11
    |
 62 |     val + *raw
@@ -1710,12 +1755,12 @@ test use_after_free_returns_the_boxed_value ... error: Undefined Behavior: memor
    |
    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
-help: alloc44297 was allocated here:
+help: alloc44414 was allocated here:
   --> src/lib.rs:58:13
    |
 58 |     let b = Box::new(42_i32);
    |             ^^^^^^^^^^^^^^^^
-help: alloc44297 was deallocated here:
+help: alloc44414 was deallocated here:
   --> src/lib.rs:61:5
    |
 61 |     drop(Box::from_raw(raw));
