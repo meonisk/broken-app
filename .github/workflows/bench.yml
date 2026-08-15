@@ -30,7 +30,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq valgrind librsvg2-bin \
             linux-tools-common linux-tools-generic
-          cargo install critcmp flamegraph --locked
+          cargo install critcmp inferno --locked
           sudo sysctl -w kernel.perf_event_paranoid=1
           mkdir -p logs/fixed logs/after
 
@@ -40,44 +40,59 @@ jobs:
           git checkout ${{ inputs.base }} -- src/
           git --no-pager diff --stat HEAD -- src/
 
+      # REPEAT подобран так, чтобы в профиле набралось несколько тысяч выборок.
+      # На пропорции внутри картинки он не влияет: каждый повтор прогоняет все
+      # бенчмарки по одному разу.
       - name: Замеры до оптимизации
+        env:
+          REPEAT: 10
         run: |
           cargo bench --bench criterion -- --save-baseline fixed 2>&1 | tee logs/fixed/criterion.txt
-          cargo flamegraph --bench criterion --output logs/fixed/flamegraph.svg \
-            --title "broken-app: до оптимизации" \
-            --subtitle "criterion --profile-time 5, коммит ${{ inputs.base }}" \
-            -- --bench --profile-time 5
-          rsvg-convert --width 1600 -o logs/fixed/flamegraph.png logs/fixed/flamegraph.svg
           cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
-          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+          export BENCH=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
             /tmp/bench.json | sort -u | head -1)
+          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf.data -- \
+            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH" --bench --test > /dev/null; done'
+          perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
+          sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/fixed/profile-top.txt
+          inferno-flamegraph --title "broken-app до оптимизации" \
+            --subtitle "criterion --bench --test x$REPEAT, коммит ${{ inputs.base }}" \
+            /tmp/folded.txt > logs/fixed/flamegraph.svg
+          rsvg-convert --width 1600 -o logs/fixed/flamegraph.png logs/fixed/flamegraph.svg
           valgrind --tool=callgrind --callgrind-out-file=logs/fixed/callgrind.out \
-            "$bench" --bench --test > /dev/null 2>&1
+            "$BENCH" --bench --test > /dev/null 2>&1
           callgrind_annotate logs/fixed/callgrind.out > logs/fixed/callgrind.txt
           valgrind --tool=dhat --dhat-out-file=logs/fixed/dhat.json \
-            "$bench" --bench --test > logs/fixed/dhat.txt 2>&1
+            "$BENCH" --bench --test > logs/fixed/dhat.txt 2>&1
 
       - name: Вернуть оптимизированный код
         run: |
           git checkout HEAD -- src/
           git --no-pager diff --stat HEAD -- src/
 
+      # Здесь повторов больше: после оптимизации один прогон всех бенчмарков
+      # занимает пару миллисекунд, и при REPEAT=10 выборок было бы полсотни.
       - name: Замеры после оптимизации
+        env:
+          REPEAT: 300
         run: |
           cargo bench --bench criterion -- --baseline fixed 2>&1 | tee logs/after/criterion.txt
-          cargo flamegraph --bench criterion --output logs/after/flamegraph.svg \
-            --title "broken-app: после оптимизации" \
-            --subtitle "criterion --profile-time 5, коммит $(git rev-parse --short HEAD)" \
-            -- --bench --profile-time 5
-          rsvg-convert --width 1600 -o logs/after/flamegraph.png logs/after/flamegraph.svg
           cargo bench --no-run --message-format=json > /tmp/bench.json 2>/dev/null || true
-          bench=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
+          export BENCH=$(jq -r 'select(.executable != null and .target.name == "criterion") | .executable' \
             /tmp/bench.json | sort -u | head -1)
+          perf record -F 997 --call-graph dwarf,16384 -o /tmp/perf.data -- \
+            bash -c 'for i in $(seq "$REPEAT"); do "$BENCH" --bench --test > /dev/null; done'
+          perf script -i /tmp/perf.data | inferno-collapse-perf > /tmp/folded.txt
+          sort -t' ' -k2 -nr /tmp/folded.txt | head -40 > logs/after/profile-top.txt
+          inferno-flamegraph --title "broken-app после оптимизации" \
+            --subtitle "criterion --bench --test x$REPEAT, коммит $(git rev-parse --short HEAD)" \
+            /tmp/folded.txt > logs/after/flamegraph.svg
+          rsvg-convert --width 1600 -o logs/after/flamegraph.png logs/after/flamegraph.svg
           valgrind --tool=callgrind --callgrind-out-file=logs/after/callgrind.out \
-            "$bench" --bench --test > /dev/null 2>&1
+            "$BENCH" --bench --test > /dev/null 2>&1
           callgrind_annotate logs/after/callgrind.out > logs/after/callgrind.txt
           valgrind --tool=dhat --dhat-out-file=logs/after/dhat.json \
-            "$bench" --bench --test > logs/after/dhat.txt 2>&1
+            "$BENCH" --bench --test > logs/after/dhat.txt 2>&1
 
       - name: Сравнение
         run: |
